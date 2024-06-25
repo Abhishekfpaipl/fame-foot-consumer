@@ -1,11 +1,16 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <DashboardNav />
   <router-view />
 </template>
-
+<script>
+import DashboardNav from "@/components/DashboardNav.vue";
+export default {
+  name: "App",
+  components: {
+    DashboardNav
+  },
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -26,5 +31,19 @@ nav {
       color: #42b983;
     }
   }
+}
+
+.text-ellipsis2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.smaller{
+  font-size: 12px;
+}
+#scroll::-webkit-scrollbar {
+  display: none;
 }
 </style>
