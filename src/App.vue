@@ -33,6 +33,14 @@ nav {
   }
 }
 
+.text-ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .text-ellipsis2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -40,10 +48,54 @@ nav {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.smaller{
+
+.text-ellipsis7 {
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.smaller {
   font-size: 12px;
 }
+
 #scroll::-webkit-scrollbar {
   display: none;
+}
+
+.bill {
+  overflow: hidden;
+  text-align: center;
+}
+
+.bill>span {
+  position: relative;
+  display: inline-block;
+}
+
+.bill>span:before,
+.bill>span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 900px;
+  /* Adjust width as needed */
+  margin: 0 20px;
+}
+
+.bill>span:before {
+  right: 100%;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to left, black 0, transparent 10%);
+  border-image-slice: 1;
+}
+
+.bill>span:after {
+  left: 100%;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to right, black 0, transparent 10%);
+  border-image-slice: 1;
 }
 </style>

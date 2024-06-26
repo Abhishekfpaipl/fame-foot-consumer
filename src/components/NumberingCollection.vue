@@ -18,29 +18,30 @@
             <div class="container">
                 <div class="row row-cols-3 row-cols-md-5 g-3">
                     <div class="col position-relative" v-for="(vote, index) in shops" :key="index">
-                        <div class="d-flex flex-column align-items-center justify-content-center border rounded py-2 p-1 pb-5">
-                            <img :src="vote.img" alt="" style="width: 35%;" data-bs-toggle="offcanvas"
-                                href="#offcanvasExample" role="button" aria-controls="offcanvasExample" />
-                            <p class="smaller my-2 text-center text-ellipsis2 ">{{ vote.name }} skdjfh laskjdhf alksjd
-                                sdfh slkdjfh sdsjkf skdj</p>
-                            <div class="d-flex gap-2 overflow-x-scroll w-100" id="scroll">
-                                <img :src="image" width="20" height="20" v-for="image in images" :key="image.id" alt="">
+                        <div class="bg-light d-flex flex-column align-items-center justify-content-center border rounded pt-2 px-1"
+                            style="padding-bottom:37px;">
+                            <div class="" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                                aria-controls="offcanvasExample">
+                                <img :src="vote.img" alt="" class="" style="width: 35%;" />
+                                <p class="smaller my-2 text-center text-ellipsis2 fw-bold">{{ vote.name }} skdjfh
+                                    laskjdhf alksjd
+                                    sdfh slkdjfh sdsjkf skdj</p>
                             </div>
-                            <!-- <ReviewRating :rating="vote.rating" />
-                            <div class="d-flex smaller">
-                                <small>{{ vote.support }}+ </small> &nbsp;<small>Reviews</small>
-                            </div> -->
+                            <div class="d-flex gap-2 overflow-x-scroll w-100 px-2" id="scroll">
+                                <img :src="image" style="width: 30px; height: 30px; object-fit: contain;"
+                                    v-for="image in images" :key="image.id" alt="">
+                            </div>
                         </div>
-                        <div class="position-absolute bottom-0 m-2 ms-0 text-warning py-1" style="font-size: 12px;">
+                        <div class="position-absolute bottom-0 m-2 ms-0 text-warning" style="font-size: 12px;">
                             <span class='bg-light border p-1 px-2 rounded-end-3'>
                                 <i class="bi bi-star-fill small me-2"></i>
                                 <span class="fw-bold">{{ vote.rating }}</span>
                             </span>
                         </div>
-                        <div class="position-absolute bottom-0 end-0 m-1 ms-0 text-dark py-1" style="font-size: 12px;">
-                            <div class='d-flex flex-column align-items-center justify-content-center pe-2'> 
-                                <p class="small mb-0 lh-1">{{ vote.support }}+</p>
-                                <p class="small mb-0"><small>Reviews</small></p>
+                        <div class="position-absolute bottom-0 end-0 m-1 ms-0 text-dark" style="font-size: 12px;">
+                            <div class='d-flex flex-column align-items-center justify-content-center pe-2'>
+                                <p class="small mb-0 lh-1 text-muted">{{ vote.support }}+</p>
+                                <p class="small mb-0 text-muted"><small>Reviews</small></p>
                             </div>
                         </div>
                         <div class="position-absolute index-label">
@@ -55,23 +56,22 @@
                     <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg"
                         style="width: 50px;object-fit: contain;" alt="">
                     <h5 class="ms-4 offcanvas-title" id="offcanvasExampleLabel">Business Name</h5>
+
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body p-0">
-                    <DigitalCard />
+                    <DigitalCardOffcanvas />
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-// import ReviewRating from "@/components/ReviewRating.vue";
-import DigitalCard from "@/views/DigitalCard.vue";
+import DigitalCardOffcanvas from "@/components/DigitalCardOffcanvas.vue";
 export default {
     name: "NumberingCollection",
     components: {
-        // ReviewRating,
-        DigitalCard
+        DigitalCardOffcanvas
     },
     data() {
         return {

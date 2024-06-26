@@ -39,9 +39,20 @@
                     <div class="tab-pane fade" :class="{ 'show active': index === activeTabIndex }"
                         v-for="(price, index) in pricing" :key="index" :id="'content-' + index" role="tabpanel"
                         :aria-labelledby="'tab-' + index" tabindex="0">
-                       
 
-                        <div class="d-flex justify-content-between gap-5 overflow-x-scroll" id="scroll">
+                        <div class="container">
+
+                            <div class="row row-cols-2 row-col-md-5 row-cols-lg-6 g-2">
+                                <div class="col" v-for="(type, index) in price.types" :key="index">
+                                    <div class="card d-flex justify-content-center align-items-center py-3 border-0 mx-2"
+                                        style="width: 10rem;background:linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,254,196,1) 29%, rgba(255,217,102,1) 90%)">
+                                        <img :src="type.img" style="width: 32px; height: 32px;" alt="" />
+                                        <span class="smaller fw-bold">{{ type.name }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="d-flex justify-content-between gap-5 overflow-x-scroll" id="scroll">
                             <div class="" v-for="(type, index) in price.types" :key="index">
                                 <div class="card d-flex justify-content-center align-items-center py-3 border-0 mx-2"
                                     style="width: 10rem;background:linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,254,196,1) 29%, rgba(255,217,102,1) 90%)">
@@ -49,7 +60,7 @@
                                     <span class="smaller fw-bold">{{ type.name }}</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -718,5 +729,4 @@ export default {
     border-radius: 2rem;
     /* transform: scale(1.2); */
 }
-
 </style>

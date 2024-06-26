@@ -1,5 +1,5 @@
 <template>
-    <div class="container text-white">
+    <div class="container text-dark">
         <!-- <p class="px-2 py-3 text-center mb-0 bill"><span class="fs-2">~ Info ~</span></p>
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
             <div class="col" v-for="(info, index) in information" :key="index">
@@ -11,28 +11,28 @@
             </div>
         </div> -->
         <div class="pt-5 d-flex justify-content-evenly">
-            <div class="text-center fw-bold">
-                <p class="m-0 d-flex justify-content-center align-items-center fs-4">
+            <div class="text-center">
+                <i class="bi bi-chat-square-text-fill fs-1 text-success"></i>
+                <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
                     <AutoCounter :data="10"> </AutoCounter>
                 </p>
-                <small style="font-size: var(--x-small)">Years Of <br />
-                    Experience</small>
+                <small class="smaller fw-bold">Reviews</small>
             </div>
             <div class="separator"></div>
-            <div class="text-center fw-bold">
-                <p class="m-0 d-flex justify-content-center align-items-center fs-4">
-                    <AutoCounter :data="100"> </AutoCounter>
+            <div class="text-center">
+                <i class="bi bi-star-fill fs-1 text-warning"></i>
+                <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
+                    <AutoCounter :data="5"> </AutoCounter>
                 </p>
-                <small style="font-size: var(--x-small)">Products <br />
-                    Listed</small>
+                <small class="smaller fw-bold">Ratings</small>
             </div>
             <div class="separator"></div>
-            <div class="text-center fw-bold">
-                <p class="m-0 d-flex justify-content-center align-items-center fs-4">
-                    <AutoCounter :data="1000"> </AutoCounter>
+            <div class="text-center">
+                <i class="bi bi-trophy-fill fs-1 text-primary"></i>
+                <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
+                    <AutoCounter :data="10"> </AutoCounter>
                 </p>
-                <small style="font-size: var(--x-small)">Happy <br />
-                    Customers</small>
+                <small class="smaller fw-bold">Rewards</small>
             </div>
         </div>
     </div>
@@ -55,6 +55,16 @@ export default {
                     heading: "Description",
                     text: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab soluta quis nihil adipisci voluptate impedit placeat aperiam doloremque quasi voluptatibus."
                 },
+            ],
+            counters:[
+                {
+                    heading: "Shop Name",
+                    text: "R2L"
+                },
+                {
+                    heading: "Description",
+                    text: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab soluta quis nihil adipisci voluptate impedit placeat aperiam doloremque quasi voluptatibus."
+                },
             ]
         }
     }
@@ -63,7 +73,7 @@ export default {
 </script>
 <style scoped>
 .separator {
-    border-left: 1px solid #000;
+    border-left: 1px solid grey;
     /* Adjust the color and style as needed */
     height: 80px;
     /* Adjust the height as needed */

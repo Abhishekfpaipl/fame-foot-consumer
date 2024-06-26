@@ -1,25 +1,24 @@
 <template>
   <div class=" ">
     <DigitalTop />
-    <div class="" style="height: 300px; background-color: #8912FC">
+    <div class="bg-light" style="height: 300px;">
       <div class="" style="opacity: 0.6;background-color: rgb(0, 0, 0); height: 300px">
         <InfoSection />
       </div>
     </div>
     <TopSection />
     <TeamBanner />
-    <StarRating />
-    <!-- <OurCustomer :reviews="customers" title="our customers" /> -->
+    <StarRating /> 
     <GalleryCollage />
     <ContactCard />
     <SocialSchedule />
     <DigitalFooter />
+    
   </div>
 </template>
 
 <script>
-
-// import TopNav from '@/components/TopNav.vue'
+ 
 import TopSection from '@/components/digitalcard/TopSection.vue'
 import StarRating from '@/components/StarRating.vue'
 import InfoSection from '@/components/digitalcard/InfoSection.vue';
@@ -27,25 +26,19 @@ import TeamBanner from '@/components/TeamBanner.vue';
 import SocialSchedule from '@/components/digitalcard/SocialSchedule.vue';
 import GalleryCollage from '@/components/digitalcard/GalleryCollage.vue';
 import ContactCard from '@/components/digitalcard/ContactCard.vue';
-import DigitalFooter from '@/components/digitalcard/DigitalFooter.vue';
-// import OurCustomer from '@/components/OurCustomer.vue';
-// import DigitalTop from '@/components/digitalcard/DigitalTop.vue';
+import DigitalFooter from '@/components/digitalcard/DigitalFooter.vue'; 
 
 export default {
   name: "DigitalCard",
   components: {
     TopSection,
-    StarRating,
-    // TopNav,
-    // MapSection,
+    StarRating, 
     InfoSection,
     ContactCard,
     TeamBanner,
     SocialSchedule,
     DigitalFooter,
-    GalleryCollage,
-    // OurCustomer,
-    // DigitalTop
+    GalleryCollage, 
   },
   data() {
     return {

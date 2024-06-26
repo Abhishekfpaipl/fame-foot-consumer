@@ -3,10 +3,9 @@
         <div class="w-100 overflow-x-scroll d-flex justify-content-center align-items-center hide-scroll" id="scroll"
             ref="slider">
             <div v-for="(review, index) in infiniteReviews" :key="index" @click="showUser(review, index)"
-                class="btn m-3 d-flex" :class="{ selectedDiv: isSelected(review.id) }">
+                class="select p-2 my-3 d-flex" :class="{ selectedDiv: isSelected(review.id) }">
                 <img :src="review.imgr" style="object-fit: contain;" alt="User Image">
             </div>
-
         </div>
 
         <div class="border-bottom border-end border-start container w-100 pb-4">
@@ -162,20 +161,20 @@ export default {
 </script>
 
 <style scoped>
-.btn.selectedDiv {
+/* .btn.selectedDiv {
     border: 2px solid #e7e2dc;
-}
+} */
 
 img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
 }
 
-.btn.selectedDiv img {
+.select.selectedDiv img {
     transform: scale(1.5);
-    width: 60px !important;
-    height: 30px !important;
+    width: 80px !important;
+    height: 40px !important;
 }
 
 #style-4 {

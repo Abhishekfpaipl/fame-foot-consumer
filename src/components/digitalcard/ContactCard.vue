@@ -1,7 +1,6 @@
 <template>
     <div class="">
-        <div class="container my-3 py-3">
-            <p class="px-2 py-3 text-center mb-0 bill"><span class="fs-2">~ Contact ~</span></p>
+        <div class="container my-3 py-3"> 
             <div class="row d-flex justify-content-center ">
                 <div v-for="(icon, index) in contact" :key="index" class="col-3 col-md-1 py-2"
                     @click="handleIconClick(icon.action)">
@@ -12,12 +11,12 @@
                                 <i :class="icon.icon"></i>
                             </a>
                         </div>
-                    </div>
-                    <p class="text-center mt-2 fw-bold">{{ icon.name }}</p>
+                        <p class="text-center text-white">{{ icon.name }}</p>
+                    </div> 
                 </div>
             </div>
         </div>
-</div>
+    </div>
 
 </template>
 <script>
@@ -26,12 +25,14 @@ export default {
     data() {
         return {
             contact: [
-                { name: 'Email', icon: 'bi-envelope fs-5', action: 'openEmail' },
-                { name: 'Call', icon: 'bi-telephone fs-5', action: 'openDialer' },
-                // { name: 'Business', icon: 'bi-building fs-5', action: '' },
-                { name: 'Whatsapp', icon: 'bi-whatsapp fs-5', action: 'openWhatsapp' },
-                { name: 'Map', icon: 'bi-geo fs-5', action: 'openMaps' },
-                // { name: 'Query', icon: 'bi-question-circle fs-5', action: 'openQuery' },
+                { name: 'Email', icon: 'bi-envelope-fill fs-3', action: 'openEmail' },
+                { name: 'Call', icon: 'bi-telephone-fill fs-3', action: 'openDialer' },
+                { name: 'Whatsapp', icon: 'bi-whatsapp fs-3', action: 'openWhatsapp' },
+                { name: 'Map', icon: 'bi-geo-fill fs-3', action: 'openMaps' },
+                { icon: 'bi bi-facebook fs-3', name: 'Facebook', url: 'https://www.facebook.com/yourpage' },
+                { icon: 'bi bi-instagram fs-3', name: 'Instagram', url: 'https://www.instagram.com/yourprofile' },
+                { icon: 'bi bi-youtube fs-3', name: 'YouTube', url: 'https://www.youtube.com/' },
+                { icon: 'bi bi-linkedin fs-3', name: 'LinkedIn', url: 'https://www.linkedin.com/in/yourprofile' },
             ],
             name: '',
             email: '',

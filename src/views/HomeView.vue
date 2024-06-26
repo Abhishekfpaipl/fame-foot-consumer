@@ -6,13 +6,14 @@
     <div class="">
       <SecondSection />
     </div>
-    <!-- <TestSection /> -->
+    <TestSection />
     <div class="">
       <NumberingCollection />
     </div>
     <div class="">
       <GeneralCollection />
     </div>
+    <FooterBar/>
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import SecondSection from "@/components/SecondSection.vue";
 // import TestSection from "@/components/TestSection.vue";
 import NumberingCollection from "@/components/NumberingCollection.vue";
 import GeneralCollection from "@/components/GeneralCollection.vue";
+import FooterBar from "@/components/FooterBar.vue";
 export default {
   name: "HomeView",
   components: {
@@ -30,6 +32,7 @@ export default {
     // TestSection,
     NumberingCollection,
     GeneralCollection,
+    FooterBar,
   },
 };
 </script>
