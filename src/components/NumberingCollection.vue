@@ -17,17 +17,30 @@
             </div>
             <div class="container">
                 <div class="row row-cols-3 row-cols-md-5 g-3">
-                    <div class="col position-relative" v-for="(vote, index) in shops" :key="index"
-                        data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                        aria-controls="offcanvasExample">
-                        <div
-                            class="d-flex flex-column align-items-center justify-content-center border rounded py-2 p-1 ">
-                            <img :src="vote.img" alt="" style="width: 35%;" />
+                    <div class="col position-relative" v-for="(vote, index) in shops" :key="index">
+                        <div class="d-flex flex-column align-items-center justify-content-center border rounded py-2 p-1 pb-5">
+                            <img :src="vote.img" alt="" style="width: 35%;" data-bs-toggle="offcanvas"
+                                href="#offcanvasExample" role="button" aria-controls="offcanvasExample" />
                             <p class="smaller my-2 text-center text-ellipsis2 ">{{ vote.name }} skdjfh laskjdhf alksjd
                                 sdfh slkdjfh sdsjkf skdj</p>
-                            <ReviewRating :rating="vote.rating" />
+                            <div class="d-flex gap-2 overflow-x-scroll w-100" id="scroll">
+                                <img :src="image" width="20" height="20" v-for="image in images" :key="image.id" alt="">
+                            </div>
+                            <!-- <ReviewRating :rating="vote.rating" />
                             <div class="d-flex smaller">
                                 <small>{{ vote.support }}+ </small> &nbsp;<small>Reviews</small>
+                            </div> -->
+                        </div>
+                        <div class="position-absolute bottom-0 m-2 ms-0 text-warning py-1" style="font-size: 12px;">
+                            <span class='bg-light border p-1 px-2 rounded-end-3'>
+                                <i class="bi bi-star-fill small me-2"></i>
+                                <span class="fw-bold">{{ vote.rating }}</span>
+                            </span>
+                        </div>
+                        <div class="position-absolute bottom-0 end-0 m-1 ms-0 text-dark py-1" style="font-size: 12px;">
+                            <div class='d-flex flex-column align-items-center justify-content-center pe-2'> 
+                                <p class="small mb-0 lh-1">{{ vote.support }}+</p>
+                                <p class="small mb-0"><small>Reviews</small></p>
                             </div>
                         </div>
                         <div class="position-absolute index-label">
@@ -52,12 +65,12 @@
     </div>
 </template>
 <script>
-import ReviewRating from "@/components/ReviewRating.vue";
+// import ReviewRating from "@/components/ReviewRating.vue";
 import DigitalCard from "@/views/DigitalCard.vue";
 export default {
     name: "NumberingCollection",
     components: {
-        ReviewRating,
+        // ReviewRating,
         DigitalCard
     },
     data() {
@@ -128,6 +141,16 @@ export default {
                 },
 
             ],
+            images: [
+                "/img/members/1.png",
+                "/img/members/2.webp",
+                "/img/members/3.png",
+                "/img/members/4.png",
+                "/img/members/5.jpg",
+                "/img/members/6.webp",
+                "/img/members/7.jpeg",
+                "/img/members/8.png",
+            ]
         }
     }
 }

@@ -1,56 +1,28 @@
 <template>
-  <div class="border rounded-5 shadow bg-light position-sticky w-75" style="margin-top: -40px;left: 12%; z-index: 999;">
+  <div class="rounded-5 bg-white position-sticky w-75" style="margin-top: -40px;left: 12%; z-index: 9;">
     <div class="position-relative">
-      <div class="d-flex justify-content-between align-items-center px-3 rounded-top-5">
+      <div class="d-flex justify-content-between align-items-center p-3 px-4 px-md-5 rounded-top-5">
         <span @click="saveContact" class="d-flex flex-column align-items-center">
           <i class="bi bi-download fs-4"></i>
-          <small class="">Save</small>
+          <!-- <small class="">Save</small> -->
         </span>
         <span @click="share" class="d-flex flex-column align-items-center">
           <i class="bi bi-share fs-4"></i>
-          <small class="ms-2">Share</small>
+          <!-- <small class="ms-2">Share</small> -->
         </span>
       </div>
-      <div class="rounded-circle position-absolute shadow end-50" style="width:60px;height: 60px;top: -60px;">
+      <div class="position-absolute end-50 end-md-45" style="width:60px;height: 60px;top: -60px;">
         <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg" alt="Logo"
           class="rounded-3 border border-dark" style="width: 100px;">
       </div>
-    </div>
-    <div class="d-flex flex-column align-items-center my-2">
-      <h3>Business Name</h3>
-      <small class="">Sales assistant</small>
-      <small class="">B2B service</small>
-      <small class="">Bhybrid by Onhoff</small>
-    </div>
-  </div>
-
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasQuery" aria-labelledby="offcanvasQueryLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasQueryLabel">Query</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <form @submit.prevent="submitQuery()" class="row g-3 needs-validation" novalidate>
-        <div class="w-100 p-2 form-floating">
-          <input type="text" class="form-control" placeholder="Mobile" v-model="name" required>
-          <label for="floatingInput" class="text-muted">First name</label>
-        </div>
-        <div class="w-100 p-2 form-floating">
-          <input type="text" class="form-control" placeholder="Mobile" v-model="email" required>
-          <label class="text-muted">Email Or Mobile No.</label>
-        </div>
-        <div class="form-floating">
-          <textarea v-model="query" rows="2" class="form-control flex-fill" placeholder="Type your message..." required>
-          </textarea>
-          <label class="text-muted">Enter Your Query</label>
-        </div>
-        <div class="col-12">
-          <button class="btn btn-primary" type="submit">Submit Query</button>
-        </div>
-      </form>
+      <div class="d-flex flex-column align-items-center my-2">
+        <h3>Business Name</h3>
+        <small class="">Sales assistant</small>
+        <small class="">B2B service</small>
+        <small class="">Bhybrid by Onhoff</small>
+      </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -61,8 +33,6 @@ export default {
       contact: [
         { name: 'Email', icon: 'bi-envelope fs-5', action: 'openEmail' },
         { name: 'Call', icon: 'bi-telephone fs-5', action: 'openDialer' },
-        // { name: 'Message', icon: 'bi-chat fs-5', action: 'openSMS' },
-        // { name: 'Save', icon: 'bi-download fs-5', action: 'downloadData' },
         { name: 'Business', icon: 'bi-building fs-5', action: '' },
         { name: 'Whatsapp', icon: 'bi-whatsapp fs-5', action: 'openWhatsapp' },
         { name: 'Map', icon: 'bi-geo fs-5', action: 'openMaps' },
@@ -173,3 +143,10 @@ END:VCARD`;
   }
 };
 </script>
+<style>
+@media(max-width:768px){
+  .end-md-45 {
+    right:45% !important
+  }
+}
+</style>

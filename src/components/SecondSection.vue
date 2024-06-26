@@ -15,7 +15,6 @@
                     </div>
                 </div>
             </div> -->
-
             <div>
                 <ul class="nav nav-pills justify-content-start align-items-center" id="pills-tab" role="tablist">
                     <div class="d-flex overflow-x-scroll gap-3 my-3 p-2 px-3 rounded" id="scroll">
@@ -40,9 +39,11 @@
                     <div class="tab-pane fade" :class="{ 'show active': index === activeTabIndex }"
                         v-for="(price, index) in pricing" :key="index" :id="'content-' + index" role="tabpanel"
                         :aria-labelledby="'tab-' + index" tabindex="0">
+                       
+
                         <div class="d-flex justify-content-between gap-5 overflow-x-scroll" id="scroll">
                             <div class="" v-for="(type, index) in price.types" :key="index">
-                                <div class="card d-flex justify-content-center align-items-center py-3"
+                                <div class="card d-flex justify-content-center align-items-center py-3 border-0 mx-2"
                                     style="width: 10rem;background:linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,254,196,1) 29%, rgba(255,217,102,1) 90%)">
                                     <img :src="type.img" style="width: 32px; height: 32px;" alt="" />
                                     <span class="smaller fw-bold">{{ type.name }}</span>
@@ -707,7 +708,7 @@ export default {
 <style>
 .nav-link {
     transition: background-color 0.3s ease, color 0.3s ease;
-    color:black !important;
+    color: black !important;
 }
 
 .nav-link.active {

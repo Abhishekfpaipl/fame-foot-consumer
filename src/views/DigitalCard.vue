@@ -7,47 +7,13 @@
       </div>
     </div>
     <TopSection />
+    <TeamBanner />
     <StarRating />
-    <GroupsSection />
-    <OurCustomer :reviews="customers" title="our customers" />
+    <!-- <OurCustomer :reviews="customers" title="our customers" /> -->
     <GalleryCollage />
     <ContactCard />
     <SocialSchedule />
     <DigitalFooter />
-
-    <div class="query border rounded-circle bg-success text-white" data-bs-toggle="offcanvas"
-      data-bs-target="#bottomQuery" aria-controls="bottomQuery">
-      <i class="d-flex justify-content-center align-items-center bi bi-question-circle"></i>
-    </div>
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="bottomQuery" aria-labelledby="bottomQueryLabel">
-      <div class="offcanvas-header border-bottom">
-        <h5 class="offcanvas-title" id="bottomQueryLabel">Query</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <form @submit.prevent="submitQuery()" class="row g-3 needs-validation" novalidate>
-          <div class="w-100 p-2 form-floating">
-            <input type="text" class="form-control" placeholder="Mobile" v-model="name" required>
-            <label for="floatingInput" class="text-muted">First name</label>
-          </div>
-          <div class="w-100 p-2 form-floating">
-            <input type="text" class="form-control" placeholder="Mobile" v-model="email" required>
-            <label class="text-muted">Email Or Mobile No.</label>
-          </div>
-          <div class="form-floating">
-            <textarea v-model="query" rows="2" class="form-control flex-fill" placeholder="Type your message..."
-              required>
-              </textarea>
-            <label class="text-muted">Enter Your Query</label>
-          </div>
-          <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit Query</button>
-          </div>
-        </form>
-      </div>
-    </div>
-
   </div>
 </template>
 
@@ -57,12 +23,12 @@
 import TopSection from '@/components/digitalcard/TopSection.vue'
 import StarRating from '@/components/StarRating.vue'
 import InfoSection from '@/components/digitalcard/InfoSection.vue';
-import GroupsSection from '@/components/digitalcard/GroupsSection.vue';
+import TeamBanner from '@/components/TeamBanner.vue';
 import SocialSchedule from '@/components/digitalcard/SocialSchedule.vue';
 import GalleryCollage from '@/components/digitalcard/GalleryCollage.vue';
 import ContactCard from '@/components/digitalcard/ContactCard.vue';
 import DigitalFooter from '@/components/digitalcard/DigitalFooter.vue';
-import OurCustomer from '@/components/OurCustomer.vue';
+// import OurCustomer from '@/components/OurCustomer.vue';
 // import DigitalTop from '@/components/digitalcard/DigitalTop.vue';
 
 export default {
@@ -74,11 +40,11 @@ export default {
     // MapSection,
     InfoSection,
     ContactCard,
-    GroupsSection,
+    TeamBanner,
     SocialSchedule,
     DigitalFooter,
     GalleryCollage,
-    OurCustomer,
+    // OurCustomer,
     // DigitalTop
   },
   data() {
@@ -230,16 +196,3 @@ export default {
 
 };
 </script>
-<style>
-.query {
-  z-index: 9;
-  position: fixed;
-  bottom: 60px;
-  right: 10px;
-  padding: 10px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-}
-</style>

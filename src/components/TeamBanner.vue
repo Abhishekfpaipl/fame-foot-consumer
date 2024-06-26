@@ -1,27 +1,25 @@
 <template>
-    <div class="">
-        <div class="w-100 overflow-auto d-flex align-items-center hide-scroll my-2" ref="slider">
+    <div class="container mt-3">
+        <div class="w-100 overflow-x-scroll d-flex justify-content-center align-items-center hide-scroll" id="scroll"
+            ref="slider">
             <div v-for="(review, index) in infiniteReviews" :key="index" @click="showUser(review, index)"
-                class="btn m-2 mx-3 d-flex" :class="{ selectedDiv: isSelected(review.id) }">
+                class="btn m-3 d-flex" :class="{ selectedDiv: isSelected(review.id) }">
                 <img :src="review.imgr" style="object-fit: contain;" alt="User Image">
             </div>
 
         </div>
 
-        <div class="shadow container w-100 py-4">
-            <p class="text-center fw-bold fs-2 mb-0" style="letter-spacing:6px; text-transform: uppercase;">
+        <div class="border-bottom border-end border-start container w-100 pb-4">
+            <p class="text-center mb-0 text-uppercase">
                 {{ getSelectedReviewInfo.name }}</p>
-            <p class="text-center fw-bold fs-4 mb-0" style="text-transform: uppercase; letter-spacing:2px;">
-                {{ getSelectedReviewInfo.brand }}</p>
-            <p class="text-center" style="letter-spacing:2px;">Member Of</p>
-            <p class="text-center fw-bold mb-0 text-secondary" style="letter-spacing:2px; text-transform: uppercase;">
-                Post</p>
+            <p class="text-center mb-2 text-uppercase">
+                {{ getSelectedReviewInfo.brand }}</p> 
             <div class="d-flex justify-content-center text-center">
-                <p class="w-75 text-secondary" style="font-size: var(--x-small);">{{ getSelectedReviewInfo.text }}</p>
+                <p class="small w-75 text-secondary">{{ getSelectedReviewInfo.text }}</p>
             </div>
-            <a class="d-flex justify-content-center w-100 text-decoration-none" :href="getSelectedReviewInfo.url"
+            <a class="d-flex justify-content-center text-decoration-none" :href="getSelectedReviewInfo.url"
                 target="_blank">
-                <button :href="getSelectedReviewInfo.url" class="btn btn-warning my-3 w-50">Review</button>
+                <button :href="getSelectedReviewInfo.url" class="btn btn-dark px-3">Check</button>
             </a>
 
         </div>
@@ -169,18 +167,15 @@ export default {
 }
 
 img {
-    width: 80px;
-    height: 80px;
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
 }
 
 .btn.selectedDiv img {
-    width: 120px !important;
-    height: 80px !important;
-}
-
-.btn {
-    --bs-btn-padding-x: 5px;
-    --bs-btn-padding-y: 5px;
+    transform: scale(1.5);
+    width: 60px !important;
+    height: 30px !important;
 }
 
 #style-4 {
@@ -192,9 +187,9 @@ img {
     display: none;
 }
 
-.hide-scroll {
+/* .hide-scroll {
     overflow-x: hidden;
-}
+} */
 
 ::-webkit-scrollbar {
     width: 10px;

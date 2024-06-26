@@ -6,6 +6,7 @@
     <div class="">
       <SecondSection />
     </div>
+    <!-- <TestSection /> -->
     <div class="">
       <NumberingCollection />
     </div>
@@ -18,6 +19,7 @@
 <script>
 import BannerSection from "@/components/BannerSection.vue";
 import SecondSection from "@/components/SecondSection.vue";
+// import TestSection from "@/components/TestSection.vue";
 import NumberingCollection from "@/components/NumberingCollection.vue";
 import GeneralCollection from "@/components/GeneralCollection.vue";
 export default {
@@ -25,6 +27,7 @@ export default {
   components: {
     BannerSection,
     SecondSection,
+    // TestSection,
     NumberingCollection,
     GeneralCollection,
   },

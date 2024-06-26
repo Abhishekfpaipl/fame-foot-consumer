@@ -1,6 +1,6 @@
 <template>
     <div class="container my-3 py-3">
-        <p class="px-2 py-3 text-center mb-0 bill"><span class="fs-2">~ Groups ~</span></p>
+        <!-- <p class="px-2 py-3 text-center mb-0 bill"><span class="fs-2">~ Groups ~</span></p> -->
         <TeamBanner />
     </div>
 </template>

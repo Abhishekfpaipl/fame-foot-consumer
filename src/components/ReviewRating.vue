@@ -1,5 +1,5 @@
 <template>
-    <div class="rating">
+    <div class="fs-5 text-warning">
         <span v-for="(star, index) in stars" :key="index">
             <i v-if="star === 'full'" class="bi bi-star-fill"></i>
             <i v-else-if="star === 'half'" class="bi bi-star-half"></i>
@@ -34,15 +34,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-/* Add any custom styles for the rating component */
-.rating {
-    font-size: 0.8rem;
-}
-
-.rating i {
-    color: #ffc107;
-    /* Change color as per your design */
-}
-</style>
