@@ -9,8 +9,9 @@
         <TopSection />
 
         <TeamBanner />
-        <ConnectSection />
         <RewardSection />
+        <ConnectSection />
+        <BusinessSection/>
         <GalleryCollage />
         <OffcanvasRating />
 
@@ -34,6 +35,7 @@ import GalleryCollage from '@/components/digitalcard/GalleryCollage.vue';
 // import DigitalFooter from '@/components/digitalcard/DigitalFooter.vue';
 import OffcanvasRating from '@/components/OffcanvasRating.vue'; 
 import ConnectSection from '@/components/ConnectSection.vue'; 
+import BusinessSection from '@/components/BusinessSection.vue'; 
 
 export default {
     name: "DigitalCard",
@@ -47,6 +49,7 @@ export default {
         GalleryCollage,
         OffcanvasRating,
         ConnectSection,
+        BusinessSection,
     },
     data() {
         return {

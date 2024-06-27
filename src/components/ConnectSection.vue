@@ -1,36 +1,6 @@
 <template>
     <div>
-        <!-- <h3 class="text-center bill"><span class="fs-2">~ Connect ~</span></h3>
-        <div class="container my-3 py-3">
-            <div class="row d-flex justify-content-center ">
-                <div v-for="(icon, index) in contact" :key="index" class="col-3 col-md-1 py-2"
-                    @click="handleIconClick(icon.action)">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <div class="rounded-circle border border-5 d-flex align-items-center justify-content-center"
-                            style="width: 60px; height: 60px;background: linear-gradient(133deg, rgba(106,106,106,1) 45%, rgba(0,0,0,1) 55%);">
-                            <a class="text-white" :href="icon.url" target="_blank">
-                                <i :class="icon.icon" class="fs-3"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="text-center mb-0">{{ icon.name }}</p>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center ">
-                <div v-for="(icon, index) in payments" :key="index" class="col-3 col-md-1 py-2"
-                    @click="handleClick(icon.action)">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <div class="rounded-circle border border-5 d-flex align-items-center justify-content-center"
-                            style="width: 60px; height: 60px;background: linear-gradient(133deg, rgba(106,106,106,1) 45%, rgba(0,0,0,1) 55%);">
-                            <a class="text-white" :href="icon.url" target="_blank">
-                                <i :class="icon.icon" class="fs-3"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="text-center mb-0">{{ icon.name }}</p>
-                </div>
-            </div>
-        </div> -->
+       
         <h3 class="text-center bill mt-5"><span class="fs-2">~ Connect ~</span></h3>
         <div class="container my-3 py-3">
             <div class="row row-cols-4 g-1">
@@ -146,46 +116,7 @@ export default {
             }
         },
 
-        // handleClick(action) {
-        //     const phoneNumber = '+918826658501';
-        //     const emailAddress = 'abhisheknegi042@gmail.com';
-        //     const location = '2nd Floor, Block B1/632, Janakpuri, Delhi, 110058';
-        //     // const offcanvasQuery = new window.bootstrap.Offcanvas(document.getElementById('offcanvasQuery'));
-        //     let blob, url, a;
-
-        //     const vcardContent = `BEGIN:VCARD
-        //     VERSION:3.0
-        //     N:;${phoneNumber};;;
-        //     FN:${phoneNumber}
-        //     TEL;TYPE=CELL:${phoneNumber}
-        //     END:VCARD`;
-
-        //     switch (action) {
-        //         case 'openEmail':
-        //             window.location.href = `mailto:${emailAddress}`;
-        //             break;
-        //         case 'openDialer':
-        //             window.location.href = `tel:${phoneNumber}`;
-        //             break; 
-        //         case 'downloadData':
-        //             blob = new Blob([vcardContent], { type: 'text/vcard' });
-        //             url = window.URL.createObjectURL(blob);
-        //             a = document.createElement('a');
-        //             a.href = url;
-        //             a.download = `contact.vcf`;
-        //             a.click();
-        //             window.URL.revokeObjectURL(url);
-        //             break;
-        //         case 'openWhatsapp':
-        //             window.open(`https://wa.me/${phoneNumber}?text=Hello...`, '_blank');
-        //             break;
-        //         case 'openMaps':
-        //             window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`, '_blank');
-        //             break; 
-        //         default:
-        //             break;
-        //     }
-        // },
+        
     },
 }
 </script>

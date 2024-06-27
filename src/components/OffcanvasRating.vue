@@ -42,47 +42,69 @@
                 </div>
             </div>
 
-            <div class="mt-5">
-                <h3 class="text-center bill"><span class="fs-2">~ Reviews ~</span></h3> 
-                <div v-if="reviews.length" class="mt-3">
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
-                        <div class="col" v-for="(review, index) in reviews" :key="index">
-                            <div class="border bg-light p-2 position-relative">
-                                <div class="d-flex align-items-center gap-2 mb-2">
-                                    <img src="/img/users/1.png" style="width:60px;" />
-                                    <div class="ms-2">
-                                        <p class="my-2 fs-5 text-start text-ellipsis w-75">Shelly sd fsd fsd fsd sd fsd
-                                            fsd sf </p>
-                                        <div class="d-flex gap-2 overflow-x-scroll w-75" id="scroll">
-                                            <img :src="image" style="width: 20px; height: 20px; object-fit: contain;"
-                                                v-for="image in images" :key="image.id" alt="">
-                                        </div>
+            <label for="starFilter" class="form-label">Filter Rating By:</label>
+            <div class="d-flex gap-2 mb-3">
+                <select v-model="selectedStarRating" id="starFilter" class="form-select p-2 py-3 rounded-0 ">
+                    <option v-for="star in 5" :key="star" :value="star">{{ star }} Star</option>
+                </select>
+                <select class="form-select p-2 py-3 rounded-0">
+                    <option value="" default>Recent</option>
+                    <option value="">Relevant</option>
+                </select>
+            </div>
+            <div class="d-flex align-items-center shadow p-2 mb-3">
+                <input type="search" placeholder="Search" v-model="searchTerm" class="form-control border-0"
+                    ref="searchInput" @keyup.enter="search">
+                <div>
+                    <i class="bi bi-search" @click="search"></i>
+                </div>
+            </div>
+            <div v-if="filteredReviews.length" class="mt-3">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
+                    <div class="col" v-for="(review, index) in filteredReviews" :key="index">
+                        <div class="border bg-light p-2 position-relative">
+                            <div class="d-flex align-items-center gap-2 mb-2 border-bottom pb-2">
+                                <img src="/img/users/1.png" style="width:60px;" />
+                                <div class="ms-2">
+                                    <p class="my-2 fs-5 text-start text-ellipsis ">Shelly dsdf sdf sd fsd fsdf sdf dsf s
+                                    </p>
+                                    <div class="d-flex gap-2 overflow-x-scroll w-75" id="scroll">
+                                        <img :src="image" style="width: 20px; height: 20px; object-fit: contain;"
+                                            v-for="image in images" :key="image.id" alt="">
                                     </div>
                                 </div>
-                                <p class="text-start mb-0 rating-text" style="height: 50px;overflow-y: scroll; ">{{
-                                    review.text }}</p>
+                            </div>
+                            <div class="" @click="toggleExpand(index)">
+                                <p class="text-start mb-0 rating-text" :class="{ expanded: isExpanded(index) }">
+                                    {{ isExpanded(index) ? review.text : truncateText(review.text) }}
+                                </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="rating">
                                         <span v-for="star in 5" :key="star" class="star">
                                             <i :class="star <= review.rating ? 'bi bi-star-fill' : 'bi bi-star'"></i>
                                         </span>
                                     </div>
-                                    <div class="">
-                                        <small class="text-muted">26.06.2024</small>
-                                    </div>
+                                    <small class="" >
+                                        {{ isExpanded(index) ? 'Less' : 'More' }} <i class="bi bi-chevron-down"></i>
+                                    </small>
                                 </div>
-                                <div class="position-absolute top-0 end-0 mt-1 ms-0 text-dark" style="font-size: 12px;">
-                                    <span class='bg-light border p-1 px-2 rounded-start-3'>
-                                        <i class="bi bi-star-fill small me-2"></i>
-                                        <span class="fw-bold">{{ review.rating }}</span>
-                                    </span>
-                                </div>
+                            </div>
+                            <div class="position-absolute top-0 end-0 text-muted" style="font-size: 12px;">
+                                <span class="small pe-1 ">27.06.2024</span>
+                            </div>
+                            <div class="position-absolute end-0 text-dark" style="font-size: 12px;top: 55px;">
+                                <span class="bg-light border p-1 px-2 rounded-start-3">
+                                    <i class="bi bi-star-fill small me-2"></i>
+                                    <span class="fw-bold">{{ review.rating }}</span>
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <div v-else class="mt-3">
+                <p>No reviews available for the selected star rating.</p>
+            </div>
 
         </div>
     </div>
@@ -114,7 +136,9 @@ export default {
                 "/img/members/6.webp",
                 "/img/members/7.jpeg",
                 "/img/members/8.png",
-            ]
+            ],
+            selectedStarRating: '5',
+            expandedReviews: []
         }
     },
     computed: {
@@ -124,7 +148,13 @@ export default {
         averageRating() {
             const sum = this.reviews.reduce((acc, review) => acc + review.rating, 0);
             return sum / this.totalReviews;
-        }
+        },
+        filteredReviews() {
+            if (this.selectedStarRating) {
+                return this.reviews.filter(review => review.rating === parseInt(this.selectedStarRating));
+            }
+            return this.reviews;
+        },
     },
     methods: {
         getPercentage(star) {
@@ -164,6 +194,20 @@ export default {
             this.rating = 0;
             this.reviewText = '';
         },
+        truncateText(text) {
+            return text.split(' ').slice(0, 20).join(' ') + '...'; // Adjust the number of words to show
+        },
+        toggleExpand(index) {
+            const expandedIndex = this.expandedReviews.indexOf(index);
+            if (expandedIndex === -1) {
+                this.expandedReviews.push(index);
+            } else {
+                this.expandedReviews.splice(expandedIndex, 1);
+            }
+        },
+        isExpanded(index) {
+            return this.expandedReviews.includes(index);
+        }
     }
 
 };
@@ -175,6 +219,14 @@ export default {
     color: #ffc107;
 }
 
+.rating-text {
+    height: 50px;
+    overflow: hidden;
+}
+
+.rating-text.expanded {
+    height: auto;
+}
 
 ::-webkit-scrollbar {
     width: 10px;
