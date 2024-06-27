@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container pb-4">
-            <!-- <div class="mt-5">
+            <div class="mt-5">
                 <h3 class="text-center bill"><span class="fs-2">~ Rate Us ~</span></h3>
                 <img src="/img/rate2.gif" style="width: 100px;">
                 <div class="rating my-3">
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <button class="btn btn-warning border mt-3" @click="submitReview">Submit</button>
-            </div> -->
+            </div>
             <div class="mt-5">
                 <h2 class="mb-2">Reviews <span class="text-warning"><i class="bi bi-star-fill text-warning"></i> {{
                     averageRating.toFixed(1) }}</span></h2>

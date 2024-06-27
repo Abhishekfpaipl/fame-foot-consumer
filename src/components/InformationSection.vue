@@ -22,23 +22,7 @@
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-Rate" role="tabpanel" aria-labelledby="nav-Rate-tab"
                 tabindex="0">
-                <div class="">
-                    <h3 class="text-center bill"><span class="fs-2">~ Rate Us ~</span></h3>
-                    <img src="/img/rate2.gif" style="width: 100px;">
-                    <div class="rating my-3">
-                        <span v-for="star in 5" :key="star" @click="setRating(star)" class="star fs-1">
-                            <i :class="star <= rating ? 'bi bi-star-fill' : 'bi bi-star'"></i>
-                        </span>
-                    </div>
-                    <div class="d-flex flex-column justify-content-center align-items-center">
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" v-model="reviewText"
-                                id="floatingTextarea2" style="height: 50px;"></textarea>
-                            <label for="floatingTextarea2" class="text-muted small">Please write your Review</label>
-                        </div>
-                    </div>
-                    <button class="btn btn-warning border mt-3" @click="submitReview">Submit</button>
-                </div>
+                <OffcanvasRating />
             </div>
             <div class="tab-pane fade" id="nav-Promote" role="tabpanel" aria-labelledby="nav-Promote-tab" tabindex="0">
                 <button class="btn btn-dark">Promote Us</button> <br>
@@ -70,8 +54,12 @@
     </div>
 </template>
 <script>
+import OffcanvasRating from "@/components/OffcanvasRating.vue";
 export default {
     name: "InformationSection",
+    components: {
+        OffcanvasRating,
+    },
     data() {
         return {
             rating: 0,

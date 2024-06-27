@@ -7,8 +7,8 @@
             <!-- </div> -->
         </div>
         <TopSection />
-        <InformationSection />
         <TeamBanner />
+        <InformationSection />
         <RewardSection />
         <ConnectSection />
         <BusinessSection />
