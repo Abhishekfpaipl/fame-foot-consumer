@@ -7,11 +7,11 @@
             <!-- </div> -->
         </div>
         <TopSection />
-
+        <InformationSection />
         <TeamBanner />
         <RewardSection />
         <ConnectSection />
-        <BusinessSection/>
+        <BusinessSection />
         <GalleryCollage />
         <OffcanvasRating />
 
@@ -33,9 +33,10 @@ import RewardSection from '@/components/RewardSection.vue';
 // import SocialSchedule from '@/components/digitalcard/SocialSchedule.vue';
 import GalleryCollage from '@/components/digitalcard/GalleryCollage.vue';
 // import DigitalFooter from '@/components/digitalcard/DigitalFooter.vue';
-import OffcanvasRating from '@/components/OffcanvasRating.vue'; 
-import ConnectSection from '@/components/ConnectSection.vue'; 
-import BusinessSection from '@/components/BusinessSection.vue'; 
+import OffcanvasRating from '@/components/OffcanvasRating.vue';
+import ConnectSection from '@/components/ConnectSection.vue';
+import BusinessSection from '@/components/BusinessSection.vue';
+import InformationSection from '@/components/InformationSection.vue';
 
 export default {
     name: "DigitalCard",
@@ -50,6 +51,7 @@ export default {
         OffcanvasRating,
         ConnectSection,
         BusinessSection,
+        InformationSection,
     },
     data() {
         return {

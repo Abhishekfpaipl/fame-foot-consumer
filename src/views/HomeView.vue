@@ -7,9 +7,9 @@
       <SecondSection />
     </div>
     <TestSection />
-    <div class="">
+    <!-- <div class="">
       <NumberingCollection />
-    </div>
+    </div> -->
     <div class="">
       <GeneralCollection />
     </div>
@@ -21,7 +21,7 @@
 import BannerSection from "@/components/BannerSection.vue";
 import SecondSection from "@/components/SecondSection.vue";
 // import TestSection from "@/components/TestSection.vue";
-import NumberingCollection from "@/components/NumberingCollection.vue";
+// import NumberingCollection from "@/components/NumberingCollection.vue";
 import GeneralCollection from "@/components/GeneralCollection.vue";
 import FooterBar from "@/components/FooterBar.vue";
 export default {
@@ -30,7 +30,7 @@ export default {
     BannerSection,
     SecondSection,
     // TestSection,
-    NumberingCollection,
+    // NumberingCollection,
     GeneralCollection,
     FooterBar,
   },

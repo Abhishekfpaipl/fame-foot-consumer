@@ -4,7 +4,8 @@
         <div class="d-flex align-items-center gap-3">
             <router-link to="/" :class="{ 'hide-on-scroll': hideOnScroll }"
                 class="text-decoration-none text-dark d-flex align-items-center">
-                <img :src="`${publicPath}${img}`" style="width: 100px;object-fit: contain;">
+                <img :src="`${publicPath}${img}`" style="width: 50px;object-fit: contain;">
+                <span class="fw-bold text-uppercase" style="color: #f4bd01 !important;">famefoot</span>
             </router-link>
         </div>
         <div class="d-flex justify-content-center align-items-center gap-3" :class="{ 'hide-on-scroll': hideOnScroll }">
@@ -22,7 +23,7 @@ export default {
     data() {
         return {
             publicPath: process.env.BASE_URL,
-            img: "img/famefoot.svg",
+            img: "img/logo.svg",
             backgroundOpacity: 0,
             hideOnScroll: true,
         };

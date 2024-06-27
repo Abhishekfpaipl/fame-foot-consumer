@@ -1,6 +1,6 @@
 <template>
     <div>
-       
+
         <h3 class="text-center bill mt-5"><span class="fs-2">~ Connect ~</span></h3>
         <div class="container my-3 py-3">
             <div class="row row-cols-4 g-1">
@@ -19,8 +19,11 @@
                     <p class="text-center mb-0 small">{{ icon.name }}</p>
                 </div>
             </div>
-            <div v-if="contact.length > 8" class="text-end mt-3 small" @click="toggleShowMore">
+            <!-- <div v-if="contact.length > 8" class="text-end mt-3 small" @click="toggleShowMore">
                 {{ showAll ? 'Show Less' : 'Show More' }}
+            </div> -->
+            <div v-if="contact.length > 8" class="text-end mt-3" @click="toggleShowMore">
+                <i class="bi bi-chevron-down chevron-icon" :class="{ 'rotate-icon': showAll }"></i>
             </div>
         </div>
 
@@ -116,7 +119,7 @@ export default {
             }
         },
 
-        
+
     },
 }
 </script>
@@ -127,5 +130,14 @@ export default {
 
 .border-bottom {
     border-bottom: 1px solid #dee2e6 !important;
+}
+
+.rotate-icon {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.bi-chevron-down {
+  transition: transform 0.3s ease;
 }
 </style>

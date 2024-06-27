@@ -8,14 +8,38 @@
             </div>
         </div>
         <div class="d-flex justify-content-between gap-3 mb-3">
-            <select v-model="selectedStarRating" id="starFilter" class="form-select p-2 py-3 rounded-0">
-                <option value="0">All Stars</option>
-                <option v-for="star in 5" :key="star" :value="star">{{ star }} Star</option>
-            </select>
-            <select v-model="sortOrder" class="form-select p-2 py-3 rounded-0">
-                <option value="recent">Recent</option>
-                <option value="relevant">Relevant</option>
-            </select>
+            <i class="bi bi-sliders fs-3" data-bs-toggle="offcanvas" href="#filters" role="button"
+                aria-controls="filters"></i>
+            <i class="bi bi-arrow-down-up fs-3" data-bs-toggle="offcanvas" href="#sort" role="button"
+                aria-controls="filters"></i>
+            
+        </div>
+
+        <div class="">
+            <div class="offcanvas offcanvas-bottom" tabindex="-1" id="filters" aria-labelledby="filtersLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="filtersLabel">Filters</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <select v-model="selectedStarRating" id="starFilter" class="form-select p-2 py-3 rounded-0">
+                        <option value="0">All Stars</option>
+                        <option v-for="star in 5" :key="star" :value="star">{{ star }} Star</option>
+                    </select>
+                </div>
+            </div>
+            <div class="offcanvas offcanvas-bottom" tabindex="-1" id="sort" aria-labelledby="sortLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="sortLabel">Sort</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <select v-model="sortOrder" class="form-select p-2 py-3 rounded-0">
+                        <option value="recent">Recent</option>
+                        <option value="relevant">Relevant</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <div class="row row-cols-2 row-cols-md-5 g-1">
             <div class="col position-relative" v-for="(shop, index) in filteredShops" :key="index">
