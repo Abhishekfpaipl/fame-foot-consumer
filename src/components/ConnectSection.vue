@@ -35,21 +35,22 @@
         <div class="container my-3 py-3">
             <div class="row row-cols-4 g-1">
                 <div v-for="(icon, index) in visibleContacts" :key="index" @click="handleIconClick(icon.action)"
-                    class="col py-2 border-bottom border-end d-flex flex-column justify-content-center align-items-center"
-                    :class="{ 'border-start': index % 4 === 0 }">
+                    class="col py-2 d-flex flex-column justify-content-center align-items-center" :class="[
+                        { 'border-end': index % 4 === 3 },
+                        { 'border-start': index % 4 === 0 },
+                        { 'border-bottom': shouldHaveBottomBorder(index) }
+                    ]">
                     <div class="rounded-circle border border-5 d-flex align-items-center justify-content-center"
                         style="width: 60px; height: 60px;background: linear-gradient(133deg, rgba(106,106,106,1) 45%, rgba(0,0,0,1) 55%);">
                         <a class="text-white" :href="icon.url" target="_blank">
                             <i :class="icon.icon" class="fs-3"></i>
                         </a>
                     </div>
-                    <p class="text-center mb-0">{{ icon.name }}</p>
+                    <p class="text-center mb-0 small">{{ icon.name }}</p>
                 </div>
             </div>
-            <div v-if="contact.length > 8" class="text-end mt-3"  @click="toggleShowMore">
-                <!-- <button @click="toggleShowMore" class="btn"> -->
-                    {{ showAll ? 'Show Less' : 'Show More' }}
-                <!-- </button> -->
+            <div v-if="contact.length > 8" class="text-end mt-3 small" @click="toggleShowMore">
+                {{ showAll ? 'Show Less' : 'Show More' }}
             </div>
         </div>
 
@@ -91,6 +92,13 @@ export default {
     methods: {
         toggleShowMore() {
             this.showAll = !this.showAll
+        },
+        shouldHaveBottomBorder(index) {
+            const totalVisible = this.visibleContacts.length;
+            const isInSecondRow = index >= 4 && index < 8;
+            const isInLastRow = index >= totalVisible - 4 && index < totalVisible;
+
+            return (!this.showAll && isInSecondRow) || (this.showAll && isInLastRow);
         },
         handleIconClick(action) {
             const phoneNumber = '+918826658501';

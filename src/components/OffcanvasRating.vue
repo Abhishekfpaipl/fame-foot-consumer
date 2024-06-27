@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container ">
+        <div class="container pb-4">
             <div class="mt-5">
                 <h3 class="text-center bill"><span class="fs-2">~ Rate Us ~</span></h3>
                 <img src="/img/rate2.gif" style="width: 100px;">

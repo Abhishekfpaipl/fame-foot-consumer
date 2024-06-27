@@ -16,9 +16,9 @@
 
 
         <!-- <SocialSchedule /> -->
-        <div class="" id="second">
+        <!-- <div class="" id="second">
             <DigitalFooter />
-        </div>
+        </div> -->
 
     </div>
 </template>
@@ -31,7 +31,7 @@ import TeamBanner from '@/components/TeamBanner.vue';
 import RewardSection from '@/components/RewardSection.vue';
 // import SocialSchedule from '@/components/digitalcard/SocialSchedule.vue';
 import GalleryCollage from '@/components/digitalcard/GalleryCollage.vue';
-import DigitalFooter from '@/components/digitalcard/DigitalFooter.vue';
+// import DigitalFooter from '@/components/digitalcard/DigitalFooter.vue';
 import OffcanvasRating from '@/components/OffcanvasRating.vue'; 
 import ConnectSection from '@/components/ConnectSection.vue'; 
 
@@ -43,7 +43,7 @@ export default {
         TeamBanner,
         RewardSection,
         // SocialSchedule,
-        DigitalFooter,
+        // DigitalFooter,
         GalleryCollage,
         OffcanvasRating,
         ConnectSection,
