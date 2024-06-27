@@ -9,11 +9,12 @@
         <TopSection />
 
         <TeamBanner />
+        <ConnectSection />
         <RewardSection />
+        <GalleryCollage />
         <OffcanvasRating />
 
 
-        <GalleryCollage />
         <!-- <SocialSchedule /> -->
         <div class="" id="second">
             <DigitalFooter />
@@ -32,6 +33,7 @@ import RewardSection from '@/components/RewardSection.vue';
 import GalleryCollage from '@/components/digitalcard/GalleryCollage.vue';
 import DigitalFooter from '@/components/digitalcard/DigitalFooter.vue';
 import OffcanvasRating from '@/components/OffcanvasRating.vue'; 
+import ConnectSection from '@/components/ConnectSection.vue'; 
 
 export default {
     name: "DigitalCard",
@@ -44,6 +46,7 @@ export default {
         DigitalFooter,
         GalleryCollage,
         OffcanvasRating,
+        ConnectSection,
     },
     data() {
         return {
