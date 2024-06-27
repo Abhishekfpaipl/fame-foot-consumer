@@ -14,7 +14,7 @@
             <div class="d-flex flex-column justify-content-center">
                 <div class="w-100 pb-5 mt-4">
                     <div class="container d-md-flex d-block justify-content-between align-items-center">
-                        <RouterLink to="/search" class="text-decoration-none w-100 rounded">
+                        <RouterLink to="/review-list" class="text-decoration-none w-100 rounded">
                             <div class="my-1 rounded-0 btn btn-light border py-2 w-100 d-flex justify-content-between">
                                 <div class='d-flex'>
                                     <span class="fw-bold">Search by</span> &nbsp;

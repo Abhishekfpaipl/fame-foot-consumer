@@ -12,6 +12,11 @@ const routes = [
     name: "DigitalCard",
     component:()=> import("@/views/DigitalCard.vue")
   },
+  {
+    path: "/review-list",
+    name: "ReviewListPage ",
+    component:()=> import("@/views/ReviewListPage.vue")
+  },
 
 ];
 
