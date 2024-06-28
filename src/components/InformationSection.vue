@@ -1,20 +1,20 @@
 <template>
     <div class="container my-3">
         <nav class="p-0">
-            <div class="nav nav-tabs d-flex flex-nowrap overflow-x-scroll" id="scroll" role="tablist">
-                <button class="nav-link active text-muted smaller" id="nav-rating-tab" data-bs-toggle="tab" data-bs-target="#nav-rating"
+            <div class="nav nav-tabs d-flex justify-content-center flex-nowrap overflow-x-scroll" id="scroll" role="tablist">
+                <button class="nav-link active text-muted small px-2" id="nav-rating-tab" data-bs-toggle="tab" data-bs-target="#nav-rating"
                     type="button" role="tab" aria-controls="nav-rating" aria-selected="true">Rating</button>
 
-                <button class="nav-link text-muted smaller" id="nav-promote-tab" data-bs-toggle="tab" data-bs-target="#nav-promote"
+                <button class="nav-link text-muted small px-2" id="nav-promote-tab" data-bs-toggle="tab" data-bs-target="#nav-promote"
                     type="button" role="tab" aria-controls="nav-promote" aria-selected="false">Promote</button>
 
-                <button class="nav-link text-muted smaller" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
+                <button class="nav-link text-muted small px-2" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
                     type="button" role="tab" aria-controls="nav-about" aria-selected="false">About</button>
 
-                <button class="nav-link text-muted smaller" id="nav-reward-tab" data-bs-toggle="tab" data-bs-target="#nav-reward"
+                <button class="nav-link text-muted smallepx-2" id="nav-reward-tab" data-bs-toggle="tab" data-bs-target="#nav-reward"
                     type="button" role="tab" aria-controls="nav-reward" aria-selected="false">Reward</button>
 
-                <button class="nav-link text-muted smaller" id="nav-connect-tab" data-bs-toggle="tab" data-bs-target="#nav-connect"
+                <button class="nav-link text-muted small px-2" id="nav-connect-tab" data-bs-toggle="tab" data-bs-target="#nav-connect"
                     type="button" role="tab" aria-controls="nav-connect" aria-selected="false">Connect</button>
             </div>
         </nav>
