@@ -1,44 +1,37 @@
 <template>
-    <div>
-        <div class="container bg-white rounded-top-5">
-            <div class="row p-3">
-                <div class="col-12 pt-4 text-center">
-                    <form @submit.prevent="submitQuery()" class="mt-4 row g-3 needs-validation" novalidate>
-                        <div class="w-100 form-floating mt-0">
-                            <input type="text" class="form-control" placeholder="" v-model="name" required>
-                            <label for="floatingInput" class="text-muted ms-2">Name</label>
-                        </div>
-                        <div class="w-100 form-floating mt-2">
-                            <input type="tel" class="form-control" placeholder="Mobile" v-model="number" required>
-                            <label class="ms-2 text-muted">Mobile No</label>
-                        </div>
-                        <div class="w-100 form-floating mt-2">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
-                                v-model="note"></textarea>
-                            <label for="floatingTextarea" class="ms-2 text-muted">Describe your requirements</label>
-                        </div>
+    <div class="container bg-white rounded-top-5 pb-5">
+        <div class="row p-3">
+            <div class="col-12 pt-4 text-center">
+                <form @submit.prevent="submitQuery()" class="mt-4 row g-3 needs-validation" novalidate>
+                    <div class="w-100 form-floating mt-0">
+                        <input type="text" class="form-control" placeholder="" v-model="name" required>
+                        <label for="floatingInput" class="text-muted ms-2">Name</label>
+                    </div>
+                    <div class="w-100 form-floating mt-2">
+                        <input type="tel" class="form-control" placeholder="Mobile" v-model="number" required>
+                        <label class="ms-2 text-muted">Mobile No</label>
+                    </div>
+                    <div class="w-100 form-floating mt-2">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
+                            v-model="note"></textarea>
+                        <label for="floatingTextarea" class="ms-2 text-muted">Describe your requirements</label>
+                    </div>
 
-                        <div class="form-check text-start ms-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
-                                v-model="agree">
-                            <label class="form-check-label small" for="flexCheckDefault">
-                                I agree to the <router-link to="/agreement" class="text-dark text-capitalize">terms and
-                                    conditions</router-link> and
-                                <router-link to="/privacy-policy" class="text-dark text-capitalize">privacy
-                                    policy.</router-link>
-                            </label>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-outline-dark py-2 fs-5 w-100 rounded-0"
-                                type="submit">Submit</button>
-                        </div>
-                    </form>
-
-                </div>
+                    <div class="form-check text-start ms-2">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" v-model="agree">
+                        <label class="form-check-label small" for="flexCheckDefault">
+                            I agree to share my contact details
+                        </label>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-outline-dark py-2 fs-5 w-100 rounded-0" type="submit">Submit</button>
+                    </div>
+                </form>
 
             </div>
-            <ConnectSection />
+
         </div>
+        <ConnectSection />
     </div>
 </template>
 <script>
@@ -55,7 +48,7 @@ export default {
             agree: false
         }
     },
-    methods:{
+    methods: {
         submitQuery() {
             if (this.agree) {
                 // Submit the form

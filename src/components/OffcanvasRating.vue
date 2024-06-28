@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-12 col-md-6 d-flex flex-column justify-content-start  align-items-center">
                 <p class="my-3 pb-1 fs-1">FAMESET</p>
-                <h2 class="mb-2 border rounded py-2 w-100">Rating <span class="text-warning"><i
+                <div class="fs-2 mb-2 border rounded py-1 w-100">Rating <span class="text-warning"><i
                             class="bi bi-star-fill text-warning"></i> {{
-                                averageRating.toFixed(1) }}</span></h2>
+                                averageRating.toFixed(1) }}</span></div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="rating d-flex justify-content-center gap-3 mt-4 mb-4">
@@ -46,7 +46,14 @@
                 </div>
             </div>
         </div>
-        <h3 class="text-center bill my-5"><span class="fs-2">~ Total {{ totalReviews }} Reviews ~</span></h3>
+        <h3 class="text-center bill mt-5 mb-4"><span class="fs-2"> Reviews </span></h3>
+
+        <div class="mb-3 border rounded py-2 w-100">
+            <span class="fs-3">Total</span>
+            <i class="bi bi-chat-dots-fill ms-2 fs-3 text-warning"></i>
+            <span class="text-warning ms-2 fs-3 fw-bold">{{ totalReviews }}</span>
+        </div>
+
         <div class="d-flex justify-content-between gap-2 mb-3">
             <div class="w-50">
                 <p class="fw-bold">Filter By</p>

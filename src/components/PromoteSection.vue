@@ -15,7 +15,7 @@
 
         </div>
 
-        <h3 class="text-center bill my-5"><span class="fs-2">~ All {{ totalReviews }} Promoters ~</span></h3>
+        <h3 class="text-center bill my-5"><span class="fs-2">Promoters</span></h3>
         <div class="d-flex justify-content-between gap-2 mb-3">
             <div class="w-50">
                 <p class="fw-bold">Filter By</p>

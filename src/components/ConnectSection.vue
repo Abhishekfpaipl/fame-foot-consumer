@@ -1,8 +1,7 @@
 <template>
     <div>
-
-        <h3 class="text-center bill mt-5"><span class="fs-2">~ Connect ~</span></h3>
-        <div class="container my-3 py-3">
+        <h3 class="text-center bill mt-5 pb-3 text-capitalize"><span class="fs-2">connect us </span></h3>
+        <!-- <div class="container my-3 py-3">
             <div class="row row-cols-4 g-1">
                 <div v-for="(icon, index) in visibleContacts" :key="index" @click="handleIconClick(icon.action)"
                     class="col py-2 d-flex flex-column justify-content-center align-items-center" :class="[
@@ -19,11 +18,24 @@
                     <p class="text-center mb-0 small">{{ icon.name }}</p>
                 </div>
             </div>
-            <!-- <div v-if="contact.length > 8" class="text-end mt-3 small" @click="toggleShowMore">
+            <div v-if="contact.length > 8" class="text-end mt-3 small" @click="toggleShowMore">
                 {{ showAll ? 'Show Less' : 'Show More' }}
-            </div> -->
+            </div>
             <div v-if="contact.length > 8" class="text-end mt-3" @click="toggleShowMore">
                 <i class="bi bi-chevron-down chevron-icon" :class="{ 'rotate-icon': showAll }"></i>
+            </div>
+        </div> -->
+        <div class="container my-3 py-3">
+            <div class="row row-cols-4 g-1">
+                <div class="d-flex flex-column justify-content-center align-items-center" v-for="(icon, index) in contact" :key="index" @click="handleIconClick(icon.action)">
+                    <div class="rounded-circle border border-5 d-flex align-items-center justify-content-center"
+                        style="width: 60px; height: 60px;background: linear-gradient(133deg, rgba(106,106,106,1) 45%, rgba(0,0,0,1) 55%);">
+                        <a class="text-white" :href="icon.url" target="_blank">
+                            <i :class="icon.icon" class="fs-3"></i>
+                        </a>
+                    </div>
+                    <p class="text-center mb-0 small">{{ icon.name }}</p>
+                </div>
             </div>
         </div>
 
@@ -133,11 +145,11 @@ export default {
 }
 
 .rotate-icon {
-  transform: rotate(180deg);
-  transition: transform 0.3s ease;
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
 }
 
 .bi-chevron-down {
-  transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 </style>

@@ -51,7 +51,14 @@ nav {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.text-ellipsis5{
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
+}
 .text-ellipsis7 {
   display: -webkit-box;
   -webkit-line-clamp: 7;

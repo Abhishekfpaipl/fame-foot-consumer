@@ -8,37 +8,34 @@
     </div>
     <TopSection />
     <TeamBanner />
-    <StarRating /> 
-    <GalleryCollage />
+    <StarRating />
     <ContactCard />
     <SocialSchedule />
     <DigitalFooter />
-    
+
   </div>
 </template>
 
 <script>
- 
+
 import TopSection from '@/components/digitalcard/TopSection.vue'
 import StarRating from '@/components/StarRating.vue'
 import InfoSection from '@/components/digitalcard/InfoSection.vue';
 import TeamBanner from '@/components/TeamBanner.vue';
 import SocialSchedule from '@/components/digitalcard/SocialSchedule.vue';
-import GalleryCollage from '@/components/digitalcard/GalleryCollage.vue';
 import ContactCard from '@/components/digitalcard/ContactCard.vue';
-import DigitalFooter from '@/components/digitalcard/DigitalFooter.vue'; 
+import DigitalFooter from '@/components/digitalcard/DigitalFooter.vue';
 
 export default {
   name: "DigitalCard",
   components: {
     TopSection,
-    StarRating, 
+    StarRating,
     InfoSection,
     ContactCard,
     TeamBanner,
     SocialSchedule,
     DigitalFooter,
-    GalleryCollage, 
   },
   data() {
     return {
