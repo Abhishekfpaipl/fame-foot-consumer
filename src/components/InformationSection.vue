@@ -1,21 +1,27 @@
 <template>
-    <div class="container my-3">
-        <nav class="p-0">
-            <div class="nav nav-tabs d-flex justify-content-center flex-nowrap overflow-x-scroll" id="scroll" role="tablist">
-                <button class="nav-link active text-muted small px-2" id="nav-rating-tab" data-bs-toggle="tab" data-bs-target="#nav-rating"
-                    type="button" role="tab" aria-controls="nav-rating" aria-selected="true">Rating</button>
+    <div class="container-fluid bg-white  my-3">
+        <nav class="p-0  position-sticky sticky-nav">
+            <div class="nav nav-tabs d-flex justify-content-center flex-nowrap overflow-x-scroll" id="scroll"
+                role="tablist">
+                <button class="nav-link active text-muted small px-2" id="nav-rating-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-rating" type="button" role="tab" aria-controls="nav-rating"
+                    aria-selected="true">Rating</button>
 
-                <button class="nav-link text-muted small px-2" id="nav-promote-tab" data-bs-toggle="tab" data-bs-target="#nav-promote"
-                    type="button" role="tab" aria-controls="nav-promote" aria-selected="false">Promote</button>
+                <button class="nav-link text-muted small px-2" id="nav-promote-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-promote" type="button" role="tab" aria-controls="nav-promote"
+                    aria-selected="false">Promote</button>
 
-                <button class="nav-link text-muted small px-2" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
-                    type="button" role="tab" aria-controls="nav-about" aria-selected="false">About</button>
+                <button class="nav-link text-muted small px-2" id="nav-about-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-about" type="button" role="tab" aria-controls="nav-about"
+                    aria-selected="false">About</button>
 
-                <button class="nav-link text-muted smallepx-2" id="nav-reward-tab" data-bs-toggle="tab" data-bs-target="#nav-reward"
-                    type="button" role="tab" aria-controls="nav-reward" aria-selected="false">Reward</button>
+                <button class="nav-link text-muted smallepx-2" id="nav-reward-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-reward" type="button" role="tab" aria-controls="nav-reward"
+                    aria-selected="false">Reward</button>
 
-                <button class="nav-link text-muted small px-2" id="nav-connect-tab" data-bs-toggle="tab" data-bs-target="#nav-connect"
-                    type="button" role="tab" aria-controls="nav-connect" aria-selected="false">Connect</button>
+                <button class="nav-link text-muted small px-2" id="nav-connect-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-connect" type="button" role="tab" aria-controls="nav-connect"
+                    aria-selected="false">Connect</button>
             </div>
         </nav>
         <div class="tab-content mt-3" id="nav-tabContent">
@@ -65,5 +71,17 @@ export default {
     background-color: black;
     color: white !important;
 }
- 
+
+.sticky-nav {
+    /* position: -webkit-sticky; */
+    /* For Safari */
+    position: sticky;
+    top: 5px !important;
+    z-index: 1000;
+    /* Ensure it stays above other content */
+    background-color: white;
+    /* Match background color to avoid visual issues */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a subtle shadow */
+}
 </style>
