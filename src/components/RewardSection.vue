@@ -1,226 +1,46 @@
 <template>
-    <div class="py-5 text-white" style="background-color: var(--bg-primary)">
-        <article :class="['wrapper', { 'wrapper--vertical': isVertical }]">
-            <div class="marquee" :class="{ 'marquee--vertical': isVertical }">
-                <div class="marquee__group" :style="{ 'animation-direction': isReverse ? 'reverse' : 'normal' }">
-                    <div v-for="(link, index) in links" :key="index" class="d-flex flex-column">
-                        <img :src="link.image" style="width:80px;height:80px;object-fit: contain;"
-                            alt="">
-                        <p class="text-center mb-0">{{ link.name }}</p>
-                    </div>
+    <div class="container">
+        <div class="d-flex overflow-x-scroll gap-3" style="white-space: nowrap;" id="scroll">
+            <div class="" v-for="(image, index) in images" :key="index" @click="selectImage(image)">
+                <img :src="image.thumbnail" class="" style="width: 80px;">
+            </div>
+        </div>
+        <div class="row pt-4 ">
+            <div class="col-12">
+                <div v-if="selectedImage">
+                    <img :src="selectedImage.thumbnail" class="img-fluid" style="height: 600px; object-fit: contain;">
                 </div>
-                <div aria-hidden="true" class="marquee__group"
-                    :style="{ 'animation-direction': isReverse ? 'reverse' : 'normal' }">
-                    <div v-for="(link, index) in links" :key="index" class="d-flex flex-column">
-                        <img :src="link.image" style="width:80px;height:80px;object-fit: contain;"
-                            alt="">
-                        <p class="text-center mb-0">{{ link.name }}</p>
-                    </div>
+                <div v-else>
+                    <p>Please select an image</p>
                 </div>
             </div>
-        </article>
+        </div>
     </div>
 </template>
 
 <script>
-
 export default {
-    name: "AutoScrolling",
-    props: {
-        brandColorOne: {
-            type: String,
-            default: '#000'
-        }
-    },
     data() {
         return {
-            isVertical: false,
-            isReverse: false,
-            links: [
-                {
-                    id: 1,
-                    name: 'Amazon',
-                    image: '/img/members/1.png'
-                },
-                {
-                    id: 2,
-                    name: 'Apple',
-                    image: "/img/members/2.webp"
-                },
-                {
-                    id: 3,
-                    name: 'Aws',
-                    image: "/img/members/3.png"
-                },
-                {
-                    id: 4,
-                    name: 'Facebook',
-                    image: "/img/members/4.png"
-                },
-                {
-                    id: 5,
-                    name: 'Google',
-                    image: "/img/members/5.jpg"
-                },
-                {
-                    id: 6,
-                    name: 'Meta',
-                    image: "/img/members/6.webp"
-                },
-                {
-                    id: 7,
-                    name: 'Microsoft',
-                    image: "/img/members/7.jpeg"
-                },
-                {
-                    id: 11,
-                    name: 'Vodafone',
-                    image: "/img/members/8.png"
-                },
-            ]
-        };
+            images: [
+                { thumbnail: 'https://img101.urbanic.com/v1/goods-pic/36e2a81c9e3348cfa2187d434f2c2379UR_w1440_q90.webp', },
+                { thumbnail: 'https://img101.urbanic.com/v1/goods-pic/5bda5323bbeb417e9bacc64bdc6e945cUR_w1440_q90.webp', },
+                { thumbnail: 'https://img101.urbanic.com/v1/goods-pic/aaa2dc38e1bc4e06a5797a4464334001UR_w1440_q90.webp', },
+                { thumbnail: 'https://img101.urbanic.com/v1/goods-pic/8578182f6d5e4aab85f3ad043afaf921UR_w1440_q90.webp', },
+                { thumbnail: 'https://img101.urbanic.com/v1/goods-pic/6b76cdcaa6bb4ef9a61efc20ed76d981UR_w1440_q90.webp', },
+                { thumbnail: 'https://img101.urbanic.com/v1/goods-pic/6cc4429416c444e986cce9081419439bUR_w1440_q90.webp', },
+                { thumbnail: 'https://img101.urbanic.com/v1/goods-pic/38a9f23844304c9791f36d8d17dd434dUR_w1440_q90.webp', },
+                { thumbnail: 'https://img101.urbanic.com/v1/goods-pic/0895a5151f614a8f9a9a03496223f935UR_w1440_q90.webp', },
+            ],
+            selectedImage: null
+        }
     },
     methods: {
-        toggleDirection() {
-            this.isVertical = !this.isVertical;
-            this.isReverse = !this.isReverse;
-        },
-    },
-};
+        selectImage(image) {
+            this.selectedImage = image;
+        }
+    }
+}
 </script>
 
-<style>
-:root {
-    --color-text: navy;
-    --color-bg: papayawhip;
-    --color-bg-accent: #ecdcc0;
-    --size: clamp(10rem, 1rem + 40vmin, 30rem);
-    --gap: calc(var(--size) / 14);
-    --duration: 10s;
-    --scroll-start: 0;
-    --scroll-end: calc(-100% - var(--gap));
-}
-
-.marquee {
-    display: flex;
-    overflow: hidden;
-    user-select: none;
-    gap: var(--gap);
-    mask-image: linear-gradient(var(--mask-direction, to right),
-            hsl(0 0% 0% / 0),
-            hsl(0 0% 0% / 1) 20%,
-            hsl(0 0% 0% / 1) 80%,
-            hsl(0 0% 0% / 0));
-}
-
-.marquee__group {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: var(--gap);
-    min-width: 100%;
-    animation: scroll-x var(--duration) linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .marquee__group {
-        animation-play-state: paused;
-    }
-}
-
-.marquee--vertical {
-    --mask-direction: to bottom;
-}
-
-.marquee--vertical,
-.marquee--vertical .marquee__group {
-    flex-direction: column;
-}
-
-.marquee--vertical .marquee__group {
-    animation-name: scroll-y;
-}
-
-.marquee--reverse .marquee__group {
-    animation-direction: reverse;
-    animation-delay: -3s;
-}
-
-@keyframes scroll-x {
-    from {
-        transform: translateX(var(--scroll-start));
-    }
-
-    to {
-        transform: translateX(var(--scroll-end));
-    }
-}
-
-@keyframes scroll-y {
-    from {
-        transform: translateY(var(--scroll-start));
-    }
-
-    to {
-        transform: translateY(var(--scroll-end));
-    }
-}
-
-/* Parent wrapper */
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
-    margin: auto;
-    max-width: 100vw;
-}
-
-.wrapper--vertical {
-    flex-direction: row;
-    height: 100vh;
-}
-
-/* Toggle direction button */
-.toggle {
-    --size: 3rem;
-    position: relative;
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    width: var(--size);
-    height: var(--size);
-    font: inherit;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    border-radius: 50%;
-    color: inherit;
-    background-color: var(--color-bg-accent);
-    z-index: 1;
-}
-
-.toggle:focus-visible {
-    box-shadow: 0 0 0 2px var(--color-text);
-}
-
-.toggle span {
-    position: absolute;
-    display: inline-block;
-    top: 50%;
-    left: calc(100% + 0.4em);
-    width: fit-content;
-    white-space: nowrap;
-    transform: translateY(-50%);
-    animation: fade 400ms 4s ease-out forwards;
-    user-select: none;
-}
-
-@keyframes fade {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-</style>
+<style scoped></style>

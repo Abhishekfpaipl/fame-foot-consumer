@@ -1,52 +1,21 @@
 <template>
     <div class="container pb-5">
         <div class="row">
-            <div class="col-12 col-md-6 d-flex flex-column justify-content-start  align-items-center">
-                <p class="my-3 pb-1 fs-1">FAMESET</p>
-                <h2 class="mb-2 border rounded py-2 w-100">Rating <span class="text-warning"><i
-                            class="bi bi-star-fill text-warning"></i> {{
-                                averageRating.toFixed(1) }}</span></h2>
+            <div class="col-12 col-md-6">
+                <div class="fs-3 my-5 mb-2 border rounded py-1 w-100">Our Promoters 100+ </div>
             </div>
             <div class="col-12 col-md-6">
-                <div class="rating d-flex justify-content-center gap-3 mt-4 mb-4">
-                    <img src="/img/rate2.gif" style="width: 40px; object-fit: contain;">
-                    <span v-for="star in 5" :key="star" @click="setRating(star)" class="star fs-2">
-                        <i :class="star <= rating ? 'bi bi-star-fill' : 'bi bi-star'"></i>
-                    </span>
-                </div>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" v-model="reviewText"
-                        id="floatingTextarea2" style="height: 50px;"></textarea>
-                    <label for="floatingTextarea2" class="text-muted small">Please write your Review</label>
-                </div>
-                <button class="btn btn-warning border mt-3" @click="submitReview">Submit</button>
+                <!-- <div class="my-5 border py-2 "> -->
+                <button class="btn btn-outline-dark w-100 my-5 py-1 fs-3">Promote Us</button>
+                <!-- </div> -->
             </div>
         </div>
         <div class="mt-5">
             <!-- <h3 class="text-center bill"><span class="fs-2">~ Rate Us ~</span></h3> -->
 
         </div>
-        <div class="mt-5">
-            <div class="rating-bars mt-4">
-                <div v-for="star in 5" :key="star" class="row align-items-center mb-2">
-                    <div class="col-2 text-end">
-                        <span class="star-label">{{ 6 - star }}-star</span>
-                    </div>
-                    <div class="col-8">
-                        <div class="progress" style="height: 10px;">
-                            <div class="progress-bar" role="progressbar" :class="getColorClass(6 - star)"
-                                :style="{ width: getPercentage(6 - star) + '%' }"
-                                :aria-valuenow="getPercentage(6 - star)" aria-valuemin="0" aria-valuemax="100">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <span class="percentage">{{ getPercentage(6 - star) }}%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h3 class="text-center bill my-5"><span class="fs-2">~ Total {{ totalReviews }} Reviews ~</span></h3>
+
+        <h3 class="text-center bill my-5"><span class="fs-2">~ All {{ totalReviews }} Promoters ~</span></h3>
         <div class="d-flex justify-content-between gap-2 mb-3">
             <div class="w-50">
                 <p class="fw-bold">Filter By</p>
@@ -83,7 +52,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="" @click="toggleExpand(index)">
+                        <!-- <div class="" @click="toggleExpand(index)">
                             <p class="text-start mb-0 rating-text" :class="{ expanded: isExpanded(index) }">
                                 {{ isExpanded(index) ? review.text : truncateText(review.text) }}
                             </p>
@@ -96,11 +65,11 @@
                                 <i class="bi bi-chevron-down fs-5" :class="{ 'rotate-icon': isExpanded(index) }"></i>
                                 <span class="smaller pe-1">{{ review.date }}</span>
                             </div>
-                        </div>
-                        <div class="position-absolute end-0 text-dark" style="font-size: 12px;top: 55px;">
+                        </div> -->
+                        <div class="position-absolute end-0 text-dark" style="font-size: 12px;top:2px;">
                             <span class="bg-light border p-1 px-2 rounded-start-3">
                                 <i class="bi bi-star-fill small me-2"></i>
-                                <span class="fw-bold">{{ review.user_rating }}</span>
+                                <span class="fw-bold">{{ review.user_promoters }}</span>
                             </span>
                         </div>
                     </div>
@@ -120,16 +89,16 @@ export default {
             rating: 0,
             reviewText: '',
             reviews: [
-                { "rating": 5, "user_rating": 5, "name": "User 1", "text": "We initially thought FameFoot was a small tool that only stores client data but once we started working on it, we knew its depth. We are very excited to use the new features like Team Pipelines, Email-in, and File Cabinet. We 100% recommend FameFoot to everyone!", "date": "27.06.2024" },
-                { "rating": 4, "user_rating": 5, "name": "User 2", "text": "FameFoot was the perfect solution for our startup, which was moving from paper-based and Excel sheets to an automated solution for sales outreach and managing incoming calls. It has all the basic functionality of other leading CRMs at half the price. In addition, onboarding/training was provided at no additional cost. I highly recommend FameFoot for any micro business.", "date": "26.06.2024" },
-                { "rating": 2, "user_rating": 5, "name": "User 3", "text": "Loved its UI. I have tried many other apps but this app is the best. The details in which the products are shown in picture is above all.", "date": "25.06.2024" },
-                { "rating": 1, "user_rating": 2, "name": "User 4", "text": "The general idea was to keep everything in one place and at an affordable price, and FameFoot was very accessible that way, and with the ability to expand without switching CRMs.", "date": "24.06.2024" },
-                { "rating": 3, "user_rating": 5, "name": "User 5", "text": "When you work with software that is structured with features that make it so easy to use—that's when you realize you've struck gold and you don't want to go anywhere else. The pricing is also just right and ideal for small businesses.", "date": "23.06.2024" },
-                { "rating": 5, "user_rating": 5, "name": "User 16", "text": "FameFoot has been really helpful for us to keep a track on contacts and deals. Since we are small team, FameFoot was so user-friendly that we were able to start using from week 1 of our trial.", "date": "22.06.2024" },
-                { "rating": 4, "user_rating": 4, "name": "User 17", "text": "The CRM options available in the market are either too expensive, with complex features that are not essential for a small business, or are priced less with nominal features. But FameFoot is game-changing. It has exceeded our expectations such that V4 Creative cannot work without it.", "date": "21.06.2024" },
-                { "rating": 5, "user_rating": 3, "name": "User 18", "text": "As vendor and customers needed order visibility, we wanted to automate the entire business and found only FameFoot to be the best suited in terms of integration.", "date": "20.06.2024" },
-                { "rating": 5, "user_rating": 3, "name": "User 134", "text": "FameFoot has stayed true to its value proposition—a CRM tailored for small businesses and startups.", "date": "19.06.2024" },
-                { "rating": 3, "user_rating": 3, "name": "User 1234", "text": "Since the implementation of FameFoot, we have seen positive outcomes in business operations and the accessibility of data. One glance at the Dashboards indicates the performance of my sales folks!", "date": "18.06.2024" },
+                { "rating": 5, "user_promoters": 100, "name": "Promoter 1", },
+                { "rating": 4, "user_promoters": 200, "name": "Promoter 2", },
+                { "rating": 2, "user_promoters": 400, "name": "Promoter 3", },
+                { "rating": 1, "user_promoters": 130, "name": "Promoter 4", },
+                { "rating": 3, "user_promoters": 60, "name": "Promoter 5", },
+                { "rating": 5, "user_promoters": 16, "name": "Promoter 16", },
+                { "rating": 4, "user_promoters": 10, "name": "Promoter 17", },
+                { "rating": 5, "user_promoters": 198, "name": "Promoter 18", },
+                { "rating": 5, "user_promoters": 400, "name": "Promoter 134", },
+                { "rating": 3, "user_promoters": 200, "name": "Promoter 1234", },
             ],
             images: [
                 "/img/members/1.png",

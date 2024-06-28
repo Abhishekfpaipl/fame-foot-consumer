@@ -4,15 +4,12 @@
             <div class="col-12 col-md-4 mb-3">
                 <router-link to="/">
                     <img :src="img" style="width: 100px;object-fit: contain;">
-                </router-link>
-                <!-- <p class="mb-0 fw-bold fs-2 text-uppercase" style="color: var(--bg-primary)">saleswik</p>
-                <p class="mb-2 text-capitalize" style="color: var(--bg-primary);">let's get wicked</p> -->
-
+                </router-link> 
             </div>
 
             <div class=" col-12 col-md-4 mb-3 text-center">
                 <p class="mb-2 fw-bold">Contact Us</p>
-                <p class="mb-2">Email : support@saleswik.com</p>
+                <p class="mb-2">Email : support@fameset.com</p>
                 <p class="mb-2">Mob no. : 91 8860012001</p>
                 <p class="mb-2">Address : 2nd Floor, Block B1/632, <br> Janakpuri, 110058, Delhi, India</p>
                 <div class="d-flex gap-2 justify-content-center">
@@ -42,22 +39,19 @@
             </div>
         </div>
     </div>
-    <!-- <FameFoot /> -->
-    <div class="bg-light text-center py-3 d-flex align-items-center justify-content-center">
-        <p class="text-dark mb-0"> Copyright © 2024 saleswik.com All rights reserved</p>
-    </div>
+    <FameFoot />
 </template>
 
 <script>
-// import FameFoot from '@/components/services/FameFoot.vue'
+import FameFoot from '@/components/FameFoot.vue'
 export default {
     name: 'FooterBar',
     components: {
-        // FameFoot,
+        FameFoot,
     },
     data() {
         return {
-            img: '/img/famefoot.svg',
+            img: '/img/logo.svg',
             company: [
                 {
                     id: 4,

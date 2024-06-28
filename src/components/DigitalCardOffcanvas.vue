@@ -1,22 +1,24 @@
 <template>
     <div class=" ">
         <DigitalTop />
-            <InfoSection />
+        <InfoSection />
         <TopSection />
         <TeamBanner />
         <InformationSection />
-        <RewardSection />
+
+
+        <!-- <RewardSection />
         <ConnectSection />
         <BusinessSection />
-        <GalleryCollage />
-        <OffcanvasRating />
+        <GalleryCollage /> -->
+        <!-- <OffcanvasRating /> -->
 
 
         <!-- <SocialSchedule /> -->
         <!-- <div class="" id="second">
             <DigitalFooter />
         </div> -->
-
+        <FameFoot />
     </div>
 </template>
 
@@ -25,14 +27,15 @@
 import TopSection from '@/components/digitalcard/TopSection.vue'
 import InfoSection from '@/components/digitalcard/InfoSection.vue';
 import TeamBanner from '@/components/TeamBanner.vue';
-import RewardSection from '@/components/RewardSection.vue';
+// import RewardSection from '@/components/RewardSection.vue';
 // import SocialSchedule from '@/components/digitalcard/SocialSchedule.vue';
-import GalleryCollage from '@/components/digitalcard/GalleryCollage.vue';
+// import GalleryCollage from '@/components/digitalcard/GalleryCollage.vue';
 // import DigitalFooter from '@/components/digitalcard/DigitalFooter.vue';
-import OffcanvasRating from '@/components/OffcanvasRating.vue';
-import ConnectSection from '@/components/ConnectSection.vue';
-import BusinessSection from '@/components/BusinessSection.vue';
+// import OffcanvasRating from '@/components/OffcanvasRating.vue';
+// import ConnectSection from '@/components/ConnectSection.vue';
+// import BusinessSection from '@/components/BusinessSection.vue';
 import InformationSection from '@/components/InformationSection.vue';
+import FameFoot from '@/components/FameFoot.vue';
 
 export default {
     name: "DigitalCard",
@@ -40,14 +43,15 @@ export default {
         TopSection,
         InfoSection,
         TeamBanner,
-        RewardSection,
+        // RewardSection,
         // SocialSchedule,
         // DigitalFooter,
-        GalleryCollage,
-        OffcanvasRating,
-        ConnectSection,
-        BusinessSection,
+        // GalleryCollage,
+        // OffcanvasRating,
+        // ConnectSection,
+        // BusinessSection,
         InformationSection,
+        FameFoot,
     },
     data() {
         return {

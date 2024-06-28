@@ -105,7 +105,7 @@
                 aria-labelledby="offcanvasExampleLabel">
                 <div
                     class="offcanvas-header py-2 bg-light border-bottom d-flex justify-content-between align-items-center">
-                    <img src="/img/famefoot.svg" style="width: 80px;object-fit: contain;" alt="">
+                    <img src="/img/logo.svg" style="width: 50px;object-fit: contain;" alt="">
                     <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg"
                         style="width: 50px;object-fit: contain;" alt="">
 
