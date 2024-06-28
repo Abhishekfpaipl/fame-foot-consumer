@@ -1,5 +1,5 @@
 <template>
-    <div class="container text-dark">
+    <div class=" text-dark border-bottom pb-5">
         <!-- <p class="px-2 py-3 text-center mb-0 bill"><span class="fs-2">~ Info ~</span></p>
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
             <div class="col" v-for="(info, index) in information" :key="index">
@@ -10,7 +10,7 @@
                 </div>
             </div>
         </div> -->
-        <div class="pt-5 d-flex justify-content-evenly">
+        <div class="container pt-5 d-flex justify-content-evenly">
             <div class="text-center">
                 <i class="bi bi-chat-square-text-fill fs-1 text-success"></i>
                 <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">

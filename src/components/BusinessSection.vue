@@ -6,7 +6,7 @@
                 <ul class="nav nav-pills justify-content-start align-items-center" id="pills-tab" role="tablist">
                     <!-- <p class="fs-3 mb-0 me-3">Show:</p> -->
                     <div class="d-flex overflow-x-scroll gap-3 my-3 p-2 px-3 rounded" id="scroll">
-                        <li class="nav-item border rounded-pill" role="presentation" v-for="(price, index) in pricing"
+                        <li class="nav-item border rounded" role="presentation" v-for="(price, index) in pricing"
                             :key="index">
                             <button class="nav-link" :class="{ 'active': index === activeTabIndex }"
                                 :id="'tab-' + index" data-bs-toggle="pill" :data-bs-target="'#content-' + index"
@@ -266,7 +266,7 @@ export default {
 </script>
 
 <style scoped>
-.nav-link {
+/* .nav-link {
     transition: background-color 0.3s ease, color 0.3s ease;
 
 }
@@ -276,8 +276,8 @@ export default {
     color: white !important;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     border-radius: 2rem;
-    /* transform: scale(1.2); */
-}
+    transform: scale(1.2);
+} */
 
 /* Add any necessary styling here */
 </style>

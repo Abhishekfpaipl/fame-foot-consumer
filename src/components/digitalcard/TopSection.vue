@@ -1,10 +1,10 @@
 <template>
-  <div class="rounded-5 bg-white position-sticky w-75 border-top" style="margin-top: -40px;left: 12%; z-index: 9;">
+  <!-- <div class="rounded-5 bg-white position-sticky w-75" style="margin-top: -40px;left: 12%; z-index: 9;">
     <div class="position-relative">
       <div class="d-flex justify-content-between align-items-center p-3 px-4 px-md-5 rounded-top-5">
-        <!-- <span @click="saveContact" class="d-flex flex-column align-items-center">
+        <span @click="saveContact" class="d-flex flex-column align-items-center">
           <i class="bi bi-download fs-4"></i> 
-        </span> -->
+        </span>
         <span @click="share" class="d-flex flex-column align-items-center">
           <i class="bi bi-share-fill fs-4"></i> 
         </span>
@@ -19,6 +19,22 @@
         <small class="">Sales assistant</small>
         <small class="">B2B service</small>
         <small class="">Bhybrid by Onhoff</small>
+      </div>
+    </div>
+  </div> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4 bg-light p-3">
+        <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg" alt="Logo" class="rounded-3"
+          style="width: 200px;">
+      </div>
+      <div class="col-12 col-md-8 bg-light p-5">
+        <div class="d-flex flex-column align-items-center my-2">
+          <h3>Business Name</h3>
+          <small class="">Sales assistant</small>
+          <small class="">B2B service</small>
+          <small class="">Bhybrid by Onhoff</small>
+        </div>
       </div>
     </div>
   </div>
@@ -143,9 +159,9 @@ END:VCARD`;
 };
 </script>
 <style>
-@media(max-width:768px){
+@media(max-width:768px) {
   .end-md-45 {
-    right:45% !important
+    right: 45% !important
   }
 }
 </style>

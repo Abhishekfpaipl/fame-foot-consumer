@@ -1,11 +1,7 @@
 <template>
     <div class=" ">
         <DigitalTop />
-        <div class="" style="height: 300px;">
-            <!-- <div class="" style="opacity: 0.6;background-color: rgb(0, 0, 0); height: 300px"> -->
             <InfoSection />
-            <!-- </div> -->
-        </div>
         <TopSection />
         <TeamBanner />
         <InformationSection />

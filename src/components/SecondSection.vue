@@ -719,7 +719,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 .nav-link {
     transition: background-color 0.3s ease, color 0.3s ease;
     color: black !important;
@@ -730,6 +730,6 @@ export default {
     color: white !important;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     border-radius: 2rem;
-    /* transform: scale(1.2); */
+    transform: scale(1.2);
 }
 </style>
