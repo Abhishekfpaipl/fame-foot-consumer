@@ -73,6 +73,11 @@ export default {
                     name: 'Career',
                     link: '/career'
                 },
+                {
+                    id: 9,
+                    name: 'List your business',
+                    link: '/list-your-business'
+                },
             ],
             links: [
                 {
@@ -88,7 +93,7 @@ export default {
                 {
                     id: 1,
                     name: 'Terms Of Use',
-                    link: '/terms-of-use'
+                    link: '/term-of-use'
                 },
 
                 {

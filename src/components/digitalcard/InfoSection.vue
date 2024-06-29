@@ -1,39 +1,27 @@
 <template>
-    <div class=" text-dark border-bottom pb-5">
-        <!-- <p class="px-2 py-3 text-center mb-0 bill"><span class="fs-2">~ Info ~</span></p>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-            <div class="col" v-for="(info, index) in information" :key="index">
-                <div class="border my-2">
-                    <p class="border-bottom p-2 bg-light fw-bold mb-0 text-start text-md-center">{{ info.heading
-                        }}</p>
-                    <p class="p-2 text-start text-md-center mb-0">{{ info.text }}</p>
-                </div>
-            </div>
-        </div> -->
-        <div class="container pt-5 d-flex justify-content-evenly">
-            <div class="text-center">
-                <i class="bi bi-chat-square-text-fill fs-1 text-success"></i>
-                <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
-                    <AutoCounter :data="10"> </AutoCounter>
-                </p>
-                <small class="smaller fw-bold">Reviews</small>
-            </div>
-            <div class="separator"></div>
-            <div class="text-center">
-                <i class="bi bi-star-fill fs-1 text-warning"></i>
-                <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
-                    <AutoCounter :data="5"> </AutoCounter>
-                </p>
-                <small class="smaller fw-bold">Ratings</small>
-            </div>
-            <div class="separator"></div>
-            <div class="text-center">
-                <i class="bi bi-trophy-fill fs-1 text-primary"></i>
-                <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
-                    <AutoCounter :data="10"> </AutoCounter>
-                </p>
-                <small class="smaller fw-bold">Rewards</small>
-            </div>
+    <div class="container-fluid text-dark bg-light py-5 d-flex justify-content-evenly" style="height: 300px;">
+        <div class="text-center">
+            <i class="bi bi-chat-square-text-fill fs-1 text-success"></i>
+            <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
+                <AutoCounter :data="10"> </AutoCounter>
+            </p>
+            <small class="smaller fw-bold">Reviews</small>
+        </div>
+        <div class="separator"></div>
+        <div class="text-center">
+            <i class="bi bi-star-fill fs-1 text-warning"></i>
+            <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
+                <AutoCounter :data="5"> </AutoCounter>
+            </p>
+            <small class="smaller fw-bold">Ratings</small>
+        </div>
+        <div class="separator"></div>
+        <div class="text-center">
+            <i class="bi bi-trophy-fill fs-1 text-primary"></i>
+            <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
+                <AutoCounter :data="10"> </AutoCounter>
+            </p>
+            <small class="smaller fw-bold">Rewards</small>
         </div>
     </div>
 </template>
@@ -56,7 +44,7 @@ export default {
                     text: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab soluta quis nihil adipisci voluptate impedit placeat aperiam doloremque quasi voluptatibus."
                 },
             ],
-            counters:[
+            counters: [
                 {
                     heading: "Shop Name",
                     text: "R2L"

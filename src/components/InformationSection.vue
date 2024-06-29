@@ -36,9 +36,10 @@
                 <GallerySection />
             </div>
             <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab" tabindex="0">
-                <AboutusSection/>
+                <AboutusSection />
                 <AutoScrolling />
-                <BusinessSection /> 
+                <TeamBanner />
+                <BusinessSection />
 
             </div>
             <div class="tab-pane fade" id="nav-connect" role="tabpanel" aria-labelledby="nav-connect-tab" tabindex="0">
@@ -55,20 +56,22 @@
 import OffcanvasRating from "@/components/OffcanvasRating.vue";
 import PromoteSection from "@/components/PromoteSection.vue";
 import AutoScrolling from '@/components/AutoScrolling.vue';
-import BusinessSection from '@/components/BusinessSection.vue'; 
+import BusinessSection from '@/components/BusinessSection.vue';
 import GallerySection from '@/components/GallerySection.vue';
 import ContactSection from '@/components/ContactSection.vue';
 import AboutusSection from "@/components/AboutusSection.vue";
+import TeamBanner from '@/components/TeamBanner.vue'
 export default {
     name: "InformationSection",
     components: {
         OffcanvasRating,
         PromoteSection,
-        AutoScrolling, 
-        BusinessSection, 
+        AutoScrolling,
+        BusinessSection,
         GallerySection,
         ContactSection,
         AboutusSection,
+        TeamBanner,
     },
     data() {
         return {

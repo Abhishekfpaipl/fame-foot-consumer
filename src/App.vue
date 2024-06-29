@@ -36,6 +36,14 @@ nav {
   }
 }
 
+:root {
+  --bg-primary: #014c75;
+  --bg-secondary: #EB5E28;
+  --bg-tertiary: #FEC007;
+  --bg-forth: #FBF4F4;
+  --brand-color: #ffa907 !important
+}
+
 .text-ellipsis {
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -51,7 +59,8 @@ nav {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.text-ellipsis5{
+
+.text-ellipsis5 {
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
@@ -59,6 +68,7 @@ nav {
   text-overflow: ellipsis;
 
 }
+
 .text-ellipsis7 {
   display: -webkit-box;
   -webkit-line-clamp: 7;
