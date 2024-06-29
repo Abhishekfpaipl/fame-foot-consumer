@@ -18,7 +18,7 @@ export default {
         return {
             typeValue: '',
             typeStatus: false,
-            typeArray: ['Retail Shop'],
+            typeArray: ['Categories'],
             // typeArray: ['Online Retail Shop'],
             typingSpeed: 200,
             erasingSpeed: 100,

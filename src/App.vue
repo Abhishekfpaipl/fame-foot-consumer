@@ -1,7 +1,7 @@
 <template>
-  <DashboardNav />
+  <DashboardNav v-if="!hide" />
   <router-view />
-  <FooterBar />
+  <FooterBar v-if="!hide" />
 </template>
 <script>
 import DashboardNav from "@/components/DashboardNav.vue";
@@ -12,6 +12,16 @@ export default {
     DashboardNav,
     FooterBar
   },
+  computed: {
+    hide() {
+      const hiddenPages = [
+        'LoginPage', 'RegistrationPage','EmailVerificationPage','ForgotPasswordPage','ResetPasswordPage',
+        'BasicDetails', 'ConnectDetails','OverviewDetails','WorktimeDetails','BusinessTypeDetails','BrandingDetails',
+        'ProductList','CreateProduct','CollectionList','RewardsDetails','DashboardPage'
+      ]
+      return hiddenPages.includes(this.$route.name)
+    },
+  }
 }
 </script>
 <style lang="scss">

@@ -8,6 +8,11 @@ const routes = [
     component: HomeView,
   },
   {
+    path: "/dashboard",
+    name: "DashboardPage",
+    component: () => import("@/pages/DashboardPage.vue")
+  },
+  {
     path: "/digital-card",
     name: "DigitalCard",
     component: () => import("@/pages/DigitalCard.vue")
@@ -97,6 +102,87 @@ const routes = [
     name: "TermOfUse",
     component: () => import("@/pages/TermOfUse.vue")
   },
+  {
+    path: "/login-page",
+    name: "LoginPage",
+    component: () => import('@/pages/auths/LoginPage.vue')
+  },
+  {
+    path: "/registration-page",
+    name: "RegistrationPage",
+    component: () => import('@/pages/auths/RegistrationPage.vue')
+  },
+  {
+    path: "/forgot-password-page",
+    name: "ForgotPasswordPage",
+    component: () => import('@/pages/auths/ForgotPasswordPage.vue')
+  },
+  {
+    path: "/reset-password-page",
+    name: "ResetPasswordPage",
+    component: () => import('@/pages/auths/ResetPasswordPage.vue')
+  },
+  {
+    path: "/email-verification-page",
+    name: "EmailVerificationPage",
+    component: () => import('@/pages/auths/EmailVerificationPage.vue')
+  },
+  {
+    path: "/basic-details",
+    name: "BasicDetails",
+    component: () => import('@/pages/profile/BasicDetails.vue')
+  },
+  {
+    path: "/connect-details",
+    name: "ConnectDetails",
+    component: () => import('@/pages/profile/ConnectDetails.vue')
+  },
+  {
+    path: "/overview-details",
+    name: "OverviewDetails",
+    component: () => import('@/pages/profile/OverviewDetails.vue')
+  },
+  {
+    path: "/worktime-details",
+    name: "WorktimeDetails",
+    component: () => import('@/pages/profile/WorktimeDetails.vue')
+  },
+  {
+    path: "/businesstype-details",
+    name: "BusinessTypeDetails",
+    component: () => import('@/pages/profile/BusinessTypeDetails.vue')
+  },
+  {
+    path: "/branding-details",
+    name: "BrandingDetails",
+    component: () => import('@/pages/profile/BrandingDetails.vue')
+  },
+  {
+    path: "/product-list",
+    name: "ProductList",
+    component: () => import('@/pages/profile/ProductList.vue')
+  },
+  {
+    path: "/create-product",
+    name: "CreateProduct",
+    component: () => import('@/pages/profile/CreateProduct.vue')
+  },
+  {
+    path: "/collection-list",
+    name: "CollectionList",
+    component: () => import('@/pages/profile/CollectionList.vue')
+  },
+  {
+    path: "/gallery-details",
+    name: "GalleryDetails",
+    component: () => import('@/pages/profile/GalleryDetails.vue')
+  },
+  {
+    path: "/rewards-details",
+    name: "RewardsDetails",
+    component: () => import('@/pages/profile/RewardsDetails.vue')
+  },
+
 ];
 
 const router = createRouter({

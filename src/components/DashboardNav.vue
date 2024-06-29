@@ -9,8 +9,8 @@
             </router-link>
         </div>
         <div class="d-flex justify-content-center align-items-center gap-3" :class="{ 'hide-on-scroll': hideOnScroll }">
-            <button class="btn btn-danger rounded-pill">Register</button>
-            <router-link to="" class="text-white">
+            <router-link to="/registration-page" class="btn btn-danger rounded-pill">Register</router-link>
+             <router-link to="/dashboard" class="text-white">
                 <i class="bi bi-person-circle fs-1"></i>
             </router-link>
         </div>

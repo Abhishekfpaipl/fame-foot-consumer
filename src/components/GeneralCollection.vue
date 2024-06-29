@@ -105,10 +105,13 @@
                 aria-labelledby="offcanvasExampleLabel">
                 <div
                     class="offcanvas-header py-2 bg-light border-bottom d-flex justify-content-between align-items-center">
-                    <img src="/img/logo.svg" style="width: 50px;object-fit: contain;" alt="">
-                    <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg"
-                        style="width: 50px;object-fit: contain;" alt="">
-
+                    <!-- <img src="/img/logo.svg" style="width: 50px;object-fit: contain;" alt=""> -->
+                    <div class="">
+                        <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg"
+                            style="width: 50px;object-fit: contain;" alt="">
+                        <span>Business Name</span>
+                    </div>
+                    <router-link to="/dashboard" class="btn btn-dark rounded-pill">Login</router-link>
                 </div>
                 <div class="offcanvas-body p-0">
                     <DigitalCardOffcanvas />
@@ -379,6 +382,7 @@ export default {
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 .close-icon-wrapper {
     position: absolute;
     bottom: 20px;
@@ -390,7 +394,7 @@ export default {
 
 .close-icon {
     background: #38383899;
-    color:white;
+    color: white;
     width: 60px;
     height: 60px;
     display: flex;
