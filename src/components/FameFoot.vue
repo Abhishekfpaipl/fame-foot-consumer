@@ -26,7 +26,7 @@
                     <span class="border-bottom me-2 pb-1 my-2 ">Want to Manage</span> <br>
                     <span class="fw-bold text-uppercase text-warning"> your fame ? </span>
                 </div>
-                <router-link to="/list-business" class="btn btn-warning text-capitalize lh-2">get started <br>
+                <router-link to="/list-your-business" class="btn btn-warning text-capitalize lh-2">get started <br>
                     FREE</router-link>
             </router-link>
             <router-link to="/"

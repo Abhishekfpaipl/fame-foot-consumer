@@ -32,15 +32,38 @@
             <div class="tab-pane fade" id="nav-promote" role="tabpanel" aria-labelledby="nav-promote-tab" tabindex="0">
                 <PromoteSection />
             </div>
-            <div class="tab-pane fade" id="nav-reward" role="tabpanel" aria-labelledby="nav-reward-tab" tabindex="0">
-                <GallerySection />
-            </div>
             <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab" tabindex="0">
                 <AboutusSection />
-                <AutoScrolling />
-                <TeamBanner />
                 <BusinessSection />
 
+            </div>
+            <div class="tab-pane fade" id="nav-reward" role="tabpanel" aria-labelledby="nav-reward-tab" tabindex="0">
+                <GallerySection />
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch demo modal
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="tab-pane fade" id="nav-connect" role="tabpanel" aria-labelledby="nav-connect-tab" tabindex="0">
                 <ContactSection />
@@ -55,23 +78,19 @@
 <script>
 import OffcanvasRating from "@/components/OffcanvasRating.vue";
 import PromoteSection from "@/components/PromoteSection.vue";
-import AutoScrolling from '@/components/AutoScrolling.vue';
 import BusinessSection from '@/components/BusinessSection.vue';
 import GallerySection from '@/components/GallerySection.vue';
 import ContactSection from '@/components/ContactSection.vue';
 import AboutusSection from "@/components/AboutusSection.vue";
-import TeamBanner from '@/components/TeamBanner.vue'
 export default {
     name: "InformationSection",
     components: {
         OffcanvasRating,
         PromoteSection,
-        AutoScrolling,
         BusinessSection,
         GallerySection,
         ContactSection,
         AboutusSection,
-        TeamBanner,
     },
     data() {
         return {

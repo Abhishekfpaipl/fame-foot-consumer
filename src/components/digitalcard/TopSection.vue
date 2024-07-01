@@ -1,32 +1,16 @@
 <template>
-  <!-- <div class="rounded-5 bg-white position-sticky w-75" style="margin-top: -40px;left: 12%; z-index: 9;">
-    <div class="position-relative">
-      <div class="d-flex justify-content-between align-items-center p-3 px-4 px-md-5 rounded-top-5">
-        <span @click="saveContact" class="d-flex flex-column align-items-center">
-          <i class="bi bi-download fs-4"></i> 
-        </span>
-        <span @click="share" class="d-flex flex-column align-items-center">
-          <i class="bi bi-share-fill fs-4"></i> 
-        </span>
-        <a href="#second"><i class="bi bi-telephone-outbound-fill fs-4 text-dark" ></i></a>
-      </div>
-      <div class="position-absolute end-50 end-md-45" style="width:60px;height: 60px;top: -60px;">
-        <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg" alt="Logo"
-          class="rounded-3" style="width: 100px;">
-      </div>
-      <div class="d-flex flex-column align-items-center my-2">
-        <h3>Business Name</h3>
-        <small class="">Sales assistant</small>
-        <small class="">B2B service</small>
-        <small class="">Bhybrid by Onhoff</small>
-      </div>
+  <div class="container rounded-top-5  border-top border-start border-end bg-white"
+    style="border-color:grey !important;margin-top: -40px;">
+    <div class="d-flex justify-content-start align-items-center">
+
     </div>
-  </div> -->
-  <div class="container rounded-top-4 border-top border-start border-end bg-white" style="margin-top: -40px;">
     <div class="row">
-      <div class="col-12 col-md-4  p-3">
+      <div class="col-12 col-md-4  p-3 position-relative">
         <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg" alt="Logo" class="rounded-3"
           style="width: 200px;">
+        <span @click="share" class="position-absolute start-0 px-3">
+          <i class="bi bi-share-fill fs-4"></i>
+        </span>
       </div>
       <div class="col-12 col-md-8 p-5 ">
         <div class="d-flex flex-column align-items-md-start align-items-center my-2">
@@ -65,11 +49,11 @@ export default {
         "/img/members/6.webp",
         "/img/members/7.jpeg",
         "/img/members/8.png",
-      ], 
+      ],
     }
   },
   // methods: {
-    
+
   //   share() {
   //     if (navigator.share) {
   //       navigator.share({

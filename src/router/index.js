@@ -8,6 +8,11 @@ const routes = [
     component: HomeView,
   },
   {
+    path: "/review-list",
+    name: "ReviewListPage",
+    component: () => import("@/pages/ReviewListPage.vue")
+  },
+  {
     path: "/dashboard",
     name: "DashboardPage",
     component: () => import("@/pages/DashboardPage.vue")
@@ -17,11 +22,11 @@ const routes = [
     name: "DigitalCard",
     component: () => import("@/pages/DigitalCard.vue")
   },
-  {
-    path: "/review-list",
-    name: "ReviewListPage ",
-    component: () => import("@/pages/ReviewListPage.vue")
-  },
+  // {
+  //   path: "/review-list",
+  //   name: "ReviewList ",
+  //   component: () => import("@/pages/ReviewList.vue")
+  // },
   {
     path: "/list-your-business",
     name: "ListYourBusiness",

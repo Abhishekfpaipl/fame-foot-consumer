@@ -1,7 +1,7 @@
 <template>
   <DashboardNav v-if="!hide" />
   <router-view />
-  <FooterBar v-if="!hide" />
+  <FooterBar v-if="!hidden" />
 </template>
 <script>
 import DashboardNav from "@/components/DashboardNav.vue";
@@ -15,12 +15,20 @@ export default {
   computed: {
     hide() {
       const hiddenPages = [
-        'LoginPage', 'RegistrationPage','EmailVerificationPage','ForgotPasswordPage','ResetPasswordPage',
-        'BasicDetails', 'ConnectDetails','OverviewDetails','WorktimeDetails','BusinessTypeDetails','BrandingDetails',
-        'ProductList','CreateProduct','CollectionList','RewardsDetails','DashboardPage'
+        'LoginPage', 'RegistrationPage', 'EmailVerificationPage', 'ForgotPasswordPage', 'ResetPasswordPage',
+        'BasicDetails', 'ConnectDetails', 'OverviewDetails', 'WorktimeDetails', 'BusinessTypeDetails', 'BrandingDetails',
+        'ProductList', 'CreateProduct', 'CollectionList', 'RewardsDetails', 'DashboardPage',  'ReviewListPage'
       ]
       return hiddenPages.includes(this.$route.name)
     },
+    hidden() {
+      const hiddenPages = [
+        'LoginPage', 'RegistrationPage', 'EmailVerificationPage', 'ForgotPasswordPage', 'ResetPasswordPage',
+        'BasicDetails', 'ConnectDetails', 'OverviewDetails', 'WorktimeDetails', 'BusinessTypeDetails', 'BrandingDetails',
+        'ProductList', 'CreateProduct', 'CollectionList', 'RewardsDetails', 'DashboardPage',  
+      ]
+      return hiddenPages.includes(this.$route.name)
+    }
   }
 }
 </script>

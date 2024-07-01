@@ -1,32 +1,19 @@
 <template>
     <div class="container-fluid text-dark bg-light py-5 d-flex justify-content-evenly" style="height: 300px;">
-        <div class="text-center">
-            <i class="bi bi-chat-square-text-fill fs-1 text-success"></i>
+        <div v-for="(item, index) in items" :key="index" class="d-flex flex-column text-center">
+            <i :class="item.iconClass" :style="{ color: item.iconColor }"></i>
             <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
-                <AutoCounter :data="10"> </AutoCounter>
+                <AutoCounter :data="item.data"></AutoCounter>
             </p>
-            <small class="smaller fw-bold">Reviews</small>
-        </div>
-        <div class="separator"></div>
-        <div class="text-center">
-            <i class="bi bi-star-fill fs-1 text-warning"></i>
-            <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
-                <AutoCounter :data="5"> </AutoCounter>
-            </p>
-            <small class="smaller fw-bold">Ratings</small>
-        </div>
-        <div class="separator"></div>
-        <div class="text-center">
-            <i class="bi bi-trophy-fill fs-1 text-primary"></i>
-            <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
-                <AutoCounter :data="10"> </AutoCounter>
-            </p>
-            <small class="smaller fw-bold">Rewards</small>
-        </div>
+            <small class="smaller fw-bold">{{ item.label }}</small>
+            <i class="bi bi-plus-circle-fill fs-4"></i>
+        </div> 
     </div>
 </template>
+
 <script>
-import AutoCounter from '@/components/AutoCounter.vue'
+import AutoCounter from '@/components/AutoCounter.vue';
+
 export default {
     name: 'InfoSection',
     components: {
@@ -34,38 +21,35 @@ export default {
     },
     data() {
         return {
-            information: [
+            items: [
                 {
-                    heading: "Shop Name",
-                    text: "R2L"
+                    iconClass: 'bi bi-chat-square-text-fill fs-1',
+                    iconColor: 'green',
+                    data: 10,
+                    label: 'Reviews'
                 },
                 {
-                    heading: "Description",
-                    text: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab soluta quis nihil adipisci voluptate impedit placeat aperiam doloremque quasi voluptatibus."
-                },
-            ],
-            counters: [
-                {
-                    heading: "Shop Name",
-                    text: "R2L"
+                    iconClass: 'bi bi-star-fill fs-1',
+                    iconColor: 'gold',
+                    data: 5,
+                    label: 'Ratings'
                 },
                 {
-                    heading: "Description",
-                    text: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab soluta quis nihil adipisci voluptate impedit placeat aperiam doloremque quasi voluptatibus."
+                    iconClass: 'bi bi-trophy-fill fs-1',
+                    iconColor: 'blue',
+                    data: 10,
+                    label: 'Rewards'
                 },
+                {
+                    iconClass: 'bi bi-people-fill fs-1',
+                    iconColor: 'red',
+                    data: 50,
+                    label: 'Promoters'
+                }
             ]
         }
     }
-
 }
 </script>
-<style scoped>
-.separator {
-    border-left: 1px solid grey;
-    /* Adjust the color and style as needed */
-    height: 80px;
-    /* Adjust the height as needed */
-    margin: 0 20px;
-    /* Adjust the margin as needed */
-}
-</style>
+
+ 
