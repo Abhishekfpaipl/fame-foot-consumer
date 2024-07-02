@@ -16,74 +16,45 @@
                 </RouterLink>
             </div>
             <div class="container">
-                <div class="row row-cols-2 row-cols-md-5 g-1">
-                    <div class="col position-relative" v-for="(vote, index) in shops" :key="index">
-                        <div class="card d-flex flex-column align-items-center justify-content-center rounded pt-2 px-1"
-                            style="padding-bottom:37px;">
-                            <div class="" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                                aria-controls="offcanvasExample">
-                                <img src="https://pics.craiyon.com/2023-07-15/dc2ec5a571974417a5551420a4fb0587.webp"
-                                    alt="" class="card-img-top" />
-                                <p class="smaller my-2 text-center text-ellipsis2 fw-bold ">{{ vote.name }} skdjfh
-                                    laskjdhf
-                                    alksjd
-                                    sdfh slkdjfh sdsjkf skdj</p>
+                <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-1">
+                    <div class="col position-relative" v-for="(association, index) in associations" :key="index">
+                        <div
+                            class="card border-0 rounded p-0 d-flex flex-column align-items-center justify-content-center rounded">
+                            <div class="p-2 overflow-hidden" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                                role="button" aria-controls="offcanvasExample" style="height: 200px">
+                                <img :src="association.img" alt="" class="rounded-top"
+                                    style="width: 100%; min-width: 100%; min-height: 200px; object-fit: cover; object-position: center;" />
                             </div>
+                            <p class="smaller my-2 text-center text-ellipsis2 fw-bold text-capitalize">{{
+                                association.name
+                                }}</p>
                             <div class="d-flex gap-2 overflow-x-scroll w-100 px-2" id="scroll">
-                                <img :src="image" style="width: 30px; height: 30px; object-fit: contain;"
-                                    v-for="image in images" :key="image.id" alt="">
+                                <img :src="image.image" style="width: 30px; height: 30px; object-fit: contain;"
+                                    v-for="image in association.promoters" :key="image.id" alt="">
+                            </div>
+                            <div class="card-footer border-0 d-flex justify-content-between p-0 py-2 w-100">
+                                <span class='bg-light border p-1 px-2 rounded-end-3 smaller'>
+                                    <i class="bi bi-star-fill small me-2"></i>
+                                    <span class="fw-bold">{{ association.rating }}</span>
+                                </span>
+                                <div class='d-flex gap-2 align-items-center justify-content-center px-2 p-1 smaller'>
+                                    <p class="mb-0">{{ association.support }}+</p>
+                                    <p class="mb-0">Promoters</p>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="position-absolute bottom-0 m-2 ms-0 text-warning" style="font-size: 12px;">
-                            <span class='bg-light border p-1 px-2 rounded-end-3'>
-                                <i class="bi bi-star-fill small me-2"></i>
-                                <span class="fw-bold">{{ vote.rating }}</span>
-                            </span>
-                        </div>
-                        <div class="position-absolute bottom-0 end-0 m-1 ms-0 text-dark" style="font-size: 12px;">
-                            <div class='d-flex gap-2 align-items-center justify-content-center px-2 p-1'>
-                                <p class="mb-0">{{ vote.support }}+</p>
-                                <p class="mb-0">Promoters</p>
-                            </div>
-                        </div>
-
                         <div class="position-absolute index-label">
-                            <span>{{ index + 1 }}</span>
+                            <p class="mb-0">{{ index + 1 }}</p>
+                        </div>
+                        <div class="position-absolute top-0 start-0 rounded-circle"
+                            style="background-color: #ffffff99;z-index: 1; width: 60px; height: 60px;">
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="offcanvas  offcanvas-end w-100" tabindex="-1" id="offcanvasExample"
-                aria-labelledby="offcanvasExampleLabel">
-                <div
-                    class="offcanvas-header py-2 bg-white border-bottom d-flex justify-content-between align-items-center">
-                    <!-- <img src="/img/logo.svg" style="width: 50px;object-fit: contain;" alt=""> -->
-                    <div class="w-75 d-flex justify-content-start align-items-center" data-bs-dismiss="offcanvas"
-                        aria-label="Close">
-                        <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg"
-                            style="width: 40px;object-fit: contain;" alt="">
-                        <span class="ms-1 fs-5 text-ellipsis">Business Name</span>
-                    </div>
-                    <router-link to="/dashboard" class="btn btn-dark rounded-pill">Login</router-link>
-                </div>
-                <div class="offcanvas-body p-0">
-                    <DigitalCardOffcanvas />
-                    <div class="d-flex justify-content-center align-items-center">
-                        <div class="text-center position-fixed bottom-0 px-2 py-1 m-2 rounded text-white"
-                            style="z-index: 9999; background-color: #38383899;" data-bs-dismiss="offcanvas"
-                            aria-label="Close">
-                            <i class="bi bi-arrow-left me-2"></i>
-                            <span>Back</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
+            <DigitalCardOffcanvas />
         </div>
+
         <div class="my-3">
             <div class="d-flex justify-content-between align-items-end mt-3 mb-4 py-4"
                 style="background-color: #efefed">
@@ -101,31 +72,31 @@
             </div>
             <div class="container">
                 <div class="row row-cols-2 row-cols-md-5 g-1">
-                    <div class="col position-relative" v-for="(vote, index) in shops" :key="index">
-                        <div class="card d-flex flex-column align-items-center justify-content-center rounded pt-2 px-1"
-                            data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                            aria-controls="offcanvasExample" style="padding-bottom:37px;">
-                            <img src="https://pics.craiyon.com/2023-07-15/dc2ec5a571974417a5551420a4fb0587.webp" alt=""
-                                class="card-img-top" />
-                            <p class="smaller my-2 text-center text-ellipsis2 fw-bold ">{{ vote.name }} skdjfh laskjdhf
-                                alksjd
-                                sdfh slkdjfh sdsjkf skdj</p>
-                            <div class="d-flex gap-2 overflow-x-scroll w-100 px-2" id="scroll">
-                                <img :src="image" style="width: 30px; height: 30px; object-fit: contain;"
-                                    v-for="image in images" :key="image.id" alt="">
+                    <div class="col position-relative" v-for="(association, index) in associations" :key="index">
+                        <div
+                            class="card border-0 rounded p-0 d-flex flex-column align-items-center justify-content-center rounded">
+                            <div class="p-3 overflow-hidden" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                                role="button" aria-controls="offcanvasExample" style="height: 200px">
+                                <!-- <img src="https://img101.urbanic.com/v1/703c1c85d9a04f03a11294de9aa4d46f.webp" alt="" -->
+                                <img :src="association.img" alt="" class="rounded-top"
+                                    style="width: 100%; min-width: 100%; min-height: 200px; object-fit: cover; object-position: center;" />
                             </div>
-                        </div>
-
-                        <div class="position-absolute bottom-0 m-2 ms-0 text-warning" style="font-size: 12px;">
-                            <span class='bg-light border p-1 px-2 rounded-end-3'>
-                                <i class="bi bi-star-fill small me-2"></i>
-                                <span class="fw-bold">{{ vote.rating }}</span>
-                            </span>
-                        </div>
-                        <div class="position-absolute bottom-0 end-0 m-1 ms-0 text-dark" style="font-size: 12px;">
-                            <div class='d-flex gap-2 align-items-center justify-content-center px-2 p-1'>
-                                <p class="mb-0">{{ vote.support }}+</p>
-                                <p class="mb-0">Promoters</p>
+                            <p class="smaller my-2 text-center text-ellipsis2 fw-bold text-capitalize">{{
+                                association.name
+                                }}</p>
+                            <div class="d-flex gap-2 overflow-x-scroll w-100 px-2" id="scroll">
+                                <img :src="image.image" style="width: 30px; height: 30px; object-fit: contain;"
+                                    v-for="image in association.promoters" :key="image.id" alt="">
+                            </div>
+                            <div class="card-footer border-0 d-flex justify-content-between p-0 py-2 w-100">
+                                <span class='bg-light border p-1 px-2 rounded-end-3 smaller'>
+                                    <i class="bi bi-star-fill small me-2"></i>
+                                    <span class="fw-bold">{{ association.rating }}</span>
+                                </span>
+                                <div class='d-flex gap-2 align-items-center justify-content-center px-2 p-1 smaller'>
+                                    <p class="mb-0">{{ association.support }}+</p>
+                                    <p class="mb-0">Promoters</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -149,31 +120,31 @@
             </div>
             <div class="container">
                 <div class="row row-cols-2 row-cols-md-5 g-1">
-                    <div class="col position-relative" v-for="(vote, index) in shops" :key="index">
-                        <div class="card d-flex flex-column align-items-center justify-content-center rounded pt-2 px-1"
-                            data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                            aria-controls="offcanvasExample" style="padding-bottom:37px;">
-                            <img src="https://pics.craiyon.com/2023-07-15/dc2ec5a571974417a5551420a4fb0587.webp" alt=""
-                                class="card-img-top" />
-                            <p class="smaller my-2 text-center text-ellipsis2 fw-bold ">{{ vote.name }} skdjfh laskjdhf
-                                alksjd
-                                sdfh slkdjfh sdsjkf skdj</p>
-                            <div class="d-flex gap-2 overflow-x-scroll w-100 px-2" id="scroll">
-                                <img :src="image" style="width: 30px; height: 30px; object-fit: contain;"
-                                    v-for="image in images" :key="image.id" alt="">
+                    <div class="col position-relative" v-for="(association, index) in associations" :key="index">
+                        <div
+                            class="card border-0 rounded p-0 d-flex flex-column align-items-center justify-content-center rounded">
+                            <div class="p-3 overflow-hidden" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                                role="button" aria-controls="offcanvasExample" style="height: 200px">
+                                <!-- <img src="https://img101.urbanic.com/v1/703c1c85d9a04f03a11294de9aa4d46f.webp" alt="" -->
+                                <img :src="association.img" alt="" class="rounded-top"
+                                    style="width: 100%; min-width: 100%; min-height: 200px; object-fit: cover; object-position: center;" />
                             </div>
-                        </div>
-
-                        <div class="position-absolute bottom-0 m-2 ms-0 text-warning" style="font-size: 12px;">
-                            <span class='bg-light border p-1 px-2 rounded-end-3'>
-                                <i class="bi bi-star-fill small me-2"></i>
-                                <span class="fw-bold">{{ vote.rating }}</span>
-                            </span>
-                        </div>
-                        <div class="position-absolute bottom-0 end-0 m-1 ms-0 text-dark" style="font-size: 12px;">
-                            <div class='d-flex gap-2 align-items-center justify-content-center px-2 p-1'>
-                                <p class="mb-0">{{ vote.support }}+</p>
-                                <p class="mb-0">Promoters</p>
+                            <p class="smaller my-2 text-center text-ellipsis2 fw-bold text-capitalize">{{
+                                association.name
+                            }}</p>
+                            <div class="d-flex gap-2 overflow-x-scroll w-100 px-2" id="scroll">
+                                <img :src="image.image" style="width: 30px; height: 30px; object-fit: contain;"
+                                    v-for="image in association.promoters" :key="image.id" alt="">
+                            </div>
+                            <div class="card-footer border-0 d-flex justify-content-between p-0 py-2 w-100">
+                                <span class='bg-light border p-1 px-2 rounded-end-3 smaller'>
+                                    <i class="bi bi-star-fill small me-2"></i>
+                                    <span class="fw-bold">{{ association.rating }}</span>
+                                </span>
+                                <div class='d-flex gap-2 align-items-center justify-content-center px-2 p-1 smaller'>
+                                    <p class="mb-0">{{ association.support }}+</p>
+                                    <p class="mb-0">Promoters</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -191,107 +162,370 @@ export default {
     },
     data() {
         return {
-            shops: [
+            associations: [
                 {
                     id: 1,
-                    img: 'img/users/1.png',
-                    name: 'Travis',
+                    img: 'img/members/20.jpeg',
+                    name: 'bar council of india',
                     rating: 4,
                     support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
                 },
                 {
                     id: 2,
-                    img: 'img/users/2.png',
-                    name: 'Kanye',
+                    img: 'img/members/19.jpg',
+                    name: 'bharatiya janta party',
                     rating: 5,
                     support: 100,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
                 },
                 {
                     id: 3,
-                    img: 'img/users/3.png',
-                    name: 'Snoop',
+                    img: 'img/members/18.jpg',
+                    name: 'chartered accountant of india',
                     rating: 2.5,
                     support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
                 },
                 {
                     id: 4,
-                    img: 'img/users/4.png',
-                    name: 'Weekend',
+                    img: 'img/members/4.png',
+                    name: 'delhi cycling club',
                     rating: 5,
                     support: 100,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
                 },
                 {
                     id: 5,
-                    img: 'img/users/5.png',
-                    name: 'Akon',
+                    img: 'img/members/5.jpg',
+                    name: 'delhi police',
                     rating: 4.5,
                     support: 100,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
                 },
                 {
                     id: 6,
-                    img: 'img/users/3.png',
-                    name: 'Snoop',
+                    img: 'img/members/7.jpeg',
+                    name: 'internation medical association',
                     rating: 4,
                     support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
                 },
                 {
                     id: 7,
-                    img: 'img/users/4.png',
-                    name: 'Weekend',
+                    img: 'img/members/6.webp',
+                    name: 'indian lawyers association',
                     rating: 3.5,
                     support: 100,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
                 },
                 {
                     id: 8,
-                    img: 'img/users/5.png',
-                    name: 'Akon',
+                    img: 'img/members/8.png',
+                    name: 'nsci',
                     rating: 3,
                     support: 100,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
                 },
                 {
                     id: 9,
-                    img: 'img/users/3.png',
-                    name: 'Snoop',
+                    img: 'img/members/9.png',
+                    name: 'harley davidson',
                     rating: 5,
                     support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
                 },
                 {
                     id: 10,
-                    img: 'img/users/3.png',
-                    name: 'Snoop',
+                    img: 'img/members/10.png',
+                    name: "life's good",
                     rating: 4.5,
                     support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
                 },
-
+                {
+                    id: 11,
+                    img: 'img/members/11.png',
+                    name: "tzp",
+                    rating: 4.5,
+                    support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
+                },
+                {
+                    id: 12,
+                    img: 'img/members/12.jpg',
+                    name: "Ayush",
+                    rating: 4.5,
+                    support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
+                },
+                {
+                    id: 13,
+                    img: 'img/members/13.jpg',
+                    name: "poonam",
+                    rating: 4.5,
+                    support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
+                },
+                {
+                    id: 14,
+                    img: 'img/members/14.jpg',
+                    name: "vivek",
+                    rating: 4.5,
+                    support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
+                },
+                {
+                    id: 15,
+                    img: 'img/members/15.jpg',
+                    name: "nikhil",
+                    rating: 4.5,
+                    support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
+                },
+                {
+                    id: 16,
+                    img: 'img/members/16.jpg',
+                    name: "abhishek",
+                    rating: 4.5,
+                    support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
+                },
+                {
+                    id: 17,
+                    img: 'img/members/17.jpg',
+                    name: "riya",
+                    rating: 4.5,
+                    support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
+                },
+                {
+                    id: 18,
+                    img: 'img/members/18.jpg',
+                    name: "yogesh",
+                    rating: 4.5,
+                    support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
+                },
+                {
+                    id: 19,
+                    img: 'img/members/19.jpg',
+                    name: "bhasker",
+                    rating: 4.5,
+                    support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
+                },
+                {
+                    id: 20,
+                    img: 'img/members/20.jpeg',
+                    name: "sumit",
+                    rating: 4.5,
+                    support: 200,
+                    promoters: [
+                        { image: "/img/members/1.png", name: "bar council of india", },
+                        { image: "/img/members/2.webp", name: "bharatiya janta party", },
+                        { image: "/img/members/3.png", name: "chartered accountant of india", },
+                        { image: "/img/members/4.png", name: "delhi cycling club", },
+                        { image: "/img/members/5.jpg", name: "delhi police", },
+                        { image: "/img/members/6.webp", name: "indian lawyers association", },
+                        { image: "/img/members/7.jpeg", name: "international medical association", },
+                        { image: "/img/members/8.png", name: "nsci", },
+                    ]
+                },
             ],
-            images: [
-                "/img/members/1.png",
-                "/img/members/2.webp",
-                "/img/members/3.png",
-                "/img/members/4.png",
-                "/img/members/5.jpg",
-                "/img/members/6.webp",
-                "/img/members/7.jpeg",
-                "/img/members/8.png",
-            ]
         }
     }
 }
 </script>
 <style>
 .index-label {
-    top: -20px;
-    left: -5px;
-    padding: 5px;
-    font-size: 3rem;
-    font-weight: 800;
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    /* color: #000; */
-    /* border-top-left-radius: 5px;
-    border-bottom-right-radius: 5px; */
-    background: linear-gradient(90deg, rgba(254, 242, 159, 1) 0%, rgba(210, 163, 73, 1) 50%, rgba(254, 242, 159, 1) 100%);
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    line-height: 1;
+    background: linear-gradient(90deg, #fef29f 0%, rgb(142, 105, 37) 50%, rgb(122, 107, 10) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.index-label p {
+    width: 60px;
+    height: 60px;
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    text-shadow: 1px 1px 1px #00000020;
 }
 </style>
