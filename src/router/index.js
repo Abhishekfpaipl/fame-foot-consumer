@@ -187,6 +187,16 @@ const routes = [
     name: "RewardsDetails",
     component: () => import('@/pages/profile/RewardsDetails.vue')
   },
+  {
+    path: "/supporters-details",
+    name: "SupportersDetails",
+    component: () => import('@/pages/profile/SupportersDetails.vue')
+  },
+  {
+    path: "/fameset-details",
+    name: "FamesetDetails",
+    component: () => import('@/pages/profile/FamesetDetails.vue')
+  },
 
 ];
 

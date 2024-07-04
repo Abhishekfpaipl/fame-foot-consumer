@@ -6,25 +6,17 @@
             </p>
             <div>
                 <ul class="nav nav-pills justify-content-start align-items-center" id="pills-tab" role="tablist">
-                    <div class="d-flex overflow-x-scroll gap-3 my-3 p-2 px-3 rounded" id="scroll">
-                        <li class="nav-item border rounded-pill" role="presentation" v-for="(price, index) in pricing"
-                            :key="index">
+                    <div class="d-flex overflow-auto gap-3 my-3 p-2 px-3 rounded" id="scroll">
+                        <li class="nav-item" role="presentation" v-for="(price, index) in pricing" :key="index">
                             <button class="nav-link" :class="{ 'active': index === activeTabIndex }"
                                 :id="'tab-' + index" data-bs-toggle="pill" :data-bs-target="'#content-' + index"
                                 type="button" role="tab" :aria-controls="'content-' + index"
-                                :aria-selected="index === activeTabIndex" @click="activeTabIndex = index">{{ price.name
+                                :aria-selected="index === activeTabIndex" @click="onTabClick(index)">{{ price.name
                                 }}</button>
                         </li>
                     </div>
                 </ul>
                 <div class="tab-content pb-5" id="pills-tabContent">
-                    <!-- <div class="d-flex align-items-center shadow p-2 mb-3">
-                        <input type="search" placeholder="Search for questions?" v-model="searchTerm"
-                            class="form-control border-0" ref="searchInput" @keyup.enter="search">
-                        <div>
-                            <i class="bi bi-search" @click="search"></i>
-                        </div>
-                    </div> -->
                     <div class="tab-pane fade" :class="{ 'show active': index === activeTabIndex }"
                         v-for="(price, index) in pricing" :key="index" :id="'content-' + index" role="tabpanel"
                         :aria-labelledby="'tab-' + index" tabindex="0">
@@ -38,7 +30,6 @@
                                         <img :src="type.img" style="width: 32px; height: 32px;" alt="" />
                                         <span class="smaller fw-bold">{{ type.name }}</span>
                                     </div>
-
                                 </router-link>
                             </div>
                         </div>
@@ -572,6 +563,16 @@ export default {
                 faq.question.toLowerCase().includes(term) || faq.answer.toLowerCase().includes(term)
             );
         },
+        onTabClick(index) {
+            this.activeTabIndex = index;
+            this.scrollTabIntoView(index);
+        },
+        scrollTabIntoView(index) {
+            const tabElement = document.getElementById(`tab-${index}`);
+            if (tabElement) {
+                tabElement.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+            }
+        }
     }
 }
 </script>
@@ -582,10 +583,19 @@ export default {
 }
 
 .nav-link.active {
-    background-color: black !important;
-    color: white !important;
+    background-color: transparent !important;
+    border-bottom: 3px solid black !important;
+    color: black !important;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    border-radius: 2rem;
+    border-radius: 0px !important;
     transform: scale(1.2);
+}
+
+#scroll {
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* Disable vertical scrolling */
+    white-space: nowrap;
 }
 </style>

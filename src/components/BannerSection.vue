@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="background: linear-gradient(90deg, rgba(254,242,159,1) 0%, rgba(210,163,73,1) 50%, rgba(254,242,159,1) 100%);">
         <div class="pt-5">
             <div class="d-md-flex d-none justify-content-evenly align-items-center w-100">
                 <div class="d-flex align-items-center">

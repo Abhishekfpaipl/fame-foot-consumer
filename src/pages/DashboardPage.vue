@@ -1,5 +1,15 @@
 <template>
-    <div class="container my-5">
+    <div class="container-fluid position-fixed top-0 w-100 bg-light" style="z-index: 99;">
+            <div class="row border py-3 px-2">
+                <div class="col-12 d-flex gap-2 align-items-center">
+                    <i class="bi bi-chevron-left" @click=goback()></i>
+                    <!-- <span>{{ pageName }}</span> -->
+                    <small>Page Name</small>
+                </div>
+
+            </div>
+        </div>
+    <div class="container my-5" style="padding-top:71px">
         <h3 class="text-center mb-4">Profile</h3>
         <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-2">
             <div class="col" v-for="(link, index) in links" :key="index">
@@ -83,6 +93,11 @@ export default {
                     path: '/ '
                 },
             ],
+        }
+    },
+    methods: {
+        goback() {
+            window.history.back()
         }
     }
 }

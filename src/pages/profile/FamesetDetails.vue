@@ -11,18 +11,15 @@
             </div>
         </div>
         <div class="" style="padding-top: 71px;">
-            <h1>Upload</h1>
-            <ImageUploadBox />
+            <h1>Fameset</h1>
+            
         </div>
     </div>
 </template>
 <script>
-import ImageUploadBox from "@/components/ImageUploadBox.vue";
-export default {
+ export default {
     name: "RewardsDetail",
-    components: {
-        ImageUploadBox,
-    },
+    
     methods: {
         goback() {
             window.history.back()
