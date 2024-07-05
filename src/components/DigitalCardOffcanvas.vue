@@ -7,7 +7,8 @@
             <div class="w-75 d-flex justify-content-start align-items-center" data-bs-dismiss="offcanvas"
                 aria-label="Close">
                 <i class="bi bi-arrow-left me-2 fs-5"></i>
-                <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg"
+                <!-- <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg" -->
+                <img src="/img/members/19.jpg"
                     style="width: 40px;object-fit: contain;" alt="">
                 <span class="ms-1 fs-5 text-ellipsis">Business Name</span>
             </div>

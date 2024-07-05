@@ -6,7 +6,8 @@
     </div>
     <div class="row">
       <div class="col-12 col-md-4  p-3 position-relative">
-        <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg" alt="Logo" class="rounded-3"
+        <!-- <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg" alt="Logo" class="rounded-3" -->
+        <img src="/img/members/19.jpg" alt="Logo" class="rounded-3"
           style="width: 200px;">
         <span @click="share" class="position-absolute start-0 px-3">
           <i class="bi bi-share-fill fs-4"></i>

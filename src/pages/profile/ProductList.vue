@@ -6,11 +6,13 @@
                 <div class="d-flex gap-2 justify-content-end align-items-center fs-4">
                     <i class="bi bi-plus-lg btn border p-1 text-white" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"></i>
-                    <i class="bi bi-funnel btn border p-1 text-white"></i>
-                    <i class="bi bi-sort-up-alt btn border p-1 text-white"></i>
+                    <i class="bi bi-funnel btn border p-1 text-white" data-bs-toggle="offcanvas"
+                        data-bs-target="#Filter" aria-controls="Filter"></i>
+                    <i class="bi bi-sort-up-alt btn border p-1 text-white" data-bs-toggle="offcanvas"
+                        data-bs-target="#Sort" aria-controls="Sort"></i>
                     <i class="bi bi-search btn border p-1 text-white" data-bs-toggle="collapse"
                         data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></i>
-                    <i :class="currentIcon" class="btn border text-white" @click="toggleIcon"></i>
+                    <i :class="currentIcon" class="btn border text-white p-1" @click="toggleIcon"></i>
 
                 </div>
                 <div class="p-2 collapse" id="collapseExample">
@@ -23,6 +25,37 @@
                 </div>
             </div>
         </TopNav>
+        <!-- sort -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="Sort" aria-labelledby="SortLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="SortLabel">Sort</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+        <!-- filter -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="Filter" aria-labelledby="FilterLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="FilterLabel">Filter</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+        <!-- create -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
