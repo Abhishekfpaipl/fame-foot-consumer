@@ -1,16 +1,7 @@
 <template>
-    <div class="container-fluid position-fixed top-0 w-100 bg-light" style="z-index: 99;">
-            <div class="row border py-3 px-2">
-                <div class="col-12 d-flex gap-2 align-items-center">
-                    <i class="bi bi-chevron-left" @click=goback()></i>
-                    <!-- <span>{{ pageName }}</span> -->
-                    <small>Page Name</small>
-                </div>
-
-            </div>
-        </div>
-    <div class="container my-5" style="padding-top:71px">
-        <h3 class="text-center mb-4">Profile</h3>
+    <TopNav/>
+    <div class="container" style="padding-top:90px">
+        <!-- <h3 class="text-center mb-4">Profile</h3> -->
         <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-2">
             <div class="col" v-for="(link, index) in links" :key="index">
                 <router-link :to="link.path" class="card text-decoration-none py-3">
@@ -20,27 +11,34 @@
             </div>
         </div>
     </div>
+    <BottomNav />
 </template>
 <script>
+import BottomNav from "@/components/profile/BottomNav.vue"
+import TopNav from "@/components/profile/TopNav.vue";
 export default {
     name: "DashboardPage",
+    components: {
+        BottomNav,
+        TopNav,
+    },
     data() {
         return {
             links: [
+                // {
+                //     icon: 'bi bi-house',
+                //     name: 'Dashboard',
+                //     path: '/'
+                // },
                 {
-                    icon: 'bi bi-house',
-                    name: 'Dashboard',
-                    path: '/'
+                    icon: 'bi-info-circle',
+                    name: 'Basic Info',
+                    path: '/basic-details',
                 },
                 {
                     icon: 'bi bi-vinyl',
                     name: 'Business Type',
                     path: '/businesstype-details'
-                },
-                {
-                    icon: 'bi-info-circle',
-                    name: 'Basic Info',
-                    path: '/basic-details',
                 },
                 {
                     icon: 'bi bi-stars',
@@ -67,11 +65,11 @@ export default {
                     name: 'Collection',
                     path: '/collection-list'
                 },
-                {
-                    icon: 'bi bi-layers',
-                    name: 'Product',
-                    path: '/product-list'
-                },
+                // {
+                //     icon: 'bi bi-layers',
+                //     name: 'Product',
+                //     path: '/product-list'
+                // },
                 // {
                 //     icon: 'bi bi-images',
                 //     name: 'Gallery',
@@ -85,20 +83,37 @@ export default {
                 {
                     icon: 'bi bi-bank',
                     name: 'Bank',
-                    path: '/ '
+                    path: '/bank-details'
                 },
-                {
-                    icon: 'bi bi-journal',
-                    name: 'Leads',
-                    path: '/ '
-                },
+                // {
+                //     icon: 'bi bi-journal',
+                //     name: 'Leads',
+                //     path: '/ '
+                // },
             ],
+            pageName: ''
         }
+    },
+    mounted() {
+        let path = this.$route.path;
+
+        // Remove leading and trailing slashes
+        path = path.replace(/^\/|\/$/g, '');
+
+        // Replace dashes with spaces
+        path = path.replace(/-/g, ' ');
+
+        // Optionally, capitalize the first letter of each word
+        // path = path.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
+        this.pageName = path;
+        console.log(this.pageName);
     },
     methods: {
         goback() {
             window.history.back()
-        }
+        },
+
     }
 }
 </script>

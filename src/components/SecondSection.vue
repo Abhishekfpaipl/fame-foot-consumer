@@ -570,7 +570,7 @@ export default {
         scrollTabIntoView(index) {
             const tabElement = document.getElementById(`tab-${index}`);
             if (tabElement) {
-                tabElement.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+                tabElement.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
         }
     }
@@ -589,13 +589,5 @@ export default {
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     border-radius: 0px !important;
     transform: scale(1.2);
-}
-
-#scroll {
-    scroll-behavior: smooth;
-    overflow-x: auto;
-    overflow-y: hidden;
-    /* Disable vertical scrolling */
-    white-space: nowrap;
 }
 </style>

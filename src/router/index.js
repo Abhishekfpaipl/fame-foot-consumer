@@ -197,6 +197,16 @@ const routes = [
     name: "FamesetDetails",
     component: () => import('@/pages/profile/FamesetDetails.vue')
   },
+  {
+    path: "/category-details",
+    name: "CategoryDetails",
+    component: () => import('@/pages/profile/CategoryDetails.vue')
+  },
+  {
+    path: "/bank-details",
+    name: "BankDetails",
+    component: () => import('@/pages/profile/BankDetails.vue')
+  },
 
 ];
 

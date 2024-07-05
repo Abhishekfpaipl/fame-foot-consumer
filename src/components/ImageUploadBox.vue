@@ -1,37 +1,39 @@
 <template>
-    <div class="container my-5">
+    <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="border py-4 d-flex flex-column justify-content-center align-items-center gap-3"
-                    @dragover.prevent="onDragOver" @dragleave.prevent="onDragLeave" @drop.prevent="onDrop"
-                    :class="{ 'bg-light': isDragging }">
-                    <i class="bi bi-cloud-arrow-up-fill fs-1 text-success" @click="triggerFileUpload"></i>
-                    <p class="fw-bold mb-0">Choose a file or drag & drop it here</p>
+            <div class="col-12">
+                <div class="border py-4 px-3 d-flex justify-content-center align-items-center gap-3"
+                    @click="triggerFileUpload" @dragover.prevent="onDragOver" @dragleave.prevent="onDragLeave"
+                    @drop.prevent="onDrop" :class="{ 'bg-light': isDragging }">
+                    <i class="bi bi-cloud-arrow-up-fill fs-1 text-success"></i>
+                    <p class="fw-bold mb-0">{{ buttonText }} or drag & drop it here</p>
                     <input ref="fileInput" type="file" @change="previewImage" style="display: none"
                         accept="image/*,application/pdf" multiple>
-                    <label class="p-2 btn btn-outline-dark rounded-0" @click="triggerFileUpload">{{ buttonText
-                        }}</label>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div v-if="previewUrls.length"
-                    class="d-flex gap-2 justify-content-center flex-wrap overflow-y-scroll align-items-center bg-light"
-                    style="height: 200px">
-                    <div v-for="(file, index) in previewUrls" :key="index"
-                        class="d-flex flex-column align-items-center mt-3">
-                        <img v-if="file.isImage" :src="file.url" alt="preview"
-                            style="object-fit:contain; width: 60px; height:60px;" data-bs-toggle="collapse"
-                            :data-bs-target="'#collapseExample' + index" aria-expanded="false"
-                            :aria-controls="'collapseExample' + index" />
+            <div class="col-12">
+                <div v-if="previewUrls.length">
+                    <div class="container mt-3 pb-5">
+                        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-2">
+                            <div class="col" v-for="(file, index) in previewUrls" :key="index">
+                                <div class="card">
+                                    <img v-if="file.isImage" :src="file.url" alt="preview" data-bs-toggle="collapse"
+                                        :data-bs-target="'#collapseExample' + index" aria-expanded="false"
+                                        :aria-controls="'collapseExample' + index" />
 
-                        <a v-else :href="file.url" target="_blank"
-                            class="d-flex align-items-center justify-content-center btn border rounded"
-                            style="height:100px;width:100px;">
-                            <i class="bi bi-filetype-pdf text-danger" style="font-size:50px"></i>
-                        </a>
-                        <div class="collapse" :id="'collapseExample' + index">
-                            <button class="btn btn-danger rounded-0 mt-2" @click="deleteImage(index)">Delete</button>
+                                    <a v-else :href="file.url" target="_blank"
+                                        class="d-flex align-items-center justify-content-center btn border rounded"
+                                        style="height:100px;width:100px;">
+                                        <i class="bi bi-filetype-pdf text-danger" style="font-size:50px"></i>
+                                    </a>
+                                </div>
+                                <div class="collapse w-100" :id="'collapseExample' + index">
+                                    <button class="btn btn-danger rounded-0 mt-2 w-100"
+                                        @click="deleteImage(index)">Delete</button>
+                                </div>
+                            </div>
                         </div>
+
 
                     </div>
                 </div>
@@ -70,7 +72,7 @@ export default {
             this.handleFiles(files);
 
             if (!this.error) {
-                this.buttonText = 'Change Files';
+                this.buttonText = 'Add Files';
             }
         },
         handleFiles(files) {

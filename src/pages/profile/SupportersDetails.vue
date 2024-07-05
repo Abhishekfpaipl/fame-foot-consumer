@@ -1,92 +1,107 @@
 <template>
     <div class="">
-        <div class="container-fluid position-fixed top-0 w-100 bg-light" style="z-index: 99;">
-            <div class="row border py-3 px-2">
-                <div class="col-12 d-flex gap-2 align-items-center">
-                    <i class="bi bi-chevron-left" @click=goback()></i>
-                    <!-- <span>{{ pageName }}</span> -->
-                    <small>Page Name</small>
-                </div>
-                <!-- <div class="col-8 d-flex gap-2 justify-content-end align-items-center fs-4">
-                    <i :class="currentIcon" @click="toggleIcon"></i>
-                    <i class="bi bi-funnel"></i>
-                    <i class="bi bi-sort-up-alt"></i>
-                    <i class="bi bi-search" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                        aria-expanded="false" aria-controls="collapseExample"></i>
+        <TopNav />
+        <div class="d-flex flex-column my-2" style="padding-top:80px">
+            <div class="d-flex justify-content-between border-bottom" v-for="(product, index) in products" :key="index">
+                <div class="d-flex justify-content-between p-2" data-bs-toggle="modal" data-bs-target="#collectionModal"
+                    :data-bs-collectionId="product.id">
 
-                    <button class="btn border" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-                        aria-controls="offcanvasExample">
-                        <i class="bi bi-plus-lg"></i>
-                    </button>
-                </div> -->
-            </div>
-        </div>
-        <div class="d-flex flex-column my-2" style="padding-top:71px">
-            <div class="d-flex justify-content-between border-bottom" v-for="(product, index) in products" :key="index"
-                @click="editProduct(product)">
-                <div class="d-flex justify-content-between p-2">
-                    <div>
-                        <img :src="product.img" class="border rounded"
-                            style="object-position: top; object-fit: cover; height: 60px; width: 60px;">
-                    </div>
+                    <img :src="product.img" class="border rounded"
+                        style="object-position: top; object-fit: cover; height: 60px; width: 60px;">
+
                     <p class="text-start mb-0 truncate ms-2">{{ product.name }}</p>
                 </div>
             </div>
+            <ProductModal :collection="products" />
         </div>
     </div>
+    <BottomNav />
 </template>
 <script>
+import BottomNav from "@/components/profile/BottomNav.vue"
+import TopNav from "@/components/profile/TopNav.vue"
+import ProductModal from "@/components/profile/ProductModal.vue"
 export default {
+    components: {
+        BottomNav,
+        TopNav,
+        ProductModal,
+    },
     data() {
         return {
             products: [
                 {
                     id: 1,
-                    name: 'Sheer Pullover T-shirt',
-                    img: 'https://img101.urbanic.com/v1/goods-pic/4f8bd334d26b4144bca22a09f38bc28fUR_w750_q90.webp',
+                    name: 'Supporter 1',
+                    img: 'https://img101.urbanic.com/v1/goods-pic/2a09375782c34f1781fd99bae860f81cUR_w750_q90.webp',
                     price: 2300,
-                    unit: 12,
-                    moq: 10,
-                    option: [],
-                    range: [],
+                    options: [
+                        "https://img101.urbanic.com/v1/goods-pic/2a09375782c34f1781fd99bae860f81cUR_w750_q90.webp",
+                        "https://img101.urbanic.com/v1/goods-pic/2a09375782c34f1781fd99bae860f81cUR_w750_q90.webp",
+                        "https://img101.urbanic.com/v1/goods-pic/2a09375782c34f1781fd99bae860f81cUR_w750_q90.webp",
+                        "https://img101.urbanic.com/v1/goods-pic/2a09375782c34f1781fd99bae860f81cUR_w750_q90.webp"
+                    ],
                 },
                 {
                     id: 2,
-                    name: 'Black Top',
+                    name: 'Supporter 2',
                     img: 'https://img101.urbanic.com/v1/goods-pic/286e3f3c7b2541d681460f61ea4bb4aaUR_w360_q85.webp',
                     price: 799,
-                    unit: 12,
-                    moq: 10,
-                    option: [],
-                    range: [],
+                    options: [
+                        'https://img101.urbanic.com/v1/goods-pic/286e3f3c7b2541d681460f61ea4bb4aaUR_w360_q85.webp',
+                        'https://img101.urbanic.com/v1/goods-pic/286e3f3c7b2541d681460f61ea4bb4aaUR_w360_q85.webp',
+                        'https://img101.urbanic.com/v1/goods-pic/286e3f3c7b2541d681460f61ea4bb4aaUR_w360_q85.webp',
+                        'https://img101.urbanic.com/v1/goods-pic/286e3f3c7b2541d681460f61ea4bb4aaUR_w360_q85.webp',
+                    ],
                 },
                 {
                     id: 3,
-                    name: 'Sheer Pullover T-shirt',
+                    name: 'Supporter 3',
                     img: 'https://img101.urbanic.com/v1/goods-pic/4f8bd334d26b4144bca22a09f38bc28fUR_w750_q90.webp',
                     price: 2300,
-                    unit: 12,
-                    moq: 10,
-                    option: [],
-                    range: [],
+                    options: [
+                        'https://img101.urbanic.com/v1/goods-pic/4f8bd334d26b4144bca22a09f38bc28fUR_w750_q90.webp',
+                        'https://img101.urbanic.com/v1/goods-pic/4f8bd334d26b4144bca22a09f38bc28fUR_w750_q90.webp',
+                        'https://img101.urbanic.com/v1/goods-pic/4f8bd334d26b4144bca22a09f38bc28fUR_w750_q90.webp',
+                        'https://img101.urbanic.com/v1/goods-pic/4f8bd334d26b4144bca22a09f38bc28fUR_w750_q90.webp',
+                    ],
                 },
                 {
                     id: 4,
-                    name: 'Black Top',
-                    img: 'https://img101.urbanic.com/v1/goods-pic/286e3f3c7b2541d681460f61ea4bb4aaUR_w360_q85.webp',
+                    name: 'Supporter 4',
+                    img: 'https://img101.urbanic.com/v1/goods-pic/0f85126c686b4fae95567f1203c53a69UR_w750_q90.webp',
                     price: 799,
-                    unit: 12,
-                    moq: 10,
-                    option: [],
-                    range: [],
+                    options: [
+                        'https://img101.urbanic.com/v1/goods-pic/0f85126c686b4fae95567f1203c53a69UR_w750_q90.webp',
+                        'https://img101.urbanic.com/v1/goods-pic/0f85126c686b4fae95567f1203c53a69UR_w750_q90.webp',
+                        'https://img101.urbanic.com/v1/goods-pic/0f85126c686b4fae95567f1203c53a69UR_w750_q90.webp',
+                        'https://img101.urbanic.com/v1/goods-pic/0f85126c686b4fae95567f1203c53a69UR_w750_q90.webp',
+                    ],
                 },
             ],
+            pageName: ''
         }
+    },
+    mounted() {
+        let path = this.$route.path;
+
+        // Remove leading and trailing slashes
+        path = path.replace(/^\/|\/$/g, '');
+
+        // Replace dashes with spaces
+        path = path.replace(/-/g, ' ');
+
+        // Optionally, capitalize the first letter of each word
+        // path = path.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
+        this.pageName = path;
+        console.log(this.pageName);
     },
     methods: {
         goback() {
             window.history.back()
-        }
+        },
+
     }
 }
 </script>
