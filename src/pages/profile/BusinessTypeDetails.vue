@@ -9,67 +9,57 @@
 
         </div>
     </div>
-    <div class="" style="padding-top: 140px;">
-        <div class="container">
-            <p class="fs-5 text-center">Catagory</p> 
-            <div v-for="(type, index) in types" :key="index"
-                class="d-flex justify-content-between px-2 py-2  align-items-center   border-bottom">
-                <div class="d-flex">
-                    <div>
-                        <img :src="type.img" alt="">
-                    </div>
-                    <label class="ms-2 form-check-label" :for="'inlineRadio' + index">
-                        <span>{{ type.label }}</span>
-                        <p class="mb-0">{{ type.heading }}</p>
-                    </label>
-                </div>
+    <div class="container" style="padding-top: 140px;">
+        <p class="fs-5 text-center text-capitalize">Enter your business logo</p>
+        <form @submit.prevent="submitForm()" class="row g-3">
+            <div class="col-12">
+                <ImageUpload @imageUploaded="handleImageUploaded" />
+                <div class="my-3">
+                    <div class="card-body">
+                        <h5 class="text-center">Select Your Brand Color</h5>
 
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" :id="'inlineRadio' + index"
-                    :value="type.value">
+                        <div class="form-group">
+                            <input v-model="selectedColor" type="color" id="favcolor" name="favcolor"
+                                class="form-control border-0">
+                        </div>
+                        <div class="d-flex justify-content-center gap-2 mt-3"
+                            :class="{ 'justify-content-between': submittedColor }">
+                            <button  class="btn btn-dark w-50" @click="submitColor">show color</button>
+                            <div v-if="submittedColor"
+                                class="d-flex align-items-center justify-content-center border p-2 ">
+                                <p class="text-center mb-0 me-3">
+                                    Selected Color:
+                                    <span>{{ submittedColor }}</span>
+                                </p>
+                                <div class="rounded-circle" :style="{ backgroundColor: submittedColor }"
+                                    style="width:30px; height:30px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="d-flex justify-content-center my-3 w-100">
-                <button class="btn btn-dark w-100 py-3" type="submit">Save<i
-                        class="bi bi-arrow-right  ms-2"></i></button>
-            </div>
-        </div>
+            <button class="btn btn-dark w-100" type="submit">Save & Continue <i
+                    class="bi bi-arrow-right ms-2"></i></button>
+        </form>
+
     </div>
 </template>
 
 <script>
+import ImageUpload from '@/components/ImageUploadBox.vue';
 import TopNav from "@/components/profile/TopNav.vue";
 export default {
     components: {
-        TopNav
+        TopNav,
+        ImageUpload
     },
     name: "BusinessTypeDetail",
     data() {
         return {
-            types: [
-                {
-                    id: 1,
-                    label: 'I sell online from my home',
-                    heading: 'Reseller',
-                    img: '/img/first.png',
-                },
-                {
-                    id: 2,
-                    label: 'I have a retail Shop',
-                    heading: 'Retailer',
-                    img: '/img/sec.png',
-                },
-                {
-                    id: 3,
-                    label: 'I have wholsale Store',
-                    heading: 'Wholesaler',
-                    img: '/img/third.png',
-                },
-                {
-                    id: 4,
-                    label: 'i Have a manufacturing unit',
-                    heading: 'Manufacturer',
-                    img: '/img/fourth.png',
-                },
-            ],
+            selectedColor: '',
+            submittedColor: false,
             pageName: '',
         }
     },
@@ -91,7 +81,15 @@ export default {
     methods: {
         goback() {
             window.history.back();
-        }
+        },
+        submitForm() {
+            console.log(this.name, this.pincode, this.address1, this.address2, this.area, this.landmark, this.city, this.state)
+            this.$router.push("/connect-details")
+        },
+        submitColor() {
+            this.submittedColor = this.selectedColor;
+            // this.selectedColor = '#ff0000'; 
+        },
     }
 
 }

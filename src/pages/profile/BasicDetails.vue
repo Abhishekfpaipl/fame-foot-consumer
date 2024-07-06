@@ -12,36 +12,7 @@
     <div class="container" style="padding-top: 140px;">
         <p class="fs-5 text-center text-capitalize">Enter your business details</p>
         <form @submit.prevent="submitForm()" class="row g-3">
-            <div class="col-12 col-md-6">
-                <ImageUpload @imageUploaded="handleImageUploaded" />
-                <div class="my-3">
-                    <div class="card-body">
-                        <h5 class="text-center">Select Your Brand Color</h5>
-                        <form @submit.prevent="submitColor">
-                            <div class="form-group">
-                                <input v-model="selectedColor" type="color" id="favcolor" name="favcolor"
-                                    class="form-control border-0">
-                            </div>
-                            <div class="d-flex justify-content-center gap-2 mt-3" :class="{'justify-content-between': submittedColor}">
-                                <button type="submit" class="btn btn-dark w-50">show color</button>
-                                <div v-if="submittedColor"
-                                    class="d-flex align-items-center justify-content-center border p-2 my-2">
-                                    <p class="text-center mb-0 me-3">
-                                        Selected Color:
-                                        <span>{{ submittedColor }}</span>
-                                    </p>
-                                    <div class="rounded-circle" :style="{ backgroundColor: submittedColor }"
-                                        style="width:30px; height:30px">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12">
                 <div class="form-floating mb-2">
                     <input type="text" class="form-control" id="name" placeholder="name" v-model="name">
                     <label for="name" class="px-3">Business Name</label>
@@ -77,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-dark w-100 py-3" type="submit">Save & Continue <i
+            <button class="btn btn-dark w-100" type="submit">Save & Continue <i
                     class="bi bi-arrow-right ms-2"></i></button>
         </form>
 
@@ -85,11 +56,11 @@
 </template>
 
 <script>
-import ImageUpload from '@/components/ImageUploadBox.vue';
+// import ImageUpload from '@/components/ImageUploadBox.vue';
 import TopNav from "@/components/profile/TopNav.vue";
 export default {
     components: {
-        ImageUpload,
+        // ImageUpload,
         TopNav
     },
 
@@ -126,15 +97,12 @@ export default {
     methods: {
         submitForm() {
             console.log(this.name, this.pincode, this.address1, this.address2, this.area, this.landmark, this.city, this.state)
-            this.$router.push("/connect-details")
+            this.$router.push("/businesstype-details")
         },
         goback() {
             window.history.back();
         },
-        submitColor() {
-            this.submittedColor = this.selectedColor;
-            // this.selectedColor = '#ff0000'; 
-        },
+       
     }
 }
 </script>

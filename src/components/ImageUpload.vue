@@ -3,7 +3,7 @@
     <div class="d-flex flex-column justify-content-center align-items-center w-100">
         <div class="preview-circle d-flex justify-content-center align-item-center rounded-circle">
             <div v-if="!previewUrl" class="my-2">
-                <img :src="mysteryman" alt="Mystery Man" class="preview-image">
+                <img src="" alt="Product Image" class="preview-image">
             </div>
             <img v-else-if="isImage" :src="previewUrl" alt="preview" class="preview-image">
             <a v-else :href="previewUrl" target="_blank" class="d-flex align-items-center justify-content-center h-100">
@@ -11,9 +11,9 @@
             </a>
         </div>
 
-        <div class="ms-4">
-            <label class="btn btn-primary w-100" @click="triggerFileUpload">
-                <i class="bi bi-upload me-2"></i> Add Image
+        <div class="my-2">
+            <label class="btn btn-dark w-100" @click="triggerFileUpload">
+                <i class="bi bi-upload me-2"></i> {{buttonText}}
             </label>
             <input class="w-100" ref="fileInput" type="file" @change="previewImage" style="display: none"
                 accept="image/*,application/pdf">
@@ -27,6 +27,7 @@ export default {
     name: 'ImageUploadBox',
     data() {
         return {
+            buttonText: 'Upload Images',
             previewUrl: '',
             isImage: true,
             error: '',
@@ -50,6 +51,9 @@ export default {
             if (file.size > 5 * 1024 * 1024) {
                 this.error = 'File size should not exceed 5MB.';
                 return;
+            }
+            if (!this.error) {
+                this.buttonText = 'change Image';
             }
             this.isImage = file.type.startsWith('image/');
             this.previewUrl = URL.createObjectURL(file);

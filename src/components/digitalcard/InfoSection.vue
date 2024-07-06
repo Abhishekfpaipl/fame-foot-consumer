@@ -24,25 +24,25 @@ export default {
             items: [
                 {
                     iconClass: 'bi bi-chat-square-text-fill fs-1',
-                    iconColor: 'green',
+                    iconColor: '#C9E7CA',
                     data: 10,
                     label: 'Reviews'
                 },
                 {
                     iconClass: 'bi bi-star-fill fs-1',
-                    iconColor: 'gold',
+                    iconColor: '#FFECB4',
                     data: 5,
                     label: 'Ratings'
                 },
                 {
                     iconClass: 'bi bi-trophy-fill fs-1',
-                    iconColor: 'blue',
+                    iconColor: '#BCDFFB',
                     data: 10,
                     label: 'Rewards'
                 },
                 {
                     iconClass: 'bi bi-people-fill fs-1',
-                    iconColor: 'red',
+                    iconColor: '#FFB2B2',
                     data: 50,
                     label: 'Promoters'
                 }

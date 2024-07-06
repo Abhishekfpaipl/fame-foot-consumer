@@ -33,8 +33,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                 <div v-else class="border py-5">
@@ -123,3 +121,12 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+/* Your styles here */
+#scroll::-webkit-scrollbar {
+    background-color: none;
+    display: none;
+}
+ 
+</style>

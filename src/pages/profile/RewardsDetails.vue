@@ -1,14 +1,5 @@
 <template>
     <div>
-        <!-- <div class="container-fluid position-fixed top-0 w-100 bg-light" style="z-index: 99;">
-            <div class="row border py-3 px-2">
-                <div class="col-12 d-flex gap-2 align-items-center">
-                    <i class="bi bi-chevron-left" @click=goback()></i>
-                    <span class="text-capitalize">{{ pageName }}</span>
-                </div>
-
-            </div>
-        </div> -->
         <TopNav/>
         <div class="" style="padding-top: 80px;">
             <!-- <h1>Upload</h1> -->

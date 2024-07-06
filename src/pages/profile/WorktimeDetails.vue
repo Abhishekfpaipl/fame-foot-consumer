@@ -27,7 +27,7 @@
                                     <span class="fw-bold">End Time:</span> {{ group.endDate }}
                                 </p>
                             </div>
-                            <h3>{{ group.label }}</h3>
+                            <p class="fw-bold my-2">{{ group.label }}</p>
                             <button class="btn btn-danger" @click="deleteGroup(index)">Delete</button>
                         </div>
                     </div>
@@ -36,12 +36,12 @@
                             <span><span class="fw-bold me-2">Start Time:</span>08:00</span>
                             <span><span class="fw-bold me-2">End Time:</span>05:00</span>
                         </div>
-                        <h3 class="my-2">Monday, Tuesday, Wednesday</h3>
+                        <p class="fw-bold my-2">Monday, Tuesday, Wednesday</p>
                         <button class="btn btn-danger my-2">Delete</button>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 mt-2 mt-md-0">
                 <div class="card card-body">
                     <small class="text-start">Let your customers know when you are open for business</small>
                     <p class="text-start my-2">Select days of the week</p>

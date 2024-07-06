@@ -5,7 +5,7 @@
 
                 <div class="d-flex gap-2 justify-content-end align-items-center fs-4">
                     <i class="bi bi-plus-lg btn border p-1 text-white" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"></i>
+                        data-bs-target="#createProduct" aria-controls="createProduct"></i>
                     <i class="bi bi-funnel btn border p-1 text-white" data-bs-toggle="offcanvas"
                         data-bs-target="#Filter" aria-controls="Filter"></i>
                     <i class="bi bi-sort-up-alt btn border p-1 text-white" data-bs-toggle="offcanvas"
@@ -56,10 +56,9 @@
             </div>
         </div>
         <!-- create -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
-            aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="createProduct" aria-labelledby="createProductLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Create Product</h5>
+                <h5 class="offcanvas-title" id="createProductLabel">Create Product</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -100,37 +99,76 @@
 
         <!-- Conditional Rendering for Different Views -->
         <div class="" style="padding-top:80px">
-            <div v-if="currentIcon === 'bi bi-list-ul'" class="d-flex flex-column my-2">
-                <div class="d-flex justify-content-between border-bottom" v-for="(product, index) in products"
-                    :key="index">
-                    <div class="d-flex justify-content-between p-2" data-bs-toggle="modal"
+            <div v-if="currentIcon === 'bi bi-list-ul'" class="container-fluid my-2">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-1">
+                    <div class="col" v-for="(product, index) in products" :key="index" data-bs-toggle="modal"
                         data-bs-target="#collectionModal" :data-bs-collectionId="product.id">
-                        <div>
-                            <img :src="product.img" class="border rounded"
-                                style="object-position: top; object-fit: cover; height: 60px; width: 60px;">
+                        <div class="border  d-flex justify-content-start gap-2 p-2">
+                            <img :src="product.img" class="border rounded-0"
+                                style="object-position: top; object-fit: cover; max-height: 60px; max-width: 60px;">
+                            <p class="text-start mb-0 truncate text-capitalize">{{ product.name }}</p>
                         </div>
-                        <p class="text-start mb-0 truncate ms-2 text-capitalize">{{ product.name }}</p>
+                    </div>
+                </div>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="editProduct" aria-labelledby="editProductLabel">
+                    <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title" id="editProductLabel">Edit Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <form @submit.prevent="createProduct()" class="mt-4 row g-3 needs-validation" novalidate>
+                            <ImageUploadBox @image="handleImage" />
+                            <div class="w-100 form-floating my-2">
+                                <input type="text" class="form-control" placeholder="" v-model="code" required>
+                                <label for="floatingInput" class="text-muted ms-2">Code</label>
+                            </div>
+                            <div class="w-100 form-floating my-2">
+                                <input type="text" class="form-control" placeholder="" v-model="name" required>
+                                <label for="floatingInput" class="text-muted ms-2">Name</label>
+                            </div>
+                            <div class="w-100 form-floating my-2">
+                                <input type="text" class="form-control" placeholder="" v-model="description" required>
+                                <label for="floatingInput" class="text-muted ms-2">Description</label>
+                            </div>
+                            <div class="w-100 form-floating my-2">
+                                <input type="tel" class="form-control" placeholder="Mobile" v-model="brandName"
+                                    required>
+                                <label class="ms-2 text-muted">Brand Name</label>
+                            </div>
+                            <div class="w-100 form-floating my-2">
+                                <input type="tel" class="form-control" placeholder="Mobile" v-model="category" required>
+                                <label class="ms-2 text-muted">Category</label>
+                            </div>
+                            <div class="w-100 form-floating my-2">
+                                <input type="tel" class="form-control" placeholder="Mobile" v-model="price" required>
+                                <label class="ms-2 text-muted">price</label>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-secondary py-2 fs-5 w-50 rounded-0" type="reset">Reset</button>
+                                <button class="btn btn-danger py-2 fs-5 w-50 rounded-0" type="submit">Create</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
 
             <div v-else-if="currentIcon === 'bi bi-grid-3x3-gap-fill'" class="container my-2">
-                <div class="row row-cols-3 g-2">
+                <div class="row row-cols-3 row-cols-md-4 row-cols-lg-6 g-2">
                     <div class="col" v-for="(product, index) in products" :key="index">
                         <div class="card border-0" data-bs-toggle="modal" data-bs-target="#collectionModal"
                             :data-bs-collectionId="product.id">
-                            <img :src="product.img" class="border rounded card-img-top">
+                            <img :src="product.img" class="border rounded-0 card-img-top">
                         </div>
                     </div>
                 </div>
             </div>
 
             <div v-else-if="currentIcon === 'bi bi-grid-fill'" class="container my-2">
-                <div class="row row-cols-2 g-2">
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-2">
                     <div class="col" v-for="(product, index) in products" :key="index">
                         <div class="card border-0" data-bs-toggle="modal" data-bs-target="#collectionModal"
                             :data-bs-collectionId="product.id">
-                            <img :src="product.img" class="border rounded card-img-top">
+                            <img :src="product.img" class="border rounded-0 card-img-top">
                             <p class="text-start">{{ product.name }}</p>
                         </div>
                     </div>
@@ -211,7 +249,6 @@ export default {
         handleImage(imageUrl) {
             this.uploadedImageUrl = imageUrl;
             console.log("Uploaded image URL:", imageUrl);
-            // You can now use this.uploadedImageUrl wherever you need in your parent component
         },
         createProduct() {
             let data = {
@@ -224,6 +261,18 @@ export default {
                 img: this.uploadedImageUrl
             }
             this.$store.dispatch('createProduct', data);
+        },
+        editProduct() {
+            let data = {
+                code: this.code,
+                name: this.name,
+                description: this.description,
+                brandName: this.brandName,
+                category: this.category,
+                price: this.price,
+                img: this.uploadedImageUrl
+            }
+            this.$store.dispatch('editProduct', data);
         }
     }
 }

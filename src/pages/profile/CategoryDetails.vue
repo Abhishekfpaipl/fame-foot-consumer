@@ -14,14 +14,13 @@
         <p>Choose the right business categories so your customer can easily find you</p>
 
         <div class="row">
-            <div class="col-12 col-md-6"></div>
-            <div class="col-12 col-md-6">
+            <div class="col-12">
                 <div class="card px-3">
                     <div class="input-group my-3">
                         <input type="text" class="form-control" placeholder="Type Business Category"
                             v-model="searchTerm" @keyup.enter="addCategory">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" @click="addCategory">
+                            <button class="btn btn-outline-secondary rounded-0" type="button" @click="addCategory">
                                 <i class="bi bi-search"></i>
                             </button>
                         </div>
@@ -56,7 +55,7 @@
             </div>
         </div>
 
-        <button class="btn btn-dark w-100" @click="saveAndContinue">
+        <button class="btn btn-dark w-100 my-2" @click="saveAndContinue">
             Save and Continue
             <i class="bi bi-arrow-right"></i>
         </button>

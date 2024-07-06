@@ -1,12 +1,11 @@
 <template>
-    <div class="modal fade" id="collectionModal" tabindex="-1" aria-labelledby="collectionModalLabel"
+    <!-- <div class="modal fade" id="collectionModal" tabindex="-1" aria-labelledby="collectionModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content rounded-4">
-                <div class="modal-body p-0"> 
+                <div class="modal-body p-0">
                     <div class="card p-0">
                         <div class="card-header border-0 p-0">
-
                             <div :id="'productImages' + index" class="carousel slide d-md-none">
                                 <div class="carousel-inner position-relative">
                                     <div :id="'cardCarousel' + imgIndex" class="carousel-item"
@@ -65,23 +64,51 @@
                                     </div>
                                     <div class="position-absolute end-0 bottom-0 m-2 text-white wh-40 rounded-circle px-1"
                                         @click="share" style="background-color: rgb(0 0 0 / 37%) !important;">
-                                        <nuxt-icon name="share" class="fs-5 text-center"/>
+                                        <i class="bi bi-share fs-5"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body p-2">
-
-                            <h5 class="card-title">{{ activeProduct.name }}</h5>
-                            <p class="card-text">{{ activeProduct.dis }}</p>
-                            <div class="d-flex justify-content-between align-items-center px-2">
-                                <div class="">
-                                    <small class="text-uppercase">Price</small>
-                                    <p class="mb-0 fw-bold">₹{{ activeProduct.price }}</p>
-                                </div>
-                                <button class="btn btn-dark w-50" @click="addToCart(activeProduct)">Add to cart</button>
+                    </div>
+                    <i class="bi bi-pencil-square" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"></i>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="modal fade" id="collectionModal" aria-hidden="true" aria-labelledby="collectionModalLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="collectionModalLabel">Edit Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card-body p-2">
+                        <form @submit.prevent="saveProduct">
+                            <ImageUploadBox @image="handleImage" />
+                            <div class="form-floating my-3">
+                                <input type="text" class="form-control" placeholder="" id="productCollection"
+                                    v-model="activeProduct.collection">
+                                <label for="productCollection" class="form-label">Collection</label>
                             </div>
-                        </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="" id="productName"
+                                    v-model="activeProduct.name">
+                                <label for="productName" class="form-label">Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" placeholder="" id="productPrice"
+                                    v-model="activeProduct.price">
+                                <label for="productPrice" class="form-label">Price</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="productDescription" placeholder="" rows="3"
+                                    v-model="activeProduct.dis"></textarea>
+                                <label for="productDescription" class="form-label">Description</label>
+                            </div>
+                            <button type="submit" class="btn btn-dark w-100">Save</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -90,23 +117,28 @@
 </template>
 
 <script>
+import ImageUploadBox from "@/components/ImageUpload.vue";
+// import ImageUploadBox from "@/components/ImageUploadBox.vue";
 export default {
     name: "QuickAdd",
     props: ["collection"],
+    components: {
+        ImageUploadBox,
+    },
     data() {
         return {
             activeProduct: {},
-            publicPath: process.env.BASE_URL,
-            content: "",
-            selectedSize: null,
-            currentColor: null,
-            quantity: 1,
+            uploadedImageUrl: ''
         };
     },
     async mounted() {
         this.setupModalEvent();
     },
     methods: {
+        handleImage(imageUrl) {
+            this.uploadedImageUrl = imageUrl;
+            console.log("Uploaded image URL:", imageUrl);
+        },
         setupModalEvent() {
             const collectionModal = document.getElementById("collectionModal");
             if (collectionModal) {
@@ -118,6 +150,34 @@ export default {
                     );
                 });
             }
+        },
+        saveProduct() {
+            let imageUrl = this.uploadedImageUrl.startsWith('blob:')
+                ? this.uploadedImageUrl.replace('blob:', '')
+                : this.uploadedImageUrl;
+
+            let data = {
+                id: this.activeProduct.id,
+                name: this.activeProduct.name,
+                collection: this.activeProduct.collection,
+                price: this.activeProduct.price,
+                dis: this.activeProduct.dis,
+                image: imageUrl,
+            };
+
+            console.log('Product saved:', data);
+            this.$store.dispatch('editProduct', data)
+                .then(() => {
+                    console.log('Product successfully saved');
+                    // Optionally, close the modal after saving the product
+                    const modalElement = document.getElementById('collectionModalLabel');
+                    const modalInstance = window.bootstrap.Modal.getInstance(modalElement);
+                    modalInstance.hide();
+                    this.uploadedImageUrl = '';
+                })
+                .catch(error => {
+                    console.error('Error saving product:', error);
+                });
         },
         addToCart(product) {
             const data = {
@@ -152,8 +212,10 @@ export default {
     background-color: none;
     display: none;
 }
-.nuxt-icon svg{
-    height: 0rem !important
+
+.nuxt-icon svg {
+    height: 0rem !important;
 }
+
 /* Add your scoped styles here */
 </style>

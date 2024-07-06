@@ -207,6 +207,16 @@ const routes = [
     name: "BankDetails",
     component: () => import('@/pages/profile/BankDetails.vue')
   },
+  {
+    path: "/social-details",
+    name: "SocialDetails",
+    component: () => import('@/pages/profile/SocialDetails.vue')
+  },
+  {
+    path: "/offer-page",
+    name: "OfferPage",
+    component: () => import('@/pages/OfferPage.vue')
+  },
 
 ];
 
