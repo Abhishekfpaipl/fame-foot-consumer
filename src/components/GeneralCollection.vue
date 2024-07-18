@@ -17,11 +17,10 @@
             </div>
             <div class="container">
                 <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-1">
-                    <div class="col position-relative" v-for="(association, index) in associations" :key="index">
+                    <router-link to="/digital-card" class="col position-relative" v-for="(association, index) in associations" :key="index">
                         <div
                             class="card border-0 rounded p-0 d-flex flex-column align-items-center justify-content-center rounded">
-                            <div class="p-2 overflow-hidden" data-bs-toggle="offcanvas" href="#offcanvasExample"
-                                role="button" aria-controls="offcanvasExample" style="height: 200px">
+                            <div class="p-2 overflow-hidden"  style="height: 200px">
                                 <img :src="association.img" alt="" class="rounded-top"
                                     style="width: 100%; min-width: 100%; min-height: 200px; object-fit: cover; object-position: center;" />
                             </div>
@@ -49,10 +48,10 @@
                         <div class="position-absolute top-0 start-0 rounded-circle"
                             style="background-color: #ffffff99;z-index: 1; width: 60px; height: 60px;">
                         </div>
-                    </div>
+                    </router-link>
                 </div>
             </div>
-            <DigitalCardOffcanvas />
+            <!-- <DigitalCardOffcanvas /> -->
         </div>
 
         <div class="my-3">
@@ -154,11 +153,11 @@
     </div>
 </template>
 <script>
-import DigitalCardOffcanvas from "@/components/DigitalCardOffcanvas.vue";
+// import DigitalCardOffcanvas from "@/components/DigitalCardOffcanvas.vue";
 export default {
     name: "GeneralCollection",
     components: {
-        DigitalCardOffcanvas
+        // DigitalCardOffcanvas
     },
     data() {
         return {

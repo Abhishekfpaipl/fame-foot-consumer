@@ -12,6 +12,9 @@
     <div class="">
       <GeneralCollection />
     </div>
+   <div class="">
+    <TestComponent />
+   </div> 
   </div>
 </template>
 
@@ -20,6 +23,7 @@ import BannerSection from "@/components/BannerSection.vue";
 import SecondSection from "@/components/SecondSection.vue";
 // import NumberingCollection from "@/components/NumberingCollection.vue";
 import GeneralCollection from "@/components/GeneralCollection.vue";
+// import TestComponent from "@/components/TestComponent.vue";
 export default {
   name: "HomeView",
   components: {
@@ -27,6 +31,7 @@ export default {
     SecondSection,
     // NumberingCollection,
     GeneralCollection,
+    // TestComponent,
   },
 };
 </script>

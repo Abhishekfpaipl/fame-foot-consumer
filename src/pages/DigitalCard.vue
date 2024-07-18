@@ -1,7 +1,8 @@
 <template>
   <div class=" ">
-    <InfoSection />
+    <DigitalCardNav/>
     <TopSection />
+    <InfoSection />
     <InformationSection /> 
   </div>
 </template>
@@ -9,12 +10,14 @@
 <script>
 
 import TopSection from '@/components/digitalcard/TopSection.vue'
+import DigitalCardNav from '@/components/DigitalCardNav.vue'
 import InfoSection from '@/components/digitalcard/InfoSection.vue';
 import InformationSection from '@/components/InformationSection.vue'; 
 
 export default {
   name: "DigitalCard",
   components: {
+    DigitalCardNav,
     TopSection,
     InfoSection,
     InformationSection, 

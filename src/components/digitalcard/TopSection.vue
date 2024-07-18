@@ -1,17 +1,11 @@
 <template>
-  <div class="container rounded-top-5  border-top border-start border-end bg-white"
-    style="border-color:grey !important;margin-top: -40px;">
+  <div class="container rounded-top-5 my-5">
     <div class="d-flex justify-content-start align-items-center">
 
     </div>
     <div class="row">
       <div class="col-12 col-md-4  p-3 position-relative">
-        <!-- <img src="https://cdn.bhybrid.org/imgcdn/20230708200505/card/p1109photo.jpg" alt="Logo" class="rounded-3" -->
-        <img src="/img/members/19.jpg" alt="Logo" class="rounded-3"
-          style="width: 200px;">
-        <span @click="share" class="position-absolute start-0 px-3">
-          <i class="bi bi-share-fill fs-4"></i>
-        </span>
+        <img src="/img/members/19.jpg" alt="Logo" class="rounded-3" style="width: 200px;">
       </div>
       <div class="col-12 col-md-8 p-5 ">
         <div class="d-flex flex-column align-items-md-start align-items-center my-2">
@@ -19,6 +13,17 @@
           <small class="">Sales assistant</small>
           <small class="">B2B service</small>
           <small class="">Bhybrid by Onhoff</small>
+        </div>
+        <div id="app" class="d-flex gap-3 my-4">
+          <button :class="reviewButtonClass" class="w-50" @click="toggleIcon('review')">
+            <i :class="reviewIcon" class="me-2"></i> {{ reviewText }}
+          </button>
+          <button :class="favouriteButtonClass" class="w-50" @click="toggleIcon('favourite')">
+            <i :class="favouriteIcon" class="me-2"></i> {{ favouriteText }}
+          </button>
+          <button :class="promoteButtonClass" class="w-50" @click="toggleIcon('promote')">
+            <i :class="promoteIcon" class="me-2"></i> {{ promoteText }}
+          </button>
         </div>
         <div class="d-flex justify-content-center justify-content-md-start gap-2 overflow-x-scroll w-100 " id="scroll">
           <img :src="image" style="width: 30px; height: 30px; object-fit: contain;" v-for="image in images"
@@ -51,26 +56,49 @@ export default {
         "/img/members/7.jpeg",
         "/img/members/8.png",
       ],
+      reviewIcon: 'bi bi-chat-square-dots',
+      favouriteIcon: 'bi bi-heart',
+      promoteIcon: 'bi bi-hand-thumbs-up',
+      reviewButtonClass: 'btn btn-outline-dark',
+      favouriteButtonClass: 'btn btn-outline-dark',
+      promoteButtonClass: 'btn btn-outline-dark',
+      reviewText: 'Review Us',
+      favouriteText: 'Favourite Us',
+      promoteText: 'Promote Us'
     }
   },
-  // methods: {
-
-  //   share() {
-  //     if (navigator.share) {
-  //       navigator.share({
-  //         title: 'Share this content',
-  //         text: 'Check out this awesome content!',
-  //         url: window.location.href,
-  //       }).then(() => {
-  //         console.log('Successful share');
-  //       }).catch((error) => {
-  //         console.log('Error sharing', error);
-  //       });
-  //     } else {
-  //       alert('Web Share API is not supported in your browser.');
-  //     }
-  //   },
-  // }
+  methods: {
+    toggleIcon(buttonType) {
+      if (buttonType === 'review') {
+        this.reviewIcon = this.reviewIcon === 'bi bi-chat-square-dots' ? 'bi bi-chat-square-dots-fill' : 'bi bi-chat-square-dots';
+        this.reviewButtonClass = this.reviewButtonClass === 'btn btn-outline-dark' ? 'btn btn-dark' : 'btn btn-outline-dark';
+        this.reviewText = this.reviewText === 'Review Us' ? 'Reviewed' : 'Review Us';
+      } else if (buttonType === 'favourite') {
+        this.favouriteIcon = this.favouriteIcon === 'bi bi-heart' ? 'bi bi-heart-fill' : 'bi bi-heart';
+        this.favouriteButtonClass = this.favouriteButtonClass === 'btn btn-outline-dark' ? 'btn btn-dark' : 'btn btn-outline-dark';
+        this.favouriteText = this.favouriteText === 'Favourite Us' ? 'Favourited' : 'Favourite Us';
+      } else if (buttonType === 'promote') {
+        this.promoteIcon = this.promoteIcon === 'bi bi-hand-thumbs-up' ? 'bi bi-hand-thumbs-up-fill' : 'bi bi-hand-thumbs-up';
+        this.promoteButtonClass = this.promoteButtonClass === 'btn btn-outline-dark' ? 'btn btn-dark' : 'btn btn-outline-dark';
+        this.promoteText = this.promoteText === 'Promote Us' ? 'Promoter' : 'Promote Us';
+      }
+    }
+    //   share() {
+    //     if (navigator.share) {
+    //       navigator.share({
+    //         title: 'Share this content',
+    //         text: 'Check out this awesome content!',
+    //         url: window.location.href,
+    //       }).then(() => {
+    //         console.log('Successful share');
+    //       }).catch((error) => {
+    //         console.log('Error sharing', error);
+    //       });
+    //     } else {
+    //       alert('Web Share API is not supported in your browser.');
+    //     }
+    //   },
+  }
 };
 </script>
 <style>

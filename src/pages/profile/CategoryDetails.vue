@@ -15,7 +15,7 @@
 
         <div class="row">
             <div class="col-12">
-                <div class="card px-3">
+                <div class="card px-3">fq
                     <div class="input-group my-3">
                         <input type="text" class="form-control" placeholder="Type Business Category"
                             v-model="searchTerm" @keyup.enter="addCategory">

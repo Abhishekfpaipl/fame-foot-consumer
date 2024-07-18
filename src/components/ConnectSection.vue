@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3 class="text-center bill mt-5 pb-3 text-capitalize"><span class="fs-2">connect us </span></h3>
+        <!-- <h3 class="text-center bill mt-5 pb-3 text-capitalize"><span class="fs-2">connect us </span></h3> -->
         <!-- <div class="container my-3 py-3">
             <div class="row row-cols-4 g-1">
                 <div v-for="(icon, index) in visibleContacts" :key="index" @click="handleIconClick(icon.action)"
