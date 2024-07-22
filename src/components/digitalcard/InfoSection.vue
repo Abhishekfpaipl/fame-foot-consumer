@@ -1,98 +1,91 @@
 <template>
-    <div class="container text-dark bg-white my-5 pb-md-5">
-        <div class="row">
-            <div class="col mt-5 mt-md-0">
-                <div class="btn btn-outline-dark border-3 p-3 d-flex flex-column justify-content-center align-items-center"
-                    style="border-color: #FFCE56 !important;">
-                    <div class="rounded border   border-3 bg-dark"
-                        style="width:60px;height: 60px; margin-top: -50px;border-color: #FFCE56 !important;">
-                        <img src="/img/logo.svg" alt="" style="width: 100%;height: 100%;filter: invert(1);">
+    <div class="">
+        <div class="text-bg-dark">
+            <div class="container">
+                <div class="row rounded p-3 align-items-center">
+                    <div class="col-md-3">
+                        <img src="https://img101.urbanic.com/v1/goods-pic/3d7cf0e503fc4ad3b5ce3851dbdf584fUR_w1440_q90.webp"
+                            alt="" class="rounded"
+                            style="width: 100%; height: 320px;object-fit:cover; object-position: top;">
                     </div>
-                    <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
-                        <AutoCounter :data="50"></AutoCounter>
-                    </p>
-                    <small class="smaller fw-bold">Fameset</small>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <div class="col-md-9 text-center text-md-start">
+                        <p class="my-1 fs-2 fw-bold">Mariana Anderson</p>
+                        <div class="d-flex justify-content-end gap-4">
+                            <!-- <i class="fs-5"
+                            :class="addToFav === 'bi bi-heart' ? 'bi bi-heart-fill text-danger' : 'bi bi-heart'"></i> -->
+                            <i class="bi bi-share fs-5 "></i>
+                            <router-link to="/collection-page" :class="reviewButtonClass" class="btn btn-warning"
+                                @click="toggleIcon('review')">
+                                <i :class="reviewIcon" class="me-2"></i> {{ reviewText }}
+                            </router-link>
+                        </div>
 
-    <!-- <div class="container text-dark bg-white">
-        <div class="row row-cols-2 row-cols-md-4 g-5">
-            <div v-for="(item, index) in fav" :key="index" class="col mb-5 position-relative card-wrapper">
-                <div class="card bg-white p-3 d-flex flex-column justify-content-center align-items-center"
-                    style="border-color: #FFCE56 !important;">
-                    <div class="rounded border"
-                        style="width:60px;height: 60px; margin-top: -50px;background-color: #FFF5DD;border-color: #FFCE56 !important;">
-                        <i :class="item.iconClass" class="text-dark"></i>
+                        <div class="d-flex justify-content-center justify-content-md-start gap-2 my-1 fs-5">
+                            <span>Fameset</span>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <span>8.5 Rating</span>
+                        </div>
+                        <div class="d-flex flex-column align-items-md-start align-items-center my-2">
+                            <small class="text-start">Marketing Manager</small>
+                            <small class="">Sales assistant</small>
+                            <small class="">B2B service</small>
+                            <small class="">Bhybrid by Onhoff</small>
+                        </div>
+                        <div class="d-flex justify-content-center justify-content-md-start gap-2 overflow-x-scroll w-100 my-4"
+                            id="scroll">
+                            <img :src="image" style="width: 30px; height: 30px; object-fit: contain;"
+                                v-for="image in images" :key="image.id" alt="">
+                        </div>
+                        <div class="d-flex gap-3 my-4">
+                            <!-- <button :class="reviewButtonClass" class="w-50 btn btn-warning"
+                                @click="toggleIcon('review')">
+                                <i :class="reviewIcon" class="me-2"></i> {{ reviewText }}
+                            </button> -->
+                            <button :class="favouriteButtonClass" class="w-50 btn btn-warning"
+                                @click="toggleIcon('favourite')">
+                                <i :class="favouriteIcon" class="me-2"></i> {{ favouriteText }}
+                            </button>
+                            <button :class="promoteButtonClass" class="w-50 btn btn-warning"
+                                @click="toggleIcon('promote')">
+                                <i :class="promoteIcon" class="me-2"></i> {{ promoteText }}
+                            </button>
+                        </div>
                     </div>
-                    <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
-                        <AutoCounter :data="item.data"></AutoCounter>
-                    </p>
-                    <small class="smaller fw-bold">{{ item.label }}</small>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <div class="container text-dark bg-white">
-        <div class="d-flex flex-wrap justify-content-center align-items-center">
-            <div v-for="(item, index) in fav" :key="index" class="d-flex align-items-center mb-5">
-                <div class="p-3 d-flex flex-column justify-content-center align-items-center"
-                    style="border-color: #FFCE56 !important;">
-                    <i :class="item.iconClass" class="text-dark"></i>
-                    <p class="fw-bold fs-4">
-                        <AutoCounter :data="item.data"></AutoCounter>
-                    </p>
-                    <small class="smaller fw-bold">{{ item.label }}</small>
-                </div>
-                <div v-if="index < fav.length - 1" class="vr mx-4"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container text-dark bg-white my-5 pt-md-5">
-        <div class="row g-md-5 g-2">
-            <div v-for="(item, index) in items" :key="index" class="col-3 mt-5 mt-md-0">
-                <div class="btn btn-outline-dark border-3 p-3 d-flex flex-column justify-content-center align-items-center"
-                    :data-bs-toggle="'offcanvas'" :data-bs-target="`#${item.offcanvasTarget}`"
-                    :aria-controls="item.offcanvasTarget" style="border-color: #FFCE56 !important;">
-                    <div class="rounded border border-3 text-bg-dark"
-                        style="width:60px;height: 60px; margin-top: -50px;border-color: #FFCE56 !important;"
-                        :style="{ backgroundColor: item.backgroundColor }">
-                        <i :class="`bi ${item.iconClass} fs-1`"></i>
-                    </div>
-                    <p class="fw-bold m-0 d-flex justify-content-center align-items-center fs-4">
-                        <AutoCounter :data="item.count"></AutoCounter>
-                    </p>
-                    <small class="smaller fw-bold">{{ item.label }}</small>
                 </div>
             </div>
         </div>
 
-        <div v-for="(item, index) in items" :key="`offcanvas-${index}`" class="offcanvas offcanvas-bottom w-100"
-            style="height: 75%" :tabindex="'-1'" :id="item.offcanvasTarget" :aria-labelledby="item.offcanvasTarget">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title">{{ item.offcanvasTitle }}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div class="container text-dark bg-white mt-4">
+            <div class="row row-cols-4 row-cols-md-4 mx-1 g-1">
+                <div v-for="(item, index) in fav" :key="index" class="col">
+                    <div class="p-2 card shadow"
+                        style="background-color: #FFF5DD !important;border-color: #FFCE56 !important;">
+                        <div class="d-md-flex justify-content-between align-items-center border-bottom pb-2"
+                            style="border-color: #FFCE56 !important;">
+                            <i :class="item.iconClass" class="text-dark fs-5"></i>
+                            <p class="fw-bold smaller mb-0">{{ item.label }}</p>
+                        </div>
+                        <p class="fw-bold fs-1 mb-0 d-flex justify-content-center align-items-center">
+                            <AutoCounter :data="item.data" />&nbsp;+
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="offcanvas-body">
-                <component :is="item.component" />
-            </div>
+        </div>
+        <div class="mx-3 pb-3 pt-4">
+            <button class="w-100 btn btn-warning fs-4"><span class="text-capitalize">We'd Love To Have Your
+                    Review</span> <i class="bi bi-arrow-right "></i></button>
         </div>
     </div>
 </template>
 
 <script>
 import AutoCounter from '@/components/AutoCounter.vue';
-import OffcanvasRating from "@/components/OffcanvasRating.vue";
-import PromoteSection from "@/components/PromoteSection.vue";
 
 export default {
     name: 'InfoSection',
     components: {
         AutoCounter,
-        OffcanvasRating,
-        PromoteSection,
     },
     data() {
         return {
@@ -139,38 +132,104 @@ export default {
                 }
             ],
             fav: [
-                {
-                    iconClass: 'bi bi-heart fs-1',
-                    iconColor: '#BCDFFB',
-                    data: 10,
-                    label: 'Likes',
-
-                },
-                {
-                    iconClass: 'bi bi-eye fs-1',
-                    iconColor: '#C9E7CA',
-                    data: 10,
-                    label: 'Views'
-                },
                 // {
-                //     iconClass: 'bi bi-share fs-1',
-                //     iconColor: '#BCDFFB',
-                //     data: 10,
-                //     label: 'Shared'
+                //     iconClass: 'bi bi-hand-thumbs-up-fill',
+                //     iconColor: '#FFB2B2',
+                //     data: 50,
+                //     label: 'Promoters'
                 // },
                 {
-                    iconClass: 'bi bi-coin fs-1',
+                    iconClass: 'bi bi-trophy-fill',
+                    iconColor: '#BCDFFB',
+                    data: 10,
+                    label: 'Acheivements',
+
+                },
+                // {
+                //     iconClass: 'bi bi-heart-fill',
+                //     iconColor: '#BCDFFB',
+                //     data: 10,
+                //     label: 'Likes',
+
+                // },
+                // {
+                //     iconClass: 'bi bi-chat-dots-fill',
+                //     iconColor: '#C9E7CA',
+                //     data: 10,
+                //     label: 'Reviews'
+                // },
+                // {
+                //     iconClass: 'bi bi-award-fill',
+                //     iconColor: '#C9E7CA',
+                //     data: 10,
+                //     label: 'Rewards'
+                // },
+                {
+                    iconClass: 'bi bi-shield-fill-check',
                     iconColor: '#FFB2B2',
                     data: 50,
-                    label: 'Repo'
+                    label: 'Badges'
                 },
                 {
-                    iconClass: 'bi bi-people fs-1',
-                    iconColor: '#FFB2B2',
-                    data: 50,
-                    label: 'Uers'
+                    iconClass: 'bi bi-heart-fill',
+                    iconColor: '#C9E7CA',
+                    data: 10,
+                    label: 'Thankful'
                 },
-            ]
+                {
+                    iconClass: 'bi bi-people-fill',
+                    iconColor: '#C9E7CA',
+                    data: 10,
+                    label: 'Users'
+                },
+            ],
+            images: [
+                "/img/members/1.png",
+                "/img/members/2.webp",
+                "/img/members/3.png",
+                "/img/members/4.png",
+                "/img/members/5.jpg",
+                "/img/members/6.webp",
+                "/img/members/7.jpeg",
+                "/img/members/8.png",
+            ],
+            rating: 4.5,
+            reviewIcon: 'bi bi-shop',
+            favouriteIcon: 'bi bi-heart',
+            promoteIcon: 'bi bi-hand-thumbs-up',
+            reviewText: 'Showcase',
+            favouriteText: 'Favourite Us',
+            promoteText: 'Promote Us',
+            addToFav: 'bi bi-heart',
+        }
+    },
+    computed: {
+        stars() {
+            const fullStars = Math.floor(this.rating);
+            const halfStar = this.rating % 1 !== 0;
+            return Array.from({ length: 5 }, (_, index) => {
+                if (index < fullStars) {
+                    return 'full';
+                } else if (index === fullStars && halfStar) {
+                    return 'half';
+                } else {
+                    return 'empty';
+                }
+            });
+        }
+    },
+    methods: {
+        toggleIcon(buttonType) {
+            if (buttonType === 'review') {
+                this.reviewIcon = this.reviewIcon === 'bi bi-shop' ? 'bi bi-shop' : 'bi bi-shop';
+                this.reviewText = this.reviewText === 'Review Us' ? 'Reviewed' : 'Review Us';
+            } else if (buttonType === 'favourite') {
+                this.favouriteIcon = this.favouriteIcon === 'bi bi-heart' ? 'bi bi-heart-fill' : 'bi bi-heart';
+                this.favouriteText = this.favouriteText === 'Favourite Us' ? 'Favourited' : 'Favourite Us';
+            } else if (buttonType === 'promote') {
+                this.promoteIcon = this.promoteIcon === 'bi bi-hand-thumbs-up' ? 'bi bi-hand-thumbs-up-fill' : 'bi bi-hand-thumbs-up';
+                this.promoteText = this.promoteText === 'Promote Us' ? 'Promoter' : 'Promote Us';
+            }
         }
     }
 }

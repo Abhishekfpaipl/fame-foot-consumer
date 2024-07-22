@@ -14,7 +14,7 @@
           <small class="">B2B service</small>
           <small class="">Bhybrid by Onhoff</small>
         </div>
-        <div id="app" class="d-flex gap-3 my-4">
+        <div class="d-flex gap-3 my-4">
           <button :class="reviewButtonClass" class="w-50" @click="toggleIcon('review')">
             <i :class="reviewIcon" class="me-2"></i> {{ reviewText }}
           </button>
@@ -46,7 +46,8 @@ export default {
         { name: 'Whatsapp', icon: 'bi-whatsapp fs-5', action: 'openWhatsapp' },
         { name: 'Map', icon: 'bi-geo fs-5', action: 'openMaps' },
         { name: 'Query', icon: 'bi-question-circle fs-5', action: 'openQuery' },
-      ], images: [
+      ],
+       images: [
         "/img/members/1.png",
         "/img/members/2.webp",
         "/img/members/3.png",

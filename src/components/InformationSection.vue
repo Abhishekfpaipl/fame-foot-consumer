@@ -74,24 +74,26 @@
 
 <script>
 import ContactSection from '@/components/ContactSection.vue';
+import TimelineSection from '@/components/TimelineSection.vue';
 import AboutusSection from "@/components/AboutusSection.vue";
-import BusinessSection from "@/components/BusinessSection.vue";
+// import BusinessSection from "@/components/BusinessSection.vue";
 import GalleryCollage from "@/components/GalleryCollage.vue";
 export default {
     name: "InformationSection",
     components: {
         ContactSection,
         AboutusSection,
-        BusinessSection,
+        // BusinessSection,
         GalleryCollage,
+        TimelineSection,
     },
     data() {
         return {
             rating: 0,
             reviewText: "",
             sections: [
-                { id: 'Collection', name: 'Collection', component: 'BusinessSection' },
-                { id: 'Timeline', name: 'Timeline', component: 'ContactSection' },
+                // { id: 'Collection', name: 'Collection', component: 'BusinessSection' },
+                { id: 'Timeline', name: 'Timeline', component: 'TimelineSection' },
                 { id: 'Gallery', name: 'Gallery', component: 'GalleryCollage' },
                 { id: 'About', name: 'About', component: 'AboutusSection' },
                 { id: 'Connect', name: 'Connect', component: 'ContactSection' },

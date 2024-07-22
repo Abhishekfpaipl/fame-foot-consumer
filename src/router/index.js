@@ -217,6 +217,11 @@ const routes = [
     name: "OfferPage",
     component: () => import('@/pages/OfferPage.vue')
   },
+  {
+    path: "/collection-page",
+    name: "CollectionPage",
+    component: () => import('@/pages/CollectionPage.vue')
+  },
 
 ];
 
