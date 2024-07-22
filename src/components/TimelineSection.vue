@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div class="timeline position-relative mx-auto">
             <div class="timeline-item pe-md-5 pe-0" v-for="(job, index) in resume.experience" :key="index">
                 <div class="position-relative shadow bg-rounded bg-white">

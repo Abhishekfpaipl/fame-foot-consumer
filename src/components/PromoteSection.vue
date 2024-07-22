@@ -1,21 +1,6 @@
 <template>
     <div class="container pb-5">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="fs-3 my-5 mb-2 border rounded py-1 w-100">Our Promoters 100+ </div>
-            </div>
-            <div class="col-12 col-md-6">
-                <!-- <div class="my-5 border py-2 "> -->
-                <button class="btn btn-outline-dark w-100 my-5 py-1 fs-3">Promote Us</button>
-                <!-- </div> -->
-            </div>
-        </div>
-        <div class="mt-5">
-            <!-- <h3 class="text-center bill"><span class="fs-2">~ Rate Us ~</span></h3> -->
-
-        </div>
-
-        <h3 class="text-center bill my-5"><span class="fs-2">Promoters</span></h3>
+         
         <div class="d-flex justify-content-between gap-2 mb-3">
             <div class="w-50">
                 <p class="fw-bold">Filter By</p>

@@ -9,46 +9,57 @@
                             style="width: 100%; height: 320px;object-fit:cover; object-position: top;">
                     </div>
                     <div class="col-md-9 text-center text-md-start">
-                        <p class="mb-0 fs-2 fw-bold">Mariana Anderson</p>
-                        <div class="d-flex justify-content-md-end justify-content-center gap-4 my-3 mt-md-0">
-                            <!-- <i class="fs-5"
-                            :class="addToFav === 'bi bi-heart' ? 'bi bi-heart-fill text-danger' : 'bi bi-heart'"></i> -->
-                            <!-- <i class="bi bi-share fs-5 "></i> -->
-                            <router-link to="/collection-page" :class="reviewButtonClass" class="btn btn-warning"
-                                @click="toggleIcon('review')">
-                                <i :class="reviewIcon" class="me-2"></i> {{ reviewText }}
+                        <div class="d-flex flex-column align-items-md-start align-items-center mt-2">
+                            <p class="mb-0  fs-2 fw-bold">Mariana Anderson</p>
+                            <p class="smaller text-ellipsis2 ">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                Nostrum
+                                quaerat harum voluptatem cupiditate? Molestias similique eum incidunt atque quibusdam
+                                exercitationem.</p>
+                        </div>
+                        <div class="d-md-flex justify-content-between align-items-start my-1 fs-5">
+                            <div
+                                class="d-flex justify-content-center justify-content-md-start gap-2 align-items-start ">
+                                <span>Fameset</span>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <span>8.5 Rating</span>
+                                <i class="bi bi-share fs-5"></i>
+                            </div>
+                            <router-link to="/collection-page" class="btn btn-warning my-3 my-md-0">
+                                <i class="bi bi-shop me-2"></i>
+                                <span>Showcase </span>
                                 <i class="bi bi-arrow-right ms-2"></i>
                             </router-link>
                         </div>
 
-                        <div class="d-flex justify-content-center justify-content-md-start gap-2 align-items-center my-1 fs-5">
-                            <span>Fameset</span>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <span>8.5 Rating</span>
-                            <i class="bi bi-share fs-5"></i>
-                        </div>
-                        <div class="d-flex flex-column align-items-md-start align-items-center my-2">
-                            <small class="text-start">Marketing Manager</small>
-                            <small class="">Sales assistant</small>
-                        </div>
-                        <div class="d-flex justify-content-center justify-content-md-start gap-2 overflow-x-scroll w-100 my-4"
+                        <div class="d-flex justify-content-center justify-content-md-start gap-2 overflow-x-scroll w-100 my-2"
                             id="scroll">
                             <img :src="image" style="width: 30px; height: 30px; object-fit: contain;"
                                 v-for="image in images" :key="image.id" alt="">
                         </div>
                         <div class="d-flex gap-3 my-4">
-                            <!-- <button :class="reviewButtonClass" class="w-50 btn btn-warning"
-                                @click="toggleIcon('review')">
-                                <i :class="reviewIcon" class="me-2"></i> {{ reviewText }}
-                            </button> -->
-                            <button :class="favouriteButtonClass" class="w-50 btn btn-light"
-                                @click="toggleIcon('favourite')">
-                                <i :class="favouriteIcon" class="me-2"></i> {{ favouriteText }}
-                            </button>
-                            <button :class="promoteButtonClass" class="w-50 btn btn-light"
-                                @click="toggleIcon('promote')">
-                                <i :class="promoteIcon" class="me-2"></i> {{ promoteText }}
-                            </button>
+                            <div class="w-25">
+                                <button :class="reviewButtonClass" class="w-100" @click="toggleIcon('save')">
+                                    <i :class="saveIcon" class="me-2 "></i>
+                                    <span class="d-md-block d-none">{{ saveText }}</span>
+                                </button>
+                                <p class="mb-0 smaller text-center pt-2">2.35M+</p>
+                            </div>
+                            <div class="w-25">
+                                <button :class="favouriteButtonClass" class="w-100 btn btn-light"
+                                    @click="toggleIcon('favourite')">
+                                    <i :class="favouriteIcon" class="me-2"></i>
+                                    <span class="d-md-block d-none">{{ favouriteText }}</span>
+                                </button>
+                                <p class="mb-0 smaller text-center pt-2">5.35K+</p>
+                            </div>
+                            <div class="w-50">
+                                <button :class="promoteButtonClass" class="w-100 btn btn-light"
+                                    @click="toggleIcon('promote')">
+                                    <i :class="promoteIcon" class="me-2"></i> {{ promoteText }}
+                                </button>
+                                <p class="mb-0 smaller text-center pt-2">1.35K+</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -75,6 +86,7 @@
         <div class="mx-3 pb-3 pt-4">
             <button class="w-100 btn btn-warning fs-5"><span class="text-capitalize">We'd Love To Have Your
                     Review</span> <i class="bi bi-arrow-right "></i></button>
+                    <p class="text-end mb-0 pe-2">2.5K+</p>
         </div>
     </div>
 </template>
@@ -139,10 +151,10 @@ export default {
                 //     label: 'Promoters'
                 // },
                 {
-                    iconClass: 'bi bi-trophy-fill',
+                    iconClass: 'bi bi-hearts',
                     iconColor: '#BCDFFB',
                     data: 10,
-                    label: 'Acheivements',
+                    label: 'Hearts',
 
                 },
                 // {
@@ -171,7 +183,7 @@ export default {
                     label: 'Badges'
                 },
                 {
-                    iconClass: 'bi bi-heart-fill',
+                    iconClass: 'bi bi-emoji-smile-fill',
                     iconColor: '#C9E7CA',
                     data: 10,
                     label: 'Thankful'
@@ -180,7 +192,7 @@ export default {
                     iconClass: 'bi bi-people-fill',
                     iconColor: '#C9E7CA',
                     data: 10,
-                    label: 'Users'
+                    label: 'Reach'
                 },
             ],
             images: [
@@ -194,13 +206,14 @@ export default {
                 "/img/members/8.png",
             ],
             rating: 4.5,
-            reviewIcon: 'bi bi-shop',
-            favouriteIcon: 'bi bi-heart',
-            promoteIcon: 'bi bi-hand-thumbs-up',
-            reviewText: 'Showcase',
-            favouriteText: 'Favourite Us',
+            saveIcon: 'bi bi-heart',
+            favouriteIcon: 'bi bi-hand-thumbs-up',
+            promoteIcon: 'bi bi-megaphone',
+            saveText: 'Hearts',
+            favouriteText: 'Like Us',
             promoteText: 'Promote Us',
             addToFav: 'bi bi-heart',
+            reviewButtonClass: 'btn btn-light'
         }
     },
     computed: {
@@ -220,14 +233,14 @@ export default {
     },
     methods: {
         toggleIcon(buttonType) {
-            if (buttonType === 'review') {
-                this.reviewIcon = this.reviewIcon === 'bi bi-shop' ? 'bi bi-shop' : 'bi bi-shop';
-                this.reviewText = this.reviewText === 'Review Us' ? 'Reviewed' : 'Review Us';
+            if (buttonType === 'save') {
+                this.reviewButtonClass = this.reviewButtonClass === 'btn btn-light' ? 'btn btn-danger' : 'btn btn-light';
+                // this.saveText = this.saveText === 'Review Us' ? 'Reviewed' : 'Review Us';
             } else if (buttonType === 'favourite') {
-                this.favouriteIcon = this.favouriteIcon === 'bi bi-heart' ? 'bi bi-heart-fill' : 'bi bi-heart';
-                this.favouriteText = this.favouriteText === 'Favourite Us' ? 'Favourited' : 'Favourite Us';
+                this.favouriteIcon = this.favouriteIcon === 'bi bi-hand-thumbs-up' ? 'bi bi-hand-thumbs-up-fill' : 'bi bi-hand-thumbs-up';
+                this.favouriteText = this.favouriteText === 'Like Us' ? 'Liked' : 'Like Us';
             } else if (buttonType === 'promote') {
-                this.promoteIcon = this.promoteIcon === 'bi bi-hand-thumbs-up' ? 'bi bi-hand-thumbs-up-fill' : 'bi bi-hand-thumbs-up';
+                this.promoteIcon = this.promoteIcon === 'bi bi-megaphone' ? 'bi bi-megaphone-fill' : 'bi bi-megaphone';
                 this.promoteText = this.promoteText === 'Promote Us' ? 'Promoter' : 'Promote Us';
             }
         }

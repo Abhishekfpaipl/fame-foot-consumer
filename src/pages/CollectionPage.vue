@@ -1,6 +1,6 @@
 <template>
     <DigitalCardNav :title="title" />
-    <CarouselBanner/>
+    <CarouselBanner />
     <div class="container-fluid my-5 pb-5">
         <div>
             <ul class="nav nav-pills justify-content-start align-items-center sticky-nav" id="pills-tab" role="tablist">
@@ -36,8 +36,11 @@
                                     <div class="border position-relative" data-bs-toggle="collapse"
                                         :data-bs-target="'#productInfo' + productIndex" aria-expanded="false"
                                         :aria-controls="'productInfo' + productIndex">
-                                        <img v-if="product.img" :src="product.img" alt=""
-                                            style="object-position: top; object-fit: cover; width: 100%; height: 160px;" />
+                                        <div v-if="product.img" class="card-img-container">
+                                            <img :src="product.img" class="card-img-top rounded-0" alt="..."
+                                                style="object-position: top; object-fit: cover; width: 100%; height: 160px;">
+                                        </div>
+
                                         <div v-else class=" bg-light d-flex justify-content-center align-items-center"
                                             style="width: 100%; height: 160px;">
                                             <i
@@ -83,17 +86,20 @@
             </div>
         </div>
     </div>
+    <CollectionSection />
 </template>
 
 
 <script>
 import DigitalCardNav from '@/components/DigitalCardNav.vue'
 import CarouselBanner from '@/components/CarouselBanner.vue'
+import CollectionSection from '@/components/CollectionSection.vue'
 export default {
     name: "BusinessSection",
     components: {
         DigitalCardNav,
         CarouselBanner,
+        CollectionSection,
     },
     data() {
         return {
@@ -453,6 +459,19 @@ export default {
     color: #FFF5DD !important;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     /* border-radius: 2rem; */
+    transform: scale(1.1);
+}
+
+.card-img-container {
+    overflow: hidden;
+    /* height: 200px; */
+}
+
+.card-img-top {
+    transition: transform 0.3s ease;
+}
+
+.col:hover .card-img-top {
     transform: scale(1.1);
 }
 </style>

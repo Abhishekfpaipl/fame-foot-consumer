@@ -1,8 +1,9 @@
 <template>
-    <div class="container bg-white rounded-top-5 pb-5">
-        <div class="row p-3">
-            <div class="col-12 pt-4 text-center">
-                <form @submit.prevent="submitQuery()" class="mt-4 row g-3 needs-validation" novalidate>
+    <div class="container my-5">
+        <h1 class="text-center ">Contact</h1>
+        <div class="row ">
+            <div class="col-12 text-center px-4">
+                <form @submit.prevent="submitQuery()" class="mt-4 row g-3 needs-validation border p-2 py-4 border-dark">
                     <div class="w-100 form-floating mt-0">
                         <input type="text" class="form-control" placeholder="" v-model="name" required>
                         <label for="floatingInput" class="text-muted ms-2">Name</label>
