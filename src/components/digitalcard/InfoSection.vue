@@ -2,34 +2,34 @@
     <div class="">
         <div class="text-bg-dark">
             <div class="container">
-                <div class="row rounded p-3 align-items-center">
+                <div class="row rounded p-3 align-items-center g-md-5">
                     <div class="col-md-3">
                         <img src="https://img101.urbanic.com/v1/goods-pic/3d7cf0e503fc4ad3b5ce3851dbdf584fUR_w1440_q90.webp"
                             alt="" class="rounded"
                             style="width: 100%; height: 320px;object-fit:cover; object-position: top;">
                     </div>
                     <div class="col-md-9 text-center text-md-start">
-                        <p class="my-1 fs-2 fw-bold">Mariana Anderson</p>
-                        <div class="d-flex justify-content-end gap-4">
+                        <p class="mb-0 fs-2 fw-bold">Mariana Anderson</p>
+                        <div class="d-flex justify-content-md-end justify-content-center gap-4 my-3 mt-md-0">
                             <!-- <i class="fs-5"
                             :class="addToFav === 'bi bi-heart' ? 'bi bi-heart-fill text-danger' : 'bi bi-heart'"></i> -->
-                            <i class="bi bi-share fs-5 "></i>
+                            <!-- <i class="bi bi-share fs-5 "></i> -->
                             <router-link to="/collection-page" :class="reviewButtonClass" class="btn btn-warning"
                                 @click="toggleIcon('review')">
                                 <i :class="reviewIcon" class="me-2"></i> {{ reviewText }}
+                                <i class="bi bi-arrow-right ms-2"></i>
                             </router-link>
                         </div>
 
-                        <div class="d-flex justify-content-center justify-content-md-start gap-2 my-1 fs-5">
+                        <div class="d-flex justify-content-center justify-content-md-start gap-2 align-items-center my-1 fs-5">
                             <span>Fameset</span>
                             <i class="bi bi-star-fill text-warning"></i>
                             <span>8.5 Rating</span>
+                            <i class="bi bi-share fs-5"></i>
                         </div>
                         <div class="d-flex flex-column align-items-md-start align-items-center my-2">
                             <small class="text-start">Marketing Manager</small>
                             <small class="">Sales assistant</small>
-                            <small class="">B2B service</small>
-                            <small class="">Bhybrid by Onhoff</small>
                         </div>
                         <div class="d-flex justify-content-center justify-content-md-start gap-2 overflow-x-scroll w-100 my-4"
                             id="scroll">
@@ -41,11 +41,11 @@
                                 @click="toggleIcon('review')">
                                 <i :class="reviewIcon" class="me-2"></i> {{ reviewText }}
                             </button> -->
-                            <button :class="favouriteButtonClass" class="w-50 btn btn-warning"
+                            <button :class="favouriteButtonClass" class="w-50 btn btn-light"
                                 @click="toggleIcon('favourite')">
                                 <i :class="favouriteIcon" class="me-2"></i> {{ favouriteText }}
                             </button>
-                            <button :class="promoteButtonClass" class="w-50 btn btn-warning"
+                            <button :class="promoteButtonClass" class="w-50 btn btn-light"
                                 @click="toggleIcon('promote')">
                                 <i :class="promoteIcon" class="me-2"></i> {{ promoteText }}
                             </button>
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="mx-3 pb-3 pt-4">
-            <button class="w-100 btn btn-warning fs-4"><span class="text-capitalize">We'd Love To Have Your
+            <button class="w-100 btn btn-warning fs-5"><span class="text-capitalize">We'd Love To Have Your
                     Review</span> <i class="bi bi-arrow-right "></i></button>
         </div>
     </div>

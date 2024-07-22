@@ -39,15 +39,15 @@
             </div>
         </div>
     </div>
-    <FameFoot />
+    <!-- <FameFoot /> -->
 </template>
 
 <script>
-import FameFoot from '@/components/FameFoot.vue'
+// import FameFoot from '@/components/FameFoot.vue'
 export default {
     name: 'FooterBar',
     components: {
-        FameFoot,
+        // FameFoot,
     },
     data() {
         return {

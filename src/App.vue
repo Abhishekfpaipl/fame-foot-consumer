@@ -2,15 +2,18 @@
   <DashboardNav v-if="!hide" />
   <router-view />
   <FooterBar v-if="!hidden" />
+  <FameFoot />
 </template>
 <script>
 import DashboardNav from "@/components/DashboardNav.vue";
 import FooterBar from "@/components/FooterBar.vue";
+import FameFoot from "@/components/FameFoot.vue";
 export default {
   name: "App",
   components: {
     DashboardNav,
-    FooterBar
+    FooterBar,
+    FameFoot
   },
   computed: {
     hide() {
@@ -18,7 +21,7 @@ export default {
         'LoginPage', 'RegistrationPage', 'EmailVerificationPage', 'ForgotPasswordPage', 'ResetPasswordPage',
         'BasicDetails', 'ConnectDetails', 'OverviewDetails', 'WorktimeDetails', 'BusinessTypeDetails', 'BrandingDetails',
         'ProductList', 'CreateProduct', 'CollectionList', 'RewardsDetails', 'DashboardPage',  'ReviewListPage','SupportersDetails','FamesetDetails','CategoryDetails','BankDetails','SocialDetails',
-        'DigitalCard'
+        'DigitalCard','CollectionPage'
       ]
       return hiddenPages.includes(this.$route.name)
     },
@@ -26,7 +29,7 @@ export default {
       const hiddenPages = [
         'LoginPage', 'RegistrationPage', 'EmailVerificationPage', 'ForgotPasswordPage', 'ResetPasswordPage',
         'BasicDetails', 'ConnectDetails', 'OverviewDetails', 'WorktimeDetails', 'BusinessTypeDetails', 'BrandingDetails',
-        'ProductList', 'CreateProduct', 'CollectionList', 'RewardsDetails', 'DashboardPage',  'SupportersDetails','FamesetDetails','CategoryDetails','BankDetails','SocialDetails'
+        'ProductList', 'CreateProduct', 'CollectionList', 'RewardsDetails', 'DashboardPage',  'SupportersDetails','FamesetDetails','CategoryDetails','BankDetails','SocialDetails','DigitalCard','CollectionPage'
       ]
       return hiddenPages.includes(this.$route.name)
     }

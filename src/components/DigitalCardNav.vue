@@ -1,7 +1,7 @@
 <template>
     <div class="containerr" ref="topnav" :style="`background:rgb(0,0,0, ${backgroundOpacity});`">
         <div class="d-flex justify-content-between align-items-center" :class="{ 'hide-on-scroll': hideOnScroll }">
-            <i class="bi bi-arrow-left text-white"></i>
+            <i class="bi bi-arrow-left text-white" @click=goBack></i>
             <p class="mb-0 text-white">{{title}}</p>
             <i class="btn bi bi-person-circle text-white"></i>
         </div>
@@ -40,6 +40,9 @@ export default {
                 this.hideOnScroll = true;
             }
         },
+        goBack(){
+            window.history.back();
+        }
     }
 };
 </script>

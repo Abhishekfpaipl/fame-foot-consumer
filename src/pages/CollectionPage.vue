@@ -1,81 +1,79 @@
 <template>
-    <DigitalCardNav :title="title"/>
-    <div class="my-3 pb-3">
-        <div class="container">
-            <div>
-                <ul class="nav nav-pills justify-content-start align-items-center" id="pills-tab" role="tablist">
-                    <div class="d-flex overflow-x-scroll gap-3 my-3 p-2 px-3 rounded" id="scroll">
-                        <li class="nav-item border rounded" role="presentation"
-                            v-for="(collection, index) in collections" :key="index">
-                            <div class="d-flex justify-content-center align-items-center nav-link"
-                                style=" height: 60px;" :class="{ 'active': index === activeTabIndex }"
-                                :id="'tab-' + index" data-bs-toggle="pill" :data-bs-target="'#content-' + index"
-                                role="tab" :aria-controls="'#content-' + index"
-                                :aria-selected="index === activeTabIndex" @click="activeTabIndex = index">
-                                {{ collection.name }}
-                            </div>
-                        </li>
-                    </div>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="input-group border mb-3">
-                        <input type="search" placeholder="Search" v-model="searchTerm"
-                            class="form-control bg-light border-0" ref="searchInput" @keyup.enter="search">
-                        <button class="btn btn-dark rounded-0" type="button" id="button-addon2"><i class="bi bi-search"
-                                @click="search"></i></button>
-                    </div>
+    <DigitalCardNav :title="title" />
+    <CarouselBanner/>
+    <div class="container-fluid my-5 pb-5">
+        <div>
+            <ul class="nav nav-pills justify-content-start align-items-center sticky-nav" id="pills-tab" role="tablist">
+                <div class="d-flex overflow-x-scroll gap-1 p-2 pe-3 px-0 rounded" id="scroll">
+                    <li class="nav-item border rounded" role="presentation" v-for="(collection, index) in collections"
+                        :key="index">
+                        <div class="d-flex justify-content-center align-items-center nav-link p-2 text-dark"
+                            style="background-color:rgba(255, 206, 86, 0.2); border:1px solid rgba(255, 206, 86, 1) !important;white-space:nowrap;"
+                            :class="{ 'active': index === activeTabIndex }" :id="'tab-' + index" data-bs-toggle="pill"
+                            :data-bs-target="'#content-' + index" role="tab" :aria-controls="'#content-' + index"
+                            :aria-selected="index === activeTabIndex" @click="activeTabIndex = index">
+                            {{ collection.name }}
+                        </div>
+                    </li>
+                </div>
+            </ul>
+            <div class="tab-content mt-5" id="pills-tabContent">
+                <div class="input-group border mb-3">
+                    <input type="search" placeholder="Search" v-model="searchTerm"
+                        class="form-control bg-light border-0" ref="searchInput" @keyup.enter="search">
+                    <button class="btn btn-dark rounded-0" type="button" id="button-addon2"><i class="bi bi-search"
+                            @click="search"></i></button>
+                </div>
 
-                    <div class="tab-pane fade" :class="{ 'show active': index === activeTabIndex }"
-                        v-for="(collection, index) in filteredCollections" :key="index" :id="'content-' + index"
-                        role="tabpanel" :aria-labelledby="'tab-' + index" tabindex="0">
-                        <div class="row g-2">
-                            <div class="col-12">
-                                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
-                                    <div class="col" v-for="(product, productIndex) in collection.products"
-                                        :key="productIndex">
-                                        <div class="border position-relative" data-bs-toggle="collapse"
-                                            :data-bs-target="'#productInfo' + productIndex" aria-expanded="false"
-                                            :aria-controls="'productInfo' + productIndex">
-                                            <img v-if="product.img" :src="product.img" alt=""
-                                                style="object-position: top; object-fit: cover; width: 100%; height: 160px;" />
-                                            <div v-else
-                                                class=" bg-light d-flex justify-content-center align-items-center"
-                                                style="width: 100%; height: 160px;">
-                                                <i
-                                                    class="bi bi-shop-window fs-1 rounded border px-4 py-2 text-muted border"></i>
-                                            </div>
-                                            <div v-if="product.price" class="position-absolute top-0 start-0 ms-0"
-                                                style="font-size: 12px;">
-                                                <span class="text-white bg-danger px-1 rounded-end-3">₹{{
-                                                    product.price }}</span>
-                                            </div>
-                                            <div class="d-flex p-1">
-                                                <div
-                                                    class="w-75 d-flex flex-column justify-content-center align-items-start">
-                                                    <div class="w-75">
-                                                        <p v-if="product.name"
-                                                            class="smaller text-start text-ellipsis2 mb-0 w-100">
-                                                            {{ product.name }}
-                                                        </p>
-                                                        <p v-else class="smaller text-start text-ellipsis2 mb-0">
-                                                            #{{ product.id }}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="d-flex flex-column justify-content-center align-items-center w-25">
-                                                    <i :class="product.liked ? 'bi bi-hand-thumbs-up-fill' : 'bi bi-hand-thumbs-up'"
-                                                        @click="like(product)"></i>
-                                                    <small class="smaller">{{ product.likes }}</small>
+                <div class="tab-pane fade" :class="{ 'show active': index === activeTabIndex }"
+                    v-for="(collection, index) in filteredCollections" :key="index" :id="'content-' + index"
+                    role="tabpanel" :aria-labelledby="'tab-' + index" tabindex="0">
+                    <div class="row g-2">
+                        <div class="col-12">
+                            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
+                                <div class="col" v-for="(product, productIndex) in collection.products"
+                                    :key="productIndex">
+                                    <div class="border position-relative" data-bs-toggle="collapse"
+                                        :data-bs-target="'#productInfo' + productIndex" aria-expanded="false"
+                                        :aria-controls="'productInfo' + productIndex">
+                                        <img v-if="product.img" :src="product.img" alt=""
+                                            style="object-position: top; object-fit: cover; width: 100%; height: 160px;" />
+                                        <div v-else class=" bg-light d-flex justify-content-center align-items-center"
+                                            style="width: 100%; height: 160px;">
+                                            <i
+                                                class="bi bi-shop-window fs-1 rounded border px-4 py-2 text-muted border"></i>
+                                        </div>
+                                        <div v-if="product.price" class="position-absolute top-0 start-0 ms-0"
+                                            style="font-size: 12px;">
+                                            <span class="text-white bg-danger px-1 rounded-end-3">₹{{
+                                                product.price }}</span>
+                                        </div>
+                                        <div class="d-flex p-1">
+                                            <div
+                                                class="w-75 d-flex flex-column justify-content-center align-items-start">
+                                                <div class="w-75">
+                                                    <p v-if="product.name"
+                                                        class="smaller text-start text-ellipsis2 mb-0 w-100">
+                                                        {{ product.name }}
+                                                    </p>
+                                                    <p v-else class="smaller text-start text-ellipsis2 mb-0">
+                                                        #{{ product.id }}
+                                                    </p>
                                                 </div>
                                             </div>
+                                            <div
+                                                class="d-flex flex-column justify-content-center align-items-center w-25">
+                                                <i :class="product.liked ? 'bi bi-hand-thumbs-up-fill' : 'bi bi-hand-thumbs-up'"
+                                                    @click="like(product)"></i>
+                                                <small class="smaller">{{ product.likes }}</small>
+                                            </div>
                                         </div>
-                                        <div class="collapse m-2" :id="'productInfo' + productIndex">
-                                            <button class="btn btn-success rounded-0 w-100" @click="enquiry(product)">
-                                                <i class="bi bi-whatsapp me-2"></i>
-                                                <span>Enquiry Now</span>
-                                            </button>
-                                        </div>
+                                    </div>
+                                    <div class="collapse m-2" :id="'productInfo' + productIndex">
+                                        <button class="btn btn-success rounded-0 w-100" @click="enquiry(product)">
+                                            <i class="bi bi-whatsapp me-2"></i>
+                                            <span>Enquiry Now</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -90,10 +88,12 @@
 
 <script>
 import DigitalCardNav from '@/components/DigitalCardNav.vue'
+import CarouselBanner from '@/components/CarouselBanner.vue'
 export default {
     name: "BusinessSection",
     components: {
         DigitalCardNav,
+        CarouselBanner,
     },
     data() {
         return {
@@ -387,7 +387,7 @@ export default {
             ],
             searchTerm: '',
             activeTabIndex: 0,
-            title:'Collection'
+            title: 'Collection'
         };
     },
     computed: {
@@ -439,9 +439,18 @@ export default {
 
 }
 
+.sticky-nav {
+    /* position: -webkit-sticky; */
+    /* For Safari */
+    position: sticky;
+    top: 60px !important;
+    z-index: 1000;
+    background-color: white;
+}
+
 .nav-link.active {
     background-color: black !important;
-    color: white !important;
+    color: #FFF5DD !important;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     /* border-radius: 2rem; */
     transform: scale(1.1);
