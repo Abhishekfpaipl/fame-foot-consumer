@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-                <div class="col" v-for="(product, index) in products" :key="index">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 mb-5">
+                <div class="col " v-for="(product, index) in products" :key="index">
                     <div class="border position-relative">
                         <div v-if="product.img" class="card-img-container">
                             <img :src="product.img" class="card-img-top rounded-0" alt="..."
@@ -30,15 +30,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between align-items-start p-2">
+                        <div class="d-flex justify-content-between align-items-end p-2 pb-0 pe-0">
                             <div class="d-flex gap-2 align-items-start">
                                 <img :src="product.img" class="rounded" alt=""
                                     style="min-width:60px; height: 60px;object-fit: cover;object-position: top;">
                                 <small class="text-ellipsis3 text-start">The Institute of Chartered Accountants of India
                                     The Institute of Chartered Accountants of India </small>
                             </div>
-                            <span :class="getClass(index)" class="px-1 rounded-start-3">
-                                <i :class="getIconClass(index)"></i>
+                            <span :class="product.iconColor" class="px-1 rounded-start-3 text-white">
+                                <i :class="product.icon"></i>
                             </span>
                         </div>
                     </div>
@@ -57,7 +57,9 @@ export default {
                     likes: 45,
                     price: '1200',
                     date: "22 July 24",
-                    dis: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, deleniti! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, deleniti!'
+                    dis: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, deleniti! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, deleniti!',
+                    icon: 'bi bi-exclamation',
+                    iconColor: 'bg-primary',
                 },
                 {
                     id: 2343242,
@@ -65,6 +67,8 @@ export default {
                     date: "22 July 24",
                     dis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quisquam natus fugiat laudantium suscipit veritatis numquam deserunt quasi provident.",
                     price: '990',
+                    icon: 'bi bi-x',
+                    iconColor: 'bg-danger',
                 },
                 {
                     id: 32342343,
@@ -72,6 +76,8 @@ export default {
                     date: "22 July 24",
                     dis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quisquam natus fugiat laudantium suscipit veritatis numquam deserunt quasi provident.",
                     price: '1890',
+                    icon: 'bi bi-check',
+                    iconColor: 'bg-success',
                 },
                 {
                     id: 4234234,
@@ -79,6 +85,8 @@ export default {
                     date: "22 July 24",
                     dis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quisquam natus fugiat laudantium suscipit veritatis numquam deserunt quasi provident.",
                     price: '1790',
+                    icon: 'bi bi-exclamation',
+                    iconColor: 'bg-primary',
                 },
                 {
                     id: 545654,
@@ -86,6 +94,8 @@ export default {
                     date: "22 July 24",
                     dis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quisquam natus fugiat laudantium suscipit veritatis numquam deserunt quasi provident.",
                     price: '3490',
+                    icon: 'bi bi-x',
+                    iconColor: 'bg-danger',
                 },
                 {
                     id: 66524524,
@@ -93,6 +103,8 @@ export default {
                     date: "22 July 24",
                     dis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quisquam natus fugiat laudantium suscipit veritatis numquam deserunt quasi provident.",
                     price: '1590',
+                    icon: 'bi bi-check',
+                    iconColor: 'bg-success',
                 },
                 {
                     id: 3423,
@@ -101,13 +113,17 @@ export default {
                     name: "Degree The Institute of Chartered Accountants of India",
                     img: 'https://img101.urbanic.com/v1/703c1c85d9a04f03a11294de9aa4d46f.webp',
                     price: '1200',
-                    dis: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, deleniti! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, deleniti!'
+                    dis: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, deleniti! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, deleniti!',
+                    icon: 'bi bi-exclamation',
+                    iconColor: 'bg-primary',
                 },
                 {
                     id: 2343242,
                     likes: 72,
                     name: "Degree The Institute of Chartered Accountants of India",
                     date: "22 July 24",
+                    icon: 'bi bi-x',
+                    iconColor: 'bg-danger',
                     img: 'https://img101.urbanic.com/v1/goods-pic/3d7cf0e503fc4ad3b5ce3851dbdf584fUR_w1440_q90.webp',
                     dis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quisquam natus fugiat laudantium suscipit veritatis numquam deserunt quasi provident.",
                     price: '990',
@@ -117,6 +133,8 @@ export default {
                     likes: 38,
                     name: "Degree The Institute of Chartered Accountants of India",
                     date: "22 July 24",
+                    icon: 'bi bi-check',
+                    iconColor: 'bg-success',
                     img: 'https://img101.urbanic.com/v1/goods-pic/2a8f2aed210c4841b9ef564e8c21ba3bUR_w1440_q90.webp',
                     dis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quisquam natus fugiat laudantium suscipit veritatis numquam deserunt quasi provident.",
                     price: '1890',
@@ -126,6 +144,8 @@ export default {
                     likes: 7,
                     name: "Degree The Institute of Chartered Accountants of India",
                     date: "22 July 24",
+                    icon: 'bi bi-exclamation',
+                    iconColor: 'bg-primary',
                     img: 'https://img101.urbanic.com/v1/goods-pic/f90d99ccd699497b9a4f1970823e8e11UR_w1440_q90.webp',
                     dis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quisquam natus fugiat laudantium suscipit veritatis numquam deserunt quasi provident.",
                     price: '1790',
@@ -134,6 +154,8 @@ export default {
                     id: 545654,
                     name: "Degree The Institute of Chartered Accountants of India",
                     date: "22 July 24",
+                    icon: 'bi bi-x',
+                    iconColor: 'bg-danger',
                     img: 'https://img101.urbanic.com/v1/goods-pic/d6f7b633a1c448f9a43e8e3da53b45d3UR_w1440_q90.webp',
                     likes: 98,
                     dis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quisquam natus fugiat laudantium suscipit veritatis numquam deserunt quasi provident.",
@@ -144,6 +166,8 @@ export default {
                     img: 'https://img101.urbanic.com/v1/goods-pic/13c18357266840abb92a6f8e8a0bc52dUR_w1440_q90.webp',
                     likes: 92,
                     date: "22 July 24",
+                    icon: 'bi bi-x',
+                    iconColor: 'bg-danger',
                     name: "Degree The Institute of Chartered Accountants of India",
                     dis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quisquam natus fugiat laudantium suscipit veritatis numquam deserunt quasi provident.",
                     price: '1590',
@@ -151,15 +175,7 @@ export default {
             ],
 
         }
-    },
-    methods: {
-        getClass(index) {
-            return index % 2 === 0 ? 'text-white bg-danger' : 'text-white bg-success';
-        },
-        getIconClass(index) {
-            return index % 2 === 0 ? 'bi bi-x' : 'bi bi-check';
-        }
-    }
+    }, 
 }
 </script>
 <style lang="">

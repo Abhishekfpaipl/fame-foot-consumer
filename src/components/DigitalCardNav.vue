@@ -1,9 +1,15 @@
 <template>
     <div class="containerr" ref="topnav" :style="`background:rgb(0,0,0, ${backgroundOpacity});`">
-        <div class="d-flex justify-content-between align-items-center" :class="{ 'hide-on-scroll': hideOnScroll }">
-            <i class="bi bi-arrow-left text-white" @click=goBack></i>
-            <p class="mb-0 text-white">{{title}}</p>
-            <i class="btn bi bi-person-circle text-white"></i>
+        <div class="d-flex justify-content-between align-items-center " :class="{ 'hide-on-scroll': hideOnScroll }">
+            <div class="d-flex gap-2">
+                <i class="bi bi-arrow-left text-white" @click=goBack></i>
+                <p class="mb-0 text-white">{{ title }}</p>
+            </div>
+            <div class="d-flex gap-3 pe-2 p text-white">
+                <i @click="toggleIcon('bookmark')" class="fs-5" :class="bookmarkIcon"></i>
+                <i class="bi bi-send fs-5"></i>
+            </div>
+            <!-- <i class="btn bi bi-person-circle text-white"></i> -->
         </div>
     </div>
 </template>
@@ -12,7 +18,7 @@
 export default {
     name: 'ProductTopnav',
     props: {
-        title:{
+        title: {
             type: String,
         }
     },
@@ -20,12 +26,18 @@ export default {
         return {
             backgroundOpacity: 0,
             hideOnScroll: true,
+            bookmarkIcon: 'bi bi-bookmark-plus',
         };
     },
     mounted() {
         window.addEventListener('scroll', this.handleScroll);
     },
     methods: {
+        toggleIcon(buttonType) {
+            if (buttonType === 'bookmark') {
+                this.bookmarkIcon = this.bookmarkIcon === 'bi bi-bookmark-plus' ? 'bi bi-bookmark-check-fill' : 'bi bi-bookmark-plus';
+            }
+        },
         handleScroll() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const scrollPercentage = (scrollTop / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
@@ -40,7 +52,7 @@ export default {
                 this.hideOnScroll = true;
             }
         },
-        goBack(){
+        goBack() {
             window.history.back();
         }
     }

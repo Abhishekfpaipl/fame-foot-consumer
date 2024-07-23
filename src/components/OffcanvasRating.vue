@@ -1,121 +1,126 @@
 <template>
-    <div class="container pb-5">
-        <div class="row">
-            <div class="col-12 col-md-6 d-flex flex-column justify-content-start  align-items-center">
-                <p class="my-3 pb-1 fs-1">FAMESET</p>
-                <div class="fs-2 mb-2 border rounded py-1 w-100">Rating <span class="text-warning"><i
-                            class="bi bi-star-fill text-warning"></i> {{
-                                averageRating.toFixed(1) }}</span></div>
-            </div>
-            <div class="col-12 col-md-6">
-                <div class="rating d-flex justify-content-center gap-3 mt-4 mb-4">
-                    <img src="/img/rate2.gif" style="width: 40px; object-fit: contain;">
-                    <span v-for="star in 5" :key="star" @click="setRating(star)" class="star fs-2">
-                        <i :class="star <= rating ? 'bi bi-star-fill' : 'bi bi-star'"></i>
-                    </span>
-                </div>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" v-model="reviewText"
-                        id="floatingTextarea2" style="height: 50px;"></textarea>
-                    <label for="floatingTextarea2" class="text-muted small">Please write your Review</label>
-                </div>
-                <button class="btn btn-warning border mt-3" @click="submitReview">Submit</button>
-            </div>
-        </div>
-        <div class="mt-5">
-            <!-- <h3 class="text-center bill"><span class="fs-2">~ Rate Us ~</span></h3> -->
 
+    <div class="offcanvas offcanvas-end w-100" tabindex="-1" id="Review" aria-labelledby="Review">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="Review">Review</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="mt-5">
-            <div class="rating-bars mt-4">
-                <div v-for="star in 5" :key="star" class="row align-items-center mb-2">
-                    <div class="col-2 text-end">
-                        <span class="star-label">{{ 6 - star }}-star</span>
+        <div class="offcanvas-body">
+            <div class="row">
+                <div class="col-12 col-md-6 d-flex flex-column justify-content-start  align-items-center">
+                    <p class="my-3 pb-1 fs-1">FAMESET</p>
+                    <div class="fs-2 mb-2 border rounded py-1 w-100">Rating <span class="text-warning"><i
+                                class="bi bi-star-fill text-warning"></i> {{
+                                    averageRating.toFixed(1) }}</span></div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="rating d-flex justify-content-center gap-3 mt-4 mb-4">
+                        <img src="/img/rate2.gif" style="width: 40px; object-fit: contain;">
+                        <span v-for="star in 5" :key="star" @click="setRating(star)" class="star fs-2">
+                            <i :class="star <= rating ? 'bi bi-star-fill' : 'bi bi-star'"></i>
+                        </span>
                     </div>
-                    <div class="col-8">
-                        <div class="progress" style="height: 10px;">
-                            <div class="progress-bar" role="progressbar" :class="getColorClass(6 - star)"
-                                :style="{ width: getPercentage(6 - star) + '%' }"
-                                :aria-valuenow="getPercentage(6 - star)" aria-valuemin="0" aria-valuemax="100">
-                            </div>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" v-model="reviewText"
+                            id="floatingTextarea2" style="height: 50px;"></textarea>
+                        <label for="floatingTextarea2" class="text-muted small">Please write your Review</label>
+                    </div>
+                    <button class="btn btn-warning border mt-3" @click="submitReview">Submit</button>
+                </div>
+            </div>
+            <div class="mt-5">
+                <div class="rating-bars mt-4">
+                    <div v-for="star in 5" :key="star" class="row align-items-center mb-2">
+                        <div class="col-2 text-end">
+                            <span class="star-label">{{ 6 - star }}-star</span>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <span class="percentage">{{ getPercentage(6 - star) }}%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h3 class="text-center bill mt-5 mb-4"><span class="fs-2"> Reviews </span></h3>
-
-        <div class="mb-3 border rounded py-2 w-100">
-            <span class="fs-3">Total</span>
-            <i class="bi bi-chat-dots-fill ms-2 fs-3 text-warning"></i>
-            <span class="text-warning ms-2 fs-3 fw-bold">{{ totalReviews }}</span>
-        </div>
-
-        <div class="d-flex justify-content-between gap-2 mb-3">
-            <div class="w-50">
-                <p class="fw-bold">Filter By</p>
-                <select v-model="selectedStarRating" id="starFilter" class="bg-light form-select p-2 py-3 rounded-0 ">
-                    <option v-for="star in 5" :key="star" :value="star">{{ star }} Star</option>
-                </select>
-            </div>
-            <div class="w-50">
-                <p class="fw-bold">Sort By</p>
-                <select v-model="sortOrder" class=" bg-light form-select p-2 py-3 rounded-0">
-                    <option value="recent">Recent</option>
-                    <option value="relevant">Relevant</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="input-group border mb-3">
-            <input type="search" placeholder="Search" v-model="searchTerm" class="form-control bg-light border-0"
-                ref="searchInput" @keyup.enter="search">
-            <button class="btn btn-dark rounded-0" type="button" id="button-addon2"><i class="bi bi-search"
-                    @click="search"></i></button>
-        </div>
-        <div v-if="filteredReviews.length" class="mt-3">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
-                <div class="col" v-for="(review, index) in sortedAndFilteredReviews" :key="index">
-                    <div class="border bg-light p-2 position-relative">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <img src="/img/users/1.png" style="width:60px;" />
-                            <div class="ms-2">
-                                <p class="my-2 fs-5 text-start text-ellipsis ">{{ review.name }}</p>
-                                <div class="d-flex gap-2 overflow-x-scroll w-75" id="scroll">
-                                    <img :src="image" style="width: 20px; height: 20px; object-fit: contain;"
-                                        v-for="image in images" :key="image.id" alt="">
+                        <div class="col-8">
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar" role="progressbar" :class="getColorClass(6 - star)"
+                                    :style="{ width: getPercentage(6 - star) + '%' }"
+                                    :aria-valuenow="getPercentage(6 - star)" aria-valuemin="0" aria-valuemax="100">
                                 </div>
                             </div>
                         </div>
-                        <div class="" @click="toggleExpand(index)">
-                            <p class="text-start mb-0 rating-text" :class="{ expanded: isExpanded(index) }">
-                                {{ isExpanded(index) ? review.text : truncateText(review.text) }}
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="rating">
-                                    <span v-for="star in 5" :key="star" class="star">
-                                        <i :class="star <= review.rating ? 'bi bi-star-fill' : 'bi bi-star'"></i>
-                                    </span>
-                                </div>
-                                <i class="bi bi-chevron-down fs-5" :class="{ 'rotate-icon': isExpanded(index) }"></i>
-                                <span class="smaller pe-1">{{ review.date }}</span>
-                            </div>
-                        </div>
-                        <div class="position-absolute end-0 text-dark" style="font-size: 12px;top: 55px;">
-                            <span class="bg-light border p-1 px-2 rounded-start-3">
-                                <i class="bi bi-star-fill small me-2"></i>
-                                <span class="fw-bold">{{ review.user_rating }}</span>
-                            </span>
+                        <div class="col-2">
+                            <span class="percentage">{{ getPercentage(6 - star) }}%</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div v-else class="mt-3">
-            <p>No reviews available for the selected star rating.</p>
+            <h3 class="text-center bill mt-5 mb-4"><span class="fs-2"> Reviews </span></h3>
+
+            <div class="mb-3 border rounded py-2 w-100">
+                <span class="fs-3">Total</span>
+                <i class="bi bi-chat-dots-fill ms-2 fs-3 text-warning"></i>
+                <span class="text-warning ms-2 fs-3 fw-bold">{{ totalReviews }}</span>
+            </div>
+
+            <div class="d-flex justify-content-between gap-2 mb-3">
+                <div class="w-50">
+                    <p class="fw-bold">Filter By</p>
+                    <select v-model="selectedStarRating" id="starFilter"
+                        class="bg-light form-select p-2 py-3 rounded-0 ">
+                        <option v-for="star in 5" :key="star" :value="star">{{ star }} Star</option>
+                    </select>
+                </div>
+                <div class="w-50">
+                    <p class="fw-bold">Sort By</p>
+                    <select v-model="sortOrder" class=" bg-light form-select p-2 py-3 rounded-0">
+                        <option value="recent">Recent</option>
+                        <option value="relevant">Relevant</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group border mb-3">
+                <input type="search" placeholder="Search" v-model="searchTerm" class="form-control bg-light border-0"
+                    ref="searchInput" @keyup.enter="search">
+                <button class="btn btn-dark rounded-0" type="button" id="button-addon2"><i class="bi bi-search"
+                        @click="search"></i></button>
+            </div>
+            <div v-if="filteredReviews.length" class="mt-3">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
+                    <div class="col" v-for="(review, index) in sortedAndFilteredReviews" :key="index">
+                        <div class="border bg-light p-2 position-relative">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <img src="/img/users/1.png" style="width:60px;" />
+                                <div class="ms-2">
+                                    <p class="my-2 fs-5 text-start text-ellipsis ">{{ review.name }}</p>
+                                    <div class="d-flex gap-2 overflow-x-scroll w-75" id="scroll">
+                                        <img :src="image" style="width: 20px; height: 20px; object-fit: contain;"
+                                            v-for="image in images" :key="image.id" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="" @click="toggleExpand(index)">
+                                <p class="text-start mb-0 rating-text" :class="{ expanded: isExpanded(index) }">
+                                    {{ isExpanded(index) ? review.text : truncateText(review.text) }}
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="rating">
+                                        <span v-for="star in 5" :key="star" class="star">
+                                            <i :class="star <= review.rating ? 'bi bi-star-fill' : 'bi bi-star'"></i>
+                                        </span>
+                                    </div>
+                                    <i class="bi bi-chevron-down fs-5"
+                                        :class="{ 'rotate-icon': isExpanded(index) }"></i>
+                                    <span class="smaller pe-1">{{ review.date }}</span>
+                                </div>
+                            </div>
+                            <div class="position-absolute end-0 text-dark" style="font-size: 12px;top: 55px;">
+                                <span class="bg-light border p-1 px-2 rounded-start-3">
+                                    <i class="bi bi-star-fill small me-2"></i>
+                                    <span class="fw-bold">{{ review.user_rating }}</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div v-else class="mt-3">
+                <p>No reviews available for the selected star rating.</p>
+            </div>
         </div>
     </div>
 </template>
