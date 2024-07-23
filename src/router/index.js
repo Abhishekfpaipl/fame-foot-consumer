@@ -222,6 +222,11 @@ const routes = [
     name: "CollectionPage",
     component: () => import('@/pages/CollectionPage.vue')
   },
+  {
+    path: "/business-seller",
+    name: "BusinessSetupPage",
+    component: () => import('@/pages/BusinessSetupPage.vue')
+  },
 
 ];
 
