@@ -94,7 +94,6 @@ export default {
                             plan.name }}</div>
                         <div class="card-body text-center">
                             <div class="d-flex justify-content-center align-items-center gap-2">
-                                <p class="text-muted mb-0">Starting from</p>
                                 <p v-if="plan.price" class="mb-0 card-title fs-3">₹ <span class="fw-bold">{{
                                     plan.price }} </span></p>
                                 <p v-else class="mb-0 card-title fs-3 fw-bold">Custom</p>
@@ -115,7 +114,7 @@ export default {
                             <ul v-if="plan.features" class="list-group">
                                 <small class="text-start text-uppercase fw-bold my-2 text-primary">{{ plan.key
                                     }}</small>
-                                <li v-for="(feature, featureIndex) in plan.features" :key="featureIndex"
+                                <li v-for="(feature, featureIndex) in plan.features.slice(0,4)" :key="featureIndex"
                                     class="px-0 d-flex justify-content-between list-group-item text-start text-capitalize border-0">
                                     <div class="">
                                         <i class="bi bi-check-circle text-success"></i>
@@ -159,7 +158,7 @@ export default {
                 {
                     id: 124,
                     name: "Starter",
-                    price: "500",
+                    price: "15,000",
                     mrp: "5,000",
                     link: "/digital-marketing/",
                     tag: "/user/yearly/billed yearly",
@@ -220,7 +219,7 @@ export default {
                 {
                     id: 54,
                     name: "Enterprise",
-                    price: "1000",
+                    price: "37,500",
                     mrp: "10,000",
                     link: "/digital-marketing/",
                     tag: "/user/yearly/billed yearly",
@@ -283,6 +282,8 @@ export default {
                     id: 64,
                     name: "Business",
                     link: "/digital-marketing/",
+                    price: "1,00,000",
+                    mrp: "10,000",
                     tag: "/user/yearly/billed yearly",
                     description: "Enjoy our advanced offering for fast-growing businesses and startups.",
                     button: "Get Started",

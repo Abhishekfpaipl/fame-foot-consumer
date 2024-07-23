@@ -7,8 +7,8 @@
             Starting your online business with Fameset is easy. 14 lakh+ sellers trust Fameset with their business
         </p>
 
-        <div class="row">
-            <div class="col-md-2 mb-4" v-for="(step, index) in steps" :key="index">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-2">
+            <div class="col mb-4" v-for="(step, index) in steps" :key="index">
                 <div class="card h-100 border-0 bg-light">
                     <div class="card-body text-center">
                         <img :src="step.image" :alt="step.title" class="img-fluid mb-3" style="height: 100px;">

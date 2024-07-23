@@ -4,11 +4,11 @@
     <div class="how-it-works" :class="{ 'mobile-view': isMobile }">
       <div v-for="(step, index) in steps" :key="index" class="step-container">
         <div class="step-number">{{ index + 1 }}</div>
-        <div class="step-content">
-          <h3>{{ step.title }}</h3>
-          <p>{{ step.description }}</p>
-          <ul v-if="step.details">
-            <li v-for="(detail, detailIndex) in step.details" :key="detailIndex">
+        <div class="step-content px-2">
+          <h3 class="text-start">{{ step.title }}</h3>
+          <p class="text-start">{{ step.description }}</p>
+          <ul v-if="step.details" class="list-group">
+            <li class="text-start" v-for="(detail, detailIndex) in step.details" :key="detailIndex">
               {{ detail }}
             </li>
           </ul>
@@ -79,7 +79,7 @@ export default {
   position: absolute;
   top: 30px;
   left: 30px;
-  right: 30px;
+  right: 20%;
   height: 2px;
   background-color: #ff69b4;
   z-index: 0;
@@ -88,7 +88,7 @@ export default {
 .step-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   width: 20%;
   text-align: center;
   position: relative;
@@ -131,7 +131,7 @@ export default {
   top: 30px;
   left: 30px;
   width: 2px;
-  height: calc(100% - 60px);
+  height: calc(100% - 100px);
 }
 
 .mobile-view .step-container {

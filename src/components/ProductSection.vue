@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1 class="text-center my-3">Earn money online with a wide range of great products.</h1>
+        <h1 class="text-center ">Earn money online with a wide range of great products.</h1>
         <div class="row row-cols-1 row-cols-md-4 g-5 my-5">
             <div class="col" v-for="(link, index) in links" :key="index">
                 <h4 class="text-start">{{ link.title }}</h4>

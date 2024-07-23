@@ -65,7 +65,7 @@ export default {
                 },
                 {
                     id: 3,
-                    name: 'Patnership',
+                    name: 'Authorized seller',
                     link: '/reseller-program'
                 },
                 {
@@ -94,12 +94,16 @@ export default {
                     id: 1,
                     name: 'Terms Of Use',
                     link: '/term-of-use'
-                },
-
+                }, 
                 {
                     id: 3,
                     name: 'Business',
                     link: '/business'
+                },
+                {
+                    id: 3,
+                    name: 'Business Account',
+                    link: '/business-seller'
                 },
 
             ],
