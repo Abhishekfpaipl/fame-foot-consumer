@@ -1,6 +1,6 @@
 <template>
     <div class="container my-5">
-        <h1 class="mb-4">Why sell on Amazon?</h1>
+        <h1 class="mb-4">Why sell on Fameset?</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col" v-for="(reason, index) in reasons" :key="index">
                 <div class="card h-100 hover-scale">
@@ -23,17 +23,17 @@
       return {
         reasons: [
           {
-            icon: 'bi bi-tag-fill text-info',
+            icon: 'bi bi-tag-fill text-warning',
             title: 'Reach crores',
-            description: 'Crores of customers shop from Amazon.in, India\'s most visited shopping destination.'
+            description: 'Crores of customers shop from Fameset.in, India\'s most visited shopping destination.'
           },
           {
-            icon: 'bi bi-truck text-info',
+            icon: 'bi bi-truck text-warning',
             title: 'Deliver smiles',
-            description: '100% of India\'s serviceable pincodes are supported for delivery, through Easy Ship & Fulfillment by Amazon.'
+            description: '100% of India\'s serviceable pincodes are supported for delivery, through Easy Ship & Fulfillment by Fameset.'
           },
           {
-            icon: 'bi bi-lightning-charge-fill text-info',
+            icon: 'bi bi-lightning-charge-fill text-warning',
             title: 'Make money',
             description: '95K+ sellers became lakhpatis in 2023. You could be next'
           }

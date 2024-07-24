@@ -1,7 +1,7 @@
 <template>
     <div class="container my-5">
         <h1 class="mb-2">
-            <span class="text-primary">Your Journey</span> on Fameset
+            <span class="text-warning">Your Journey</span> on Fameset
         </h1>
         <p class="text-muted mb-4">
             Starting your online business with Fameset is easy. 14 lakh+ sellers trust Fameset with their business
@@ -20,7 +20,7 @@
         </div>
 
         <div class="text-center mt-4">
-            <button class="btn btn-primary">Download Launch Kit</button>
+            <button class="btn btn-warning">Download Launch Kit</button>
         </div>
     </div>
 </template>

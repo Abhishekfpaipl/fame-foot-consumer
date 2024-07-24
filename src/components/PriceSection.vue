@@ -54,9 +54,9 @@ export default {
             plans: [
                 {
                     id: 1,
-                    title: "Lite",
+                    title: "Trial",
                     description: "Info Website",
-                    price: '4,999',
+                    price: '6,000',
                     mrp: '10,000',
                     features: [
                         { id: 10, name: "Authorized Seller", included: true },
@@ -67,6 +67,7 @@ export default {
                         { id: 6, name: "Rewards", included: false },
                         { id: 7, name: "Memberships", included: false },
                         { id: 7, name: "Certificates", included: false },
+                        { id: 7, name: "Verifications", included: false },
                         { id: 7, name: "PR Management", included: false },
                         { id: 8, name: "Fameset Badges", included: false },
                         { id: 3, name: "Fameset Listing", included: false },
@@ -79,7 +80,7 @@ export default {
                     id: 2,
                     title: "Plus",
                     description: "Business Website",
-                    price: '24,999',
+                    price: '84,000',
                     mrp: '30,000',
                     features: [
                         { id: 10, name: "Authorized Seller", included: true },
@@ -90,6 +91,7 @@ export default {
                         { id: 6, name: "Rewards", included: true },
                         { id: 7, name: "Memberships", included: true },
                         { id: 7, name: "Certificates", included: true },
+                        { id: 7, name: "Verifications", included: false },
                         { id: 7, name: "PR Management", included: false },
                         { id: 8, name: "Fameset Badges", included: false },
                         { id: 3, name: "Fameset Listing", included: false },
@@ -102,7 +104,7 @@ export default {
                     id: 3,
                     title: "Elite",
                     description: "Catalog Website",
-                    price: '99,999',
+                    price: '3,00,000',
                     mrp: '60,000',
                     features: [
                         { id: 10, name: "Authorized Seller", included: true },
@@ -113,6 +115,7 @@ export default {
                         { id: 6, name: "Rewards", included: true },
                         { id: 7, name: "Memberships", included: true },
                         { id: 7, name: "Certificates", included: true },
+                        { id: 7, name: "Verifications", included: true },
                         { id: 7, name: "PR Management", included: true },
                         { id: 8, name: "Fameset Badges", included: true },
                         { id: 3, name: "Fameset Listing", included: true },
@@ -136,6 +139,7 @@ export default {
                         { id: 6, name: "Rewards", included: true },
                         { id: 7, name: "Memberships", included: true },
                         { id: 7, name: "Certificates", included: true },
+                        { id: 7, name: "Verifications", included: true },
                         { id: 7, name: "PR Management", included: true },
                         { id: 8, name: "Fameset Badges", included: true },
                         { id: 3, name: "Fameset Listing", included: true },

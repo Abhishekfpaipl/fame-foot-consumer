@@ -35,7 +35,7 @@
                         <img :src="image" style="width: 30px; height: 30px; object-fit: contain;"
                             v-for="image in images" :key="image.id" alt="">
                     </div>
-                    <div class="d-flex justify-content-between my-4">
+                    <div class="d-flex gap-4 justify-content-md-start justify-content-center my-4">
                         <!-- <div class="w-25">
                                 <button :class="reviewButtonClass" class="w-100" @click="toggleIcon('save')">
                                     <i :class="saveIcon" class="me-2 "></i>
@@ -52,44 +52,54 @@
                             <p class="mb-0 smaller text-center pt-2">5.35K+</p>
                         </div> -->
                         <div class="">
-                            <button class="w-100 btn btn-outline-dark" data-bs-toggle="modal"
-                                data-bs-target="#likeModal">
-                                <i :class="likeIcon" class="me-2"></i>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#likeModal">
+                                <i :class="likeIcon" class=""></i>
                             </button>
-                            <p class="mb-0 smaller text-center pt-2">1.35K+ Likes</p>
+                            <div class="mb-0 smaller text-center pt-2 d-flex flex-column">
+                                <span>1.35K+ </span>
+                                <span>Likes </span>
+                            </div>
                         </div>
                         <div class="">
-                            <button class="w-100 btn btn-outline-dark" data-bs-toggle="modal"
-                                data-bs-target="#heartModal">
-                                <i :class="heartIcon" class="me-2"></i>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#heartModal">
+                                <i :class="heartIcon" class=""></i>
                             </button>
-                            <p class="mb-0 smaller text-center pt-2">1.35K+ Hearts</p>
+                            <div class="mb-0 smaller text-center pt-2 d-flex flex-column">
+                                <span>1.35K+ </span>
+                                <span>Hearts </span>
+                            </div>
+
                         </div>
                         <div class="">
-                            <button :class="promoteButtonClass" class="w-100 btn btn-outline-dark"
+                            <button :class="promoteButtonClass" class="btn btn-outline-dark"
                                 @click="toggleIcon('promote')">
                                 <i :class="promoteIcon" class="me-2"></i> {{ promoteText }}
                             </button>
                             <p class="mb-0 smaller text-center pt-2">1.35K+</p>
                         </div>
-
-
                     </div>
-
-                    <!-- <div class="d-flex justify-content-between align-items-center my-3">
-                        <div class="text-center">
-                            <i class="bi bi-hand-thumbs-up fs-1"></i>
-                            <p class="mb-0">5.35K+ Likes</p>
-                        </div>
-                        <div class="text-center">
-                            <i class="bi bi-megaphone fs-1"></i>
-                            <p class="mb-0">1.35K+ supporter</p>
-                        </div>
-
-                    </div> -->
                 </div>
             </div>
         </div>
+        <div class="container text-dark bg-white my-5">
+            <div class="row row-cols-4 row-cols-md-4 mx-1 g-1">
+                <div v-for="(item, index) in fav" :key="index" class="col">
+                    <div class="p-2 card shadow" :data-bs-toggle="item.offcanvas ? 'offcanvas' : ''"
+                        :data-bs-target="item.offcanvas ? '#' + item.offcanvas : ''"
+                        style="background-color: #FFF5DD !important; border-color: #FFCE56 !important;">
+                        <div class="d-md-flex justify-content-between align-items-center border-bottom pb-2"
+                            style="border-color: #FFCE56 !important;">
+                            <i :class="item.iconClass" class="text-dark fs-5"></i>
+                            <p class="fw-bold smaller mb-0">{{ item.label }}</p>
+                        </div>
+                        <p class="fw-bold fs-1 mb-0 d-flex justify-content-center align-items-center">
+                            <AutoCounter :data="item.data" />&nbsp;+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <TestimonialSection />
 
 
@@ -160,28 +170,7 @@
 
 
 
-        <div class="container text-dark bg-white mt-4">
-            <div class="row row-cols-4 row-cols-md-4 mx-1 g-1">
-                <div v-for="(item, index) in fav" :key="index" class="col">
-                    <div class="p-2 card shadow"
-                        style="background-color: #FFF5DD !important;border-color: #FFCE56 !important;">
-                        <div class="d-md-flex justify-content-between align-items-center border-bottom pb-2"
-                            style="border-color: #FFCE56 !important;">
-                            <i :class="item.iconClass" class="text-dark fs-5"></i>
-                            <p class="fw-bold smaller mb-0">{{ item.label }}</p>
-                        </div>
-                        <p class="fw-bold fs-1 mb-0 d-flex justify-content-center align-items-center">
-                            <AutoCounter :data="item.data" />&nbsp;+
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="mx-3 pb-3 pt-4" data-bs-toggle="offcanvas" data-bs-target="#Review" aria-controls="Review">
-            <button class="w-100 btn btn-warning fs-5"><span class="text-capitalize">We'd Love To Have Your
-                    Review</span> <i class="bi bi-arrow-right "></i></button>
-            <p class="text-end mb-0 pe-2">2.5K+</p>
-        </div>
+
         <div class="mx-3 pb-3 pt-4">
             <router-link to="/collection-page" class="btn btn-warning">
                 <i class="bi bi-shop me-2"></i>
@@ -189,13 +178,17 @@
             </router-link>
         </div>
         <OffcanvasRating />
+        <OffcanvasPromoters />
+        <OffcanvasThankful />
     </div>
 </template>
 
 <script>
 import AutoCounter from '@/components/AutoCounter.vue';
 import OffcanvasRating from '@/components/OffcanvasRating.vue';
+import OffcanvasPromoters from '@/components/OffcanvasPromoters.vue';
 import TestimonialSection from '@/components/TestimonialSection.vue';
+import OffcanvasThankful from '@/components/OffcanvasThankful.vue';
 
 export default {
     name: 'InfoSection',
@@ -203,6 +196,8 @@ export default {
         AutoCounter,
         OffcanvasRating,
         TestimonialSection,
+        OffcanvasPromoters,
+        OffcanvasThankful,
     },
     data() {
         return {
@@ -249,19 +244,20 @@ export default {
                 }
             ],
             fav: [
-                // {
-                //     iconClass: 'bi bi-hand-thumbs-up-fill',
-                //     iconColor: '#FFB2B2',
-                //     data: 50,
-                //     label: 'Promoters'
-                // },
                 {
-                    iconClass: 'bi bi-hearts',
-                    iconColor: '#BCDFFB',
-                    data: 10,
-                    label: 'Hearts',
-
+                    iconClass: 'bi bi-hand-thumbs-up-fill',
+                    iconColor: '#FFB2B2',
+                    data: 50,
+                    label: 'Promoters',
+                    offcanvas: 'Promoter',
                 },
+                // {
+                //     iconClass: 'bi bi-hearts',
+                //     iconColor: '#BCDFFB',
+                //     data: 10,
+                //     label: 'Hearts',
+
+                // },
                 // {
                 //     iconClass: 'bi bi-heart-fill',
                 //     iconColor: '#BCDFFB',
@@ -269,12 +265,13 @@ export default {
                 //     label: 'Likes',
 
                 // },
-                // {
-                //     iconClass: 'bi bi-chat-dots-fill',
-                //     iconColor: '#C9E7CA',
-                //     data: 10,
-                //     label: 'Reviews'
-                // },
+                {
+                    iconClass: 'bi bi-chat-dots-fill',
+                    iconColor: '#C9E7CA',
+                    data: 10,
+                    label: 'Reviews',
+                    offcanvas: 'Review',
+                },
                 // {
                 //     iconClass: 'bi bi-award-fill',
                 //     iconColor: '#C9E7CA',
@@ -285,20 +282,21 @@ export default {
                     iconClass: 'bi bi-shield-fill-check',
                     iconColor: '#FFB2B2',
                     data: 50,
-                    label: 'Badges'
+                    label: 'Verified'
                 },
                 {
                     iconClass: 'bi bi-emoji-smile-fill',
                     iconColor: '#C9E7CA',
                     data: 10,
-                    label: 'Thankful'
+                    label: 'Thankful',
+                    offcanvas: 'Thankful',
                 },
-                {
-                    iconClass: 'bi bi-people-fill',
-                    iconColor: '#C9E7CA',
-                    data: 10,
-                    label: 'Reach'
-                },
+                // {
+                //     iconClass: 'bi bi-people-fill',
+                //     iconColor: '#C9E7CA',
+                //     data: 10,
+                //     label: 'Reach'
+                // },
             ],
             images: [
                 "/img/members/1.png",

@@ -1,43 +1,50 @@
 <template>
-    <div class="container pb-5">
-         
-        <div class="d-flex justify-content-between gap-2 mb-3">
-            <div class="w-50">
-                <p class="fw-bold">Filter By</p>
-                <select v-model="selectedStarRating" id="starFilter" class="bg-light form-select p-2 py-3 rounded-0 ">
-                    <option v-for="star in 5" :key="star" :value="star">{{ star }} Star</option>
-                </select>
-            </div>
-            <div class="w-50">
-                <p class="fw-bold">Sort By</p>
-                <select v-model="sortOrder" class=" bg-light form-select p-2 py-3 rounded-0">
-                    <option value="recent">Recent</option>
-                    <option value="relevant">Relevant</option>
-                </select>
-            </div>
+    <div class="offcanvas offcanvas-end w-100" tabindex="-1" id="Promoter" aria-labelledby="Promoter">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="Review">Review</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
 
-        <div class="input-group border mb-3">
-            <input type="search" placeholder="Search" v-model="searchTerm" class="form-control bg-light border-0"
-                ref="searchInput" @keyup.enter="search">
-            <button class="btn btn-dark rounded-0" type="button" id="button-addon2"><i class="bi bi-search"
-                    @click="search"></i></button>
-        </div>
-        <div v-if="filteredReviews.length" class="mt-3">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
-                <div class="col" v-for="(review, index) in sortedAndFilteredReviews" :key="index">
-                    <div class="border bg-light p-2 position-relative">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <img src="/img/users/1.png" style="width:60px;" />
-                            <div class="ms-2">
-                                <p class="my-2 fs-5 text-start text-ellipsis ">{{ review.name }}</p>
-                                <div class="d-flex gap-2 overflow-x-scroll w-75" id="scroll">
-                                    <img :src="image" style="width: 20px; height: 20px; object-fit: contain;"
-                                        v-for="image in images" :key="image.id" alt="">
+        <div class="offcanvas-body">
+
+            <div class="d-flex justify-content-between gap-2 mb-3">
+                <div class="w-50">
+                    <p class="fw-bold">Filter By</p>
+                    <select v-model="selectedStarRating" id="starFilter"
+                        class="bg-light form-select p-2 py-3 rounded-0 ">
+                        <option v-for="star in 5" :key="star" :value="star">{{ star }} Star</option>
+                    </select>
+                </div>
+                <div class="w-50">
+                    <p class="fw-bold">Sort By</p>
+                    <select v-model="sortOrder" class=" bg-light form-select p-2 py-3 rounded-0">
+                        <option value="recent">Recent</option>
+                        <option value="relevant">Relevant</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group border mb-3">
+                <input type="search" placeholder="Search" v-model="searchTerm" class="form-control bg-light border-0"
+                    ref="searchInput" @keyup.enter="search">
+                <button class="btn btn-dark rounded-0" type="button" id="button-addon2"><i class="bi bi-search"
+                        @click="search"></i></button>
+            </div>
+            <div v-if="filteredReviews.length" class="mt-3">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
+                    <div class="col" v-for="(review, index) in sortedAndFilteredReviews" :key="index">
+                        <div class="border bg-light p-2 position-relative">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <img src="/img/users/1.png" style="width:60px;" />
+                                <div class="ms-2">
+                                    <p class="my-2 fs-5 text-start text-ellipsis ">{{ review.name }}</p>
+                                    <div class="d-flex gap-2 overflow-x-scroll w-75" id="scroll">
+                                        <img :src="image" style="width: 20px; height: 20px; object-fit: contain;"
+                                            v-for="image in images" :key="image.id" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- <div class="" @click="toggleExpand(index)">
+                            <!-- <div class="" @click="toggleExpand(index)">
                             <p class="text-start mb-0 rating-text" :class="{ expanded: isExpanded(index) }">
                                 {{ isExpanded(index) ? review.text : truncateText(review.text) }}
                             </p>
@@ -51,18 +58,19 @@
                                 <span class="smaller pe-1">{{ review.date }}</span>
                             </div>
                         </div> -->
-                        <div class="position-absolute end-0 text-dark" style="font-size: 12px;top:2px;">
-                            <span class="bg-light border p-1 px-2 rounded-start-3">
-                                <i class="bi bi-star-fill small me-2"></i>
-                                <span class="fw-bold">{{ review.user_promoters }}</span>
-                            </span>
+                            <div class="position-absolute end-0 text-dark" style="font-size: 12px;top:2px;">
+                                <span class="bg-light border p-1 px-2 rounded-start-3">
+                                    <i class="bi bi-star-fill small me-2"></i>
+                                    <span class="fw-bold">{{ review.user_promoters }}</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div v-else class="mt-3">
-            <p>No reviews available for the selected star rating.</p>
+            <div v-else class="mt-3">
+                <p>No reviews available for the selected star rating.</p>
+            </div>
         </div>
     </div>
 </template>

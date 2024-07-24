@@ -124,6 +124,8 @@ import ProfitSection from "@/components/ResellerPriceSection.vue"
 import ProductSection from "@/components/ProductSection.vue"
 import FaqSection from "@/components/FaqSection.vue"
 import ResellerAbout from "@/components/ResellerAbout.vue"
+import SuccessStory from '@/components/business/SuccessStory.vue';
+
 export default {
     name: 'CareerPage',
     components: {
@@ -134,6 +136,7 @@ export default {
         ProductSection,
         FaqSection,
         ResellerAbout,
+        SuccessStory
     },
     data() {
         return {
@@ -193,11 +196,12 @@ export default {
             designation: '',
             sections: [
                 { id: 'Price', name: 'Price', component: 'PriceSection' },
-                { id: 'Profit', name: 'Profit', component: 'ProfitSection' },
+                { id: 'Margin', name: 'Margin', component: 'ProfitSection' },
                 { id: 'Product', name: 'Product', component: 'ProductSection' },
                 { id: 'FAQ', name: 'FAQ', component: 'FaqSection' },
                 { id: 'Benefit', name: 'Benefit', component: 'BenefitSection' },
                 { id: 'About', name: 'About', component: 'ResellerAbout' },
+                { id: 'Success Story', name: 'Success Story', component: 'SuccessStory' },
             ],
             activeSection: '',
         }

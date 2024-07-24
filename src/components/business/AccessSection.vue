@@ -1,6 +1,6 @@
 <template>
     <div class="container my-4">
-        <h1 class="text-primary mb-3">Access our tools to grow faster on Fameset</h1>
+        <h1 class="text-warning mb-3">Access our tools to grow faster on Fameset</h1>
         <p class="mb-4">
             We understand that your online business may require additional support from time to time, and we've got you
             covered.
@@ -16,7 +16,7 @@
                             <span class="fs-4 ms-3">{{ tool.title }}</span>
                         </div>
                         <p class="card-text">{{ tool.description }}</p>
-                        <a href="#" class="text-decoration-none">Learn More</a>
+                        <a href="#" class="text-decoration-none text-warning">Learn More</a>
                     </div>
                 </div>
             </div>

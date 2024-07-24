@@ -1,11 +1,15 @@
-<!-- <template>
-    <div>
+<template>
+    <div class="offcanvas offcanvas-end w-100" tabindex="-1" id="Thankful" aria-labelledby="Thankful">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="Review">Review</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
         <div class="container my-5">
             <h1 class="px-2 text-center mb-5">Testimonials</h1>
             <div class="position-relative">
-                <div class="d-flex gap-3 overflow-x-scroll" ref="techScrollContainer" id="scroll">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col-12" v-for="(team, index) in reviews" :key="index">
-                        <div class="card mx-4 mx-md-0 position-relative" style="min-width: 18rem;">
+                        <div class="card position-relative" style="min-width: 18rem;">
                             <div class="card-body p-0">
                                 <div class="d-flex align-items-center gap-2 mb-2 p-2 bg-light border-bottom">
                                     <img :src="team.img" class="rounded-circle" alt="..."
@@ -46,88 +50,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="rounded-circle border d-flex justify-content-center align-items-center position-absolute bg-light"
-                    @click="scrollLeft($refs.techScrollContainer)"
-                    style="width: 40px; height:40px ;top: 40%; left: -4%">
-                    <i class="bi bi-chevron-left"></i>
-                </div>
-                <div class="rounded-circle border d-flex justify-content-center align-items-center position-absolute bg-light"
-                    @click="scrollRight($refs.techScrollContainer)"
-                    style="width: 40px; height:40px ;top: 40%; right: -4%">
-                    <i class="bi bi-chevron-right"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</template> -->
-
-
-<template>
-    <div class="container">
-        <h1 class="text-capitalize text-center">Testimonials</h1>
-        <div class="w-100 d-block">
-            <div class="w-100 overflow-auto d-flex align-items-center overflow-x-hidden" ref="slider">
-                <div v-for="(review, index) in infiniteReviews" :key="index" @click="showUser(review, index)"
-                    class="btn rounded-circle m-2 mx-3 d-flex" :class="{ selectedDiv: isSelected(review.id) }">
-                    <img :src="review.img" class="rounded-circle" alt="User Image">
-                </div>
-            </div>
-            <div> 
-                <div class="card position-relative" style="min-width: 18rem;">
-                    <div class="card-body p-0">
-                        <div class="d-flex justify-content-between align-items-center bg-light border-bottom p-2">
-                            <span class="">
-                                <span>Fameset </span>
-                                <i class="bi bi-star-fill text-warning small me-2"></i>
-                                <span class="">{{ getSelectedReviewText.user_rating }}</span>
-                            </span>
-                            <span class=""> 
-                                <span class="">{{ getSelectedReviewText.date }}</span>
-                            </span>
-                        </div>
-                        <!-- <div class="d-flex align-items-center gap-2 mb-2 p-2 bg-light border-bottom">
-                            <img :src="getSelectedReviewText.img" class="rounded-circle" alt="..."
-                                style="height:60px;width: 60px;object-fit: cover;object-position: top;"> -->
-                        <div class="d-flex flex-column justify-content-center align-items-center my-3">
-                            <h5 class="lh-1 text-start">{{ getSelectedReviewText.name }}</h5>
-                            <div class="d-flex gap-2 overflow-x-scroll" id="scroll">
-                                <img :src="image" style="width: 20px; height: 20px; object-fit: contain;"
-                                    v-for="image in images" :key="image.id" alt="">
-                            </div>
-                        </div>
-                        <!-- </div> -->
-                        <div class="p-2">
-                            <!-- <p class="smaller pe-1 text-end">{{ getSelectedReviewText.date }}</p> -->
-                            <p class="text-ellipsis7"><span class="fw-bold">"</span> {{ getSelectedReviewText.value }}
-                                <span class="fw-bold">"</span>
-                            </p>
-                        </div>
-                        <!-- <div class="position-absolute start-0 text-dark top-0" style="font-size: 12px;top: 55px;">
-                            <span class="bg-light border p-1 px-2 rounded-end-3">
-                                <i class="bi bi-star-fill text-warning small me-2"></i>
-                                <span class="fw-bold">{{ getSelectedReviewText.user_rating }}</span>
-                            </span>
-                        </div> -->
-                    </div>
-                    <div class="card-footer p-0">
-                        <div class="d-flex p-2 overflow-x-scroll mt-3" id="scroll">
-                            <div class="" style="min-width: 100px;" v-for="(skill, index) in skills" :key="index">
-                                <p class="smaller">Out of 10</p>
-                                <div class="skill-circle">
-                                    <div class="circle-wrap" :style="getCircleStyle(skill.score)">
-                                        <div class="inside-circle fs-5">{{ skill.score }}</div>
-                                    </div>
-                                </div>
-                                <p class="text-center mt-2 smaller">{{ skill.name }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> 
             </div>
         </div>
     </div>
 </template>
+
 <script>
 export default {
     name: 'InfoSection',
@@ -238,64 +166,26 @@ export default {
         getSelectedReviewText() {
             return this.infiniteReviews[this.selectedReview];
         },
-    },
-    mounted() {
-        this.scrollToCenter();
-    },
+    }, 
     methods: {
-        isSelected(clickedReviewId) {
-            return clickedReviewId === this.infiniteReviews[this.selectedReview].id;
-        },
-        showUser(review, reviewIndex) {
-            this.selectedReview = reviewIndex % this.reviews.length;
-            this.scrollToCenter();
-        },
-        scrollToCenter() {
-            const slider = this.$refs.slider;
-            const selectedElement = slider.children[this.selectedReview];
-            const scrollLeft = selectedElement.offsetLeft - (slider.offsetWidth - selectedElement.offsetWidth) / 2;
-            slider.scrollLeft = scrollLeft;
-        },
         getCircleStyle(score) {
             const percentage = (score / 10) * 100;
             return {
                 background: `conic-gradient(#ffc107 0deg ${percentage * 3.6}deg, #e6e2e7 ${percentage * 3.6}deg 360deg)`
             };
+        }, 
+        toggleExpand(index) {
+            const expandedIndex = this.expandedReviews.indexOf(index);
+            if (expandedIndex === -1) {
+                this.expandedReviews.push(index);
+            } else {
+                this.expandedReviews.splice(expandedIndex, 1);
+            }
         },
-    },
-    // methods: {
-    //    
-    //     scrollLeft(container) {
-    //         const scrollWidth = container.clientWidth;
-    //         const newScrollLeft = Math.max(container.scrollLeft - scrollWidth, 0);
-
-    //         container.scrollTo({
-    //             left: newScrollLeft,
-    //             behavior: 'smooth'
-    //         });
-    //     },
-    //     scrollRight(container) {
-    //         const scrollWidth = container.clientWidth;
-    //         const maxScrollLeft = container.scrollWidth - scrollWidth;
-    //         const newScrollLeft = Math.min(container.scrollLeft + scrollWidth, maxScrollLeft);
-
-    //         container.scrollTo({
-    //             left: newScrollLeft,
-    //             behavior: 'smooth'
-    //         });
-    //     },
-    //     toggleExpand(index) {
-    //         const expandedIndex = this.expandedReviews.indexOf(index);
-    //         if (expandedIndex === -1) {
-    //             this.expandedReviews.push(index);
-    //         } else {
-    //             this.expandedReviews.splice(expandedIndex, 1);
-    //         }
-    //     },
-    //     isExpanded(index) {
-    //         return this.expandedReviews.includes(index);
-    //     },
-    // }
+        isExpanded(index) {
+            return this.expandedReviews.includes(index);
+        },
+    }
 }
 </script>
 
@@ -363,23 +253,4 @@ img {
     --bs-btn-padding-x: 5px;
     --bs-btn-padding-y: 5px;
 }
- 
-/* ::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #ffffff;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgb(134, 132, 132)4f4;
-    border-radius: 5px;
-    width: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #f5e5e5;
-    width: 10px;
-} */
 </style>

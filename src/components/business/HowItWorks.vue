@@ -81,7 +81,7 @@ export default {
   left: 30px;
   right: 20%;
   height: 2px;
-  background-color: #ff69b4;
+  background-color: #ffc107;
   z-index: 0;
 }
 
@@ -98,7 +98,7 @@ export default {
 .step-number {
   width: 60px;
   height: 60px;
-  background-color: #ff69b4;
+  background-color: #ffc107;
   border-radius: 50%;
   display: flex;
   justify-content: center;

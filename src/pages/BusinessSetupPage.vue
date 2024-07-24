@@ -99,7 +99,7 @@ import BusinessSell from '@/components/business/BusinessSell.vue';
 import HowItWorks from '@/components/business/HowItWorks.vue';
 import JourneySection from '@/components/business/JourneySection.vue';
 import SuccessStory from '@/components/business/SuccessStory.vue';
-import PriceSection from "@/components/PriceSection.vue";
+import PriceSection from "@/components/BusinessPriceSection.vue";
 import FaqSection from "@/components/FaqSection.vue";
 export default {
     components: {

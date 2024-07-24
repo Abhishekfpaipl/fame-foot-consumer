@@ -3,10 +3,10 @@
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h2 class="mb-3">
-                    <span class="text-primary">Seller Success</span> Stories
+                    <span class="text-warning">Seller Success</span> Stories
                 </h2>
                 <p class="mb-4">14 Lakh+ sellers trust Flipkart for their online business.</p>
-                <button class="btn btn-outline-primary">See All Stories</button>
+                <!-- <button class="btn btn-outline-primary">See All Stories</button> -->
             </div>
             <div class="col-md-6">
                 <div class="position-relative">

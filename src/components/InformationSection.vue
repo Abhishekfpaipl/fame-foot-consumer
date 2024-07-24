@@ -75,7 +75,7 @@ import AboutusSection from "@/components/AboutusSection.vue";
 import AchievementsSection from "@/components/AchievementsSection.vue";
 // import GalleryCollage from "@/components/GalleryCollage.vue";
 // import OffcanvasRating from "@/components/OffcanvasRating.vue";
-import PromoteSection from "@/components/PromoteSection.vue";
+// import PromoteSection from "@/components/OffcanvasPromoters.vue";
 export default {
     name: "InformationSection",
     components: {
@@ -85,7 +85,7 @@ export default {
         // GalleryCollage,
         TimelineSection,
         // OffcanvasRating,
-        PromoteSection,
+        // PromoteSection,
     },
     data() {
         return {
@@ -94,7 +94,7 @@ export default {
                 // { count:"20", id: 'Review', name: 'Review', component: 'OffcanvasRating' },
                 { count:"30", id: 'Timeline', name: 'Timeline', component: 'TimelineSection' },
                 // { count:"40", id: 'Gallery', name: 'Gallery', component: 'GalleryCollage' },
-                { count:"50", id: 'Promoters', name: 'Promoters', component: 'PromoteSection' },
+                // { count:"50", id: 'Promoters', name: 'Promoters', component: 'PromoteSection' },
                 { count:"50", id: 'About', name: 'About', component: 'AboutusSection' },
                 // { count:"60", id: 'connect', name: 'Connect', component: 'ContactSection' },
             ],
