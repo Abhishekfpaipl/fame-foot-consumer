@@ -52,6 +52,20 @@
                             <p class="mb-0 smaller text-center pt-2">5.35K+</p>
                         </div> -->
                         <div class="w-50">
+                            <button  class="w-100 btn btn-outline-dark"
+                                @click="toggleIcon('like')">
+                                <i :class="likeIcon" class="me-2"></i> {{ likeText }}
+                            </button>
+                            <p class="mb-0 smaller text-center pt-2">1.35K+</p>
+                        </div>
+                        <div class="w-50">
+                            <button  class="w-100 btn btn-outline-dark"
+                                @click="toggleIcon('heart')">
+                                <i :class="heartIcon" class="me-2"></i> {{ heartText }}
+                            </button>
+                            <p class="mb-0 smaller text-center pt-2">1.35K+</p>
+                        </div>
+                        <div class="w-50">
                             <button :class="promoteButtonClass" class="w-100 btn btn-outline-dark"
                                 @click="toggleIcon('promote')">
                                 <i :class="promoteIcon" class="me-2"></i> {{ promoteText }}
@@ -82,7 +96,7 @@
                 </div>
             </div>
         </div>
-        <div
+        <!-- <div
             class="container d-flex justify-content-center align-items-center gap-md-5 gap-2 text-center border bg-light   ">
             <div class="text-center">
                 <div class="position-relative bi bi-heart-fill"
@@ -101,10 +115,10 @@
                 <button class="btn btn-danger" @click="submitHear(counter)">Submit Hearts</button>
                 <p class="mb-0 mt-2">2.35M+ <i class="bi bi-people-fill mx-2"></i>Hearts</p>
             </div>
-        </div>
+        </div> -->
 
 
-        <div class="container text-dark bg-white mt-4">
+        <!-- <div class="container text-dark bg-white mt-4">
             <div class="row row-cols-4 row-cols-md-4 mx-1 g-1">
                 <div v-for="(item, index) in fav" :key="index" class="col">
                     <div class="p-2 card shadow"
@@ -120,24 +134,24 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="mx-3 pb-3 pt-4" data-bs-toggle="offcanvas" data-bs-target="#Review" aria-controls="Review">
+        </div> -->
+        <!-- <div class="mx-3 pb-3 pt-4" data-bs-toggle="offcanvas" data-bs-target="#Review" aria-controls="Review">
             <button class="w-100 btn btn-warning fs-5"><span class="text-capitalize">We'd Love To Have Your
                     Review</span> <i class="bi bi-arrow-right "></i></button>
             <p class="text-end mb-0 pe-2">2.5K+</p>
-        </div>
+        </div> -->
         <OffcanvasRating />
     </div>
 </template>
 
 <script>
-import AutoCounter from '@/components/AutoCounter.vue';
+// import AutoCounter from '@/components/AutoCounter.vue';
 import OffcanvasRating from '@/components/OffcanvasRating.vue';
 
 export default {
     name: 'InfoSection',
     components: {
-        AutoCounter,
+        // AutoCounter,
         OffcanvasRating,
     },
     data() {
@@ -258,6 +272,10 @@ export default {
             reviewButtonClass: 'btn btn-light',
             hover: false,
             counter: 0,
+            likeIcon:'bi bi-heart',
+            likeText:'Like Us',
+            heartIcon:'bi bi-heart',
+            heartText:'Heart',
         }
     },
     computed: {
@@ -280,6 +298,12 @@ export default {
             if (buttonType === 'save') {
                 this.reviewButtonClass = this.reviewButtonClass === 'btn btn-light' ? 'btn btn-danger' : 'btn btn-light';
                 // this.saveText = this.saveText === 'Review Us' ? 'Reviewed' : 'Review Us';
+            } else if (buttonType === 'like') {
+                this.likeIcon = this.likeIcon === 'bi bi-heart' ? 'bi bi-heart-fill' : 'bi bi-heart';
+                this.likeText = this.likeText === 'Like Us' ? 'Liked' : 'Like Us';
+            } else if (buttonType === 'heart') {
+                this.heartIcon = this.heartIcon ===  'bi bi-heart' ? 'bi bi-heart-fill' : 'bi bi-heart';
+                this.heartText = this.heartText === 'Heart' ? 'Liked' : 'Heart';
             } else if (buttonType === 'bookmark') {
                 this.bookmarkIcon = this.bookmarkIcon === 'bi bi-bookmark-plus' ? 'bi bi-bookmark-check-fill' : 'bi bi-bookmark-plus';
                 // this.favouriteText = this.favouriteText === 'Like Us' ? 'Liked' : 'Like Us';
