@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="container my-5">
-            <h1 class="px-2 text-center mb-5">Our Tech Team</h1>
+            <h1 class="px-2 text-center mb-5">Testimonials</h1>
             <div class="position-relative">
                 <div class="d-flex gap-3 overflow-x-scroll" ref="techScrollContainer" id="scroll">
                     <div class="col-12" v-for="(team, index) in reviews" :key="index">
-                        <div class="card" style="min-width: 18rem;">
+                        <div class="card mx-4 mx-md-0" style="min-width: 18rem;">
                             <div class="card-body p-0">
                                 <div
                                     class="d-flex justify-content-start align-items-center gap-4 border-bottom p-2 bg-light">
@@ -14,24 +14,12 @@
                                     <h5 class="lh-1 mb-0">{{ team.name }}</h5>
                                     <!-- <small>{{ team.post }}</small> -->
                                 </div>
-                                <div class="p-2">
+                                <div class="p-2" style="min-height:235px">
                                     <p class="smaller pe-1 text-end">{{ team.date }}</p>
-                                    <p class="text-ellipsis7"><span class="fw-bold fs-1">"</span>{{ team.value }} <span
-                                            class="fw-bold fs-1">"</span></p>
+                                    <p class="text-ellipsis7"><span class="fw-bold">"</span> {{ team.value }} <span
+                                            class="fw-bold">"</span></p>
                                 </div>
-                                <div class="d-flex gap-2 p-2 overflow-x-scroll mt-3" id="scroll">
-                                    <div class="" style="min-width: 150px;" v-for="(skill, index) in skills"
-                                        :key="index">
-                                        <div class="skill-circle">
-                                            <div class="circle-wrap" :style="getCircleStyle(skill.score)">
-                                                <div class="inside-circle">{{ skill.score }}</div>
-                                            </div>
-                                        </div>
-                                        <p class="text-center mt-2 small rounded-pill border"
-                                            style="background-color:#FFF5DD !important;border-color:#FFCE56 !important">
-                                            {{ skill.name }}</p>
-                                    </div>
-                                </div>
+
                                 <!-- <div class="p-2" @click="toggleExpand(index)">
                                     <p class="text-start mb-0 rating-text" :class="{ expanded: isExpanded(index) }">
                                         {{ team.value }}
@@ -43,19 +31,33 @@
                                     </div>
                                 </div> -->
                             </div>
+                            <div class="card-footer p-0">
+                                <div class="d-flex p-2 overflow-x-scroll mt-3" id="scroll">
+                                    <div class="" style="min-width: 100px;" v-for="(skill, index) in skills"
+                                        :key="index">
+                                        <p class="smaller">Out of 10</p>
+                                        <div class="skill-circle">
+                                            <div class="circle-wrap" :style="getCircleStyle(skill.score)">
+                                                <div class="inside-circle fs-5">{{ skill.score }}</div>
+                                            </div>
+                                        </div>
+                                        <p class="text-center mt-2 smaller">{{ skill.name }}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="rounded-circle border d-flex justify-content-center align-items-center position-absolute bg-light"
+                <div class="rounded-circle border d-flex justify-content-center align-items-center position-absolute bg-light"
                     @click="scrollLeft($refs.techScrollContainer)"
-                    style="width: 40px; height:40px ;top: 40%; left: -2%">
+                    style="width: 40px; height:40px ;top: 40%; left: -4%">
                     <i class="bi bi-chevron-left"></i>
                 </div>
                 <div class="rounded-circle border d-flex justify-content-center align-items-center position-absolute bg-light"
                     @click="scrollRight($refs.techScrollContainer)"
-                    style="width: 40px; height:40px ;top: 40%; right: -2%">
+                    style="width: 40px; height:40px ;top: 40%; right: -4%">
                     <i class="bi bi-chevron-right"></i>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
@@ -132,12 +134,14 @@ export default {
                 },
             ],
             skills: [
-                { name: 'Communication', score: 9 },
-                { name: 'Equipment Handling', score: 8 },
-                { name: 'Customer Service', score: 7 },
-                { name: 'Customer Service', score: 6 },
-                { name: 'Customer Service', score: 5 },
-                { name: 'Customer Service', score: 4 },
+                { name: 'Total', score: 9 },
+                { name: 'Regularity', score: 9 },
+                { name: 'Accuracy', score: 8 },
+                { name: 'Performance', score: 7 },
+                { name: 'Punctuality', score: 6 },
+                { name: 'Health', score: 5 },
+                { name: 'Trustful', score: 4 },
+                { name: 'Efficiency', score: 4 },
             ],
             expandedReviews: []
         }
@@ -202,15 +206,15 @@ export default {
 }
 
 .skill-circle {
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     margin: 0 auto;
     position: relative;
 }
 
 .circle-wrap {
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -218,14 +222,13 @@ export default {
 }
 
 .inside-circle {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     background: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
-    font-size: 0.8em;
+    /* font-weight: 700;  */
 }
 </style>
