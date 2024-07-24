@@ -35,7 +35,7 @@
                         <img :src="image" style="width: 30px; height: 30px; object-fit: contain;"
                             v-for="image in images" :key="image.id" alt="">
                     </div>
-                    <div class="d-flex gap-3 my-4">
+                    <div class="d-flex justify-content-between my-4">
                         <!-- <div class="w-25">
                                 <button :class="reviewButtonClass" class="w-100" @click="toggleIcon('save')">
                                     <i :class="saveIcon" class="me-2 "></i>
@@ -51,21 +51,21 @@
                             </button>
                             <p class="mb-0 smaller text-center pt-2">5.35K+</p>
                         </div> -->
-                        <div class="w-50">
-                            <button  class="w-100 btn btn-outline-dark"
-                                @click="toggleIcon('like')">
-                                <i :class="likeIcon" class="me-2"></i> {{ likeText }}
+                        <div class="">
+                            <button class="w-100 btn btn-outline-dark" data-bs-toggle="modal"
+                                data-bs-target="#likeModal">
+                                <i :class="likeIcon" class="me-2"></i>
                             </button>
-                            <p class="mb-0 smaller text-center pt-2">1.35K+</p>
+                            <p class="mb-0 smaller text-center pt-2">1.35K+ Likes</p>
                         </div>
-                        <div class="w-50">
-                            <button  class="w-100 btn btn-outline-dark"
-                                @click="toggleIcon('heart')">
-                                <i :class="heartIcon" class="me-2"></i> {{ heartText }}
+                        <div class="">
+                            <button class="w-100 btn btn-outline-dark" data-bs-toggle="modal"
+                                data-bs-target="#heartModal">
+                                <i :class="heartIcon" class="me-2"></i>
                             </button>
-                            <p class="mb-0 smaller text-center pt-2">1.35K+</p>
+                            <p class="mb-0 smaller text-center pt-2">1.35K+ Hearts</p>
                         </div>
-                        <div class="w-50">
+                        <div class="">
                             <button :class="promoteButtonClass" class="w-100 btn btn-outline-dark"
                                 @click="toggleIcon('promote')">
                                 <i :class="promoteIcon" class="me-2"></i> {{ promoteText }}
@@ -73,13 +73,7 @@
                             <p class="mb-0 smaller text-center pt-2">1.35K+</p>
                         </div>
 
-                        <div class="w-50 d-flex flex-column">
-                            <router-link to="/collection-page" class="btn btn-warning">
-                                <i class="bi bi-shop me-2"></i>
-                                <span>Showcase </span>
-                            </router-link>
-                            <i class="bi bi-arrow-right ms-2 text-center pt-2"></i>
-                        </div>
+
                     </div>
 
                     <!-- <div class="d-flex justify-content-between align-items-center my-3">
@@ -96,27 +90,74 @@
                 </div>
             </div>
         </div>
-        <TestimonialSection/>
-        <div
-            class="container d-flex justify-content-center align-items-center gap-md-5 gap-2 text-center border bg-light   ">
-            <div class="text-center">
-                <div class="position-relative bi bi-heart-fill"
-                    style="font-size: 150px !important; color: #fff3f3 !important;" @mouseover="hover = true"
-                    @touchstart="hover = true" @touchend="hover = false" @mouseleave="hover = false" @click="counter++">
-                    <div class="position-absolute" style="font-size: 100px !important; left: 25px; top: 37px;">
-                        <i :class="[hover ? 'bi bi-heart-fill text-danger' : 'bi bi-heart text-danger',]"
-                            class="position-relative"></i>
-                        <span class="bi bi-plus text-danger position-absolute"
-                            style="font-size:60px;left:20px;top:25px;"></span>
+        <TestimonialSection />
+
+
+        <div class="modal fade" id="likeModal" tabindex="-1" aria-labelledby="likeModalLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div
+                            class="container d-flex justify-content-center align-items-center gap-md-5 gap-2 text-center border bg-light   ">
+                            <div class="text-center">
+                                <div class="position-relative bi bi-heart-fill"
+                                    style="font-size: 150px !important; color: #fff3f3 !important;"
+                                    @mouseover="hover = true" @touchstart="hover = true" @touchend="hover = false"
+                                    @mouseleave="hover = false" @click="counter++">
+                                    <div class="position-absolute"
+                                        style="font-size: 100px !important; left: 25px; top: 37px;">
+                                        <i :class="[hover ? 'bi bi-heart-fill text-danger' : 'bi bi-heart text-danger',]"
+                                            class="position-relative"></i>
+                                        <span class="bi bi-plus text-danger position-absolute"
+                                            style="font-size:60px;left:20px;top:25px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <p class="fs-1 mb-0">{{ counter }}</p>
+                                <button class="btn btn-danger" @click="submitHear(counter)"
+                                    data-bs-dismiss="modal">Submit Hearts</button>
+                                <p class="mb-0 mt-2">2.35M+ <i class="bi bi-people-fill mx-2"></i>Hearts</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="">
-                <p class="fs-1 mb-0">{{ counter }}</p>
-                <button class="btn btn-danger" @click="submitHear(counter)">Submit Hearts</button>
-                <p class="mb-0 mt-2">2.35M+ <i class="bi bi-people-fill mx-2"></i>Hearts</p>
+        </div>
+
+        <div class="modal fade" id="heartModal" tabindex="-1" aria-labelledby="heartModalLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div
+                            class="container d-flex justify-content-center align-items-center gap-md-5 gap-2 text-center border bg-light   ">
+                            <div class="text-center">
+                                <div class="position-relative bi bi-heart-fill"
+                                    style="font-size: 150px !important; color: #fff3f3 !important;"
+                                    @mouseover="hover = true" @touchstart="hover = true" @touchend="hover = false"
+                                    @mouseleave="hover = false" @click="counter++">
+                                    <div class="position-absolute"
+                                        style="font-size: 100px !important; left: 25px; top: 37px;">
+                                        <i :class="[hover ? 'bi bi-heart-fill text-danger' : 'bi bi-heart text-danger',]"
+                                            class="position-relative"></i>
+                                        <span class="bi bi-plus text-danger position-absolute"
+                                            style="font-size:60px;left:20px;top:25px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <p class="fs-1 mb-0">{{ counter }}</p>
+                                <button class="btn btn-danger" @click="submitHear(counter)"
+                                    data-bs-dismiss="modal">Submit Hearts</button>
+                                <p class="mb-0 mt-2">2.35M+ <i class="bi bi-people-fill mx-2"></i>Hearts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+
 
 
         <div class="container text-dark bg-white mt-4">
@@ -141,19 +182,25 @@
                     Review</span> <i class="bi bi-arrow-right "></i></button>
             <p class="text-end mb-0 pe-2">2.5K+</p>
         </div>
+        <div class="mx-3 pb-3 pt-4">
+            <router-link to="/collection-page" class="btn btn-warning">
+                <i class="bi bi-shop me-2"></i>
+                <span>Showcase </span>
+            </router-link>
+        </div>
         <OffcanvasRating />
     </div>
 </template>
 
 <script>
-// import AutoCounter from '@/components/AutoCounter.vue';
+import AutoCounter from '@/components/AutoCounter.vue';
 import OffcanvasRating from '@/components/OffcanvasRating.vue';
 import TestimonialSection from '@/components/TestimonialSection.vue';
 
 export default {
     name: 'InfoSection',
     components: {
-        // AutoCounter,
+        AutoCounter,
         OffcanvasRating,
         TestimonialSection,
     },
@@ -266,19 +313,17 @@ export default {
             rating: 4.5,
             saveIcon: 'bi bi-heart',
             bookmarkIcon: 'bi bi-bookmark-plus',
-            favouriteIcon: 'bi bi-hand-thumbs-up',
             promoteIcon: 'bi bi-megaphone',
             saveText: 'Hearts',
-            favouriteText: 'Like Us',
-            promoteText: 'Promote Us',
+            promoteText: 'Promote',
             addToFav: 'bi bi-heart',
             reviewButtonClass: 'btn btn-light',
             hover: false,
             counter: 0,
-            likeIcon:'bi bi-heart',
-            likeText:'Like Us',
-            heartIcon:'bi bi-heart',
-            heartText:'Heart',
+            likeIcon: 'bi bi-hand-thumbs-up',
+            likeText: 'Like ',
+            heartIcon: 'bi bi-heart',
+            heartText: 'Heart',
         }
     },
     computed: {
@@ -305,7 +350,7 @@ export default {
                 this.likeIcon = this.likeIcon === 'bi bi-heart' ? 'bi bi-heart-fill' : 'bi bi-heart';
                 this.likeText = this.likeText === 'Like Us' ? 'Liked' : 'Like Us';
             } else if (buttonType === 'heart') {
-                this.heartIcon = this.heartIcon ===  'bi bi-heart' ? 'bi bi-heart-fill' : 'bi bi-heart';
+                this.heartIcon = this.heartIcon === 'bi bi-heart' ? 'bi bi-heart-fill' : 'bi bi-heart';
                 this.heartText = this.heartText === 'Heart' ? 'Liked' : 'Heart';
             } else if (buttonType === 'bookmark') {
                 this.bookmarkIcon = this.bookmarkIcon === 'bi bi-bookmark-plus' ? 'bi bi-bookmark-check-fill' : 'bi bi-bookmark-plus';
