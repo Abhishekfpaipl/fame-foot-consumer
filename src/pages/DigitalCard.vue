@@ -1,12 +1,12 @@
 <template>
-  <div style="padding-top: 50px;">
-    <DigitalCardNav :title="title" />
-    <div class="container-fluid row g-0">
-      <div class="col-md-4 position-sticky sticky-container">
+  <div >
+    <div class="container-fluid row g-0 pt-23">
+      <div class="col-md-4 position-sticky sticky-container bg-dark">
+        <DigitalCardNav :title="title" />
         <CarouselBanner :images="images" />
         <ResellerBottomNav/>
       </div>
-      <div class="col-md-8">
+      <div class="px-md-5 col-md-8 mt-3 mt-md-0">
         <InfoSection />
         <InformationSection />
       </div>

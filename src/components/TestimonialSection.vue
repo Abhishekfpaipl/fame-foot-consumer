@@ -64,7 +64,7 @@
 
 
 <template>
-    <div class="container">
+    <div class="container my-5">
         <h1 class="text-capitalize text-center">Testimonials</h1>
         <div class="w-100 d-block">
             <div class="w-100 overflow-auto d-flex align-items-center overflow-x-hidden" ref="slider">

@@ -1,24 +1,21 @@
 <template>
-    <div class="">
+    <div class="pt-3">
         <div class="container">
-            <div class="row rounded align-items-center">
-                <div class="col-md-3">
+            <div class="row rounded align-items-start">
+                <div class="col-md-6 d-flex justify-content-center">
                     <img src="https://img101.urbanic.com/v1/goods-pic/3d7cf0e503fc4ad3b5ce3851dbdf584fUR_w1440_q90.webp"
                         alt="" class="rounded"
-                        style="width: 100%; height: 320px;object-fit:cover; object-position: top;">
+                        style="width: 320px; height: 320px;object-fit:cover; object-position: top;">
                 </div>
-                <div class="col-md-9 text-center text-md-start">
-                    <div class="d-flex flex-column align-items-md-start align-items-center mt-2">
-                        <div class="d-flex gap-2 align-items-center">
-                            <p class="mb-0  fs-2 fw-bold">Mariana Anderson</p>
-                            <!-- <i class="bi bi-send fs-5"></i> 
-                            <i  @click="toggleIcon('bookmark')" class="fs-5" :class="bookmarkIcon"></i> -->
-                        </div>
-                        <p class="smaller text-ellipsis">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            Nostrum
-                            quaerat harum voluptatem cupiditate? Molestias similique eum incidunt atque quibusdam
-                            exercitationem.</p>
-                    </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center align-items-center mt-3 mt-md-0">
+
+                    <p class="mb-0  fs-2 fw-bold">Mariana Anderson</p>
+
+                    <p class="smaller text-ellipsis">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Nostrum
+                        quaerat harum voluptatem cupiditate? Molestias similique eum incidunt atque quibusdam
+                        exercitationem.</p>
+
                     <div class="d-md-flex justify-content-between align-items-start my-1 fs-5">
                         <div class="d-flex justify-content-center justify-content-md-start gap-2 align-items-start ">
                             <span>Fameset</span>
@@ -29,27 +26,7 @@
 
                     </div>
 
-                    <div class="d-flex justify-content-center justify-content-md-start gap-2 overflow-x-scroll w-100 my-2"
-                        id="scroll">
-                        <img :src="image" style="width: 30px; height: 30px; object-fit: contain;"
-                            v-for="image in images" :key="image.id" alt="">
-                    </div>
-                    <div class="d-flex gap-4 justify-content-md-start justify-content-center my-4">
-                        <!-- <div class="w-25">
-                                <button :class="reviewButtonClass" class="w-100" @click="toggleIcon('save')">
-                                    <i :class="saveIcon" class="me-2 "></i>
-                                    <span class="d-md-block d-none">{{ saveText }}</span>
-                                </button>
-                                <p class="mb-0 smaller text-center pt-2">2.35M+</p>
-                            </div> -->
-                        <!-- <div class="">
-                            <button :class="favouriteButtonClass" class="w-100 btn btn-light"
-                                @click="toggleIcon('favourite')">
-                                <i :class="favouriteIcon" class="me-2"></i>
-                                <span class="d-md-block d-none">{{ favouriteText }}</span>
-                            </button>
-                            <p class="mb-0 smaller text-center pt-2">5.35K+</p>
-                        </div> -->
+                    <!-- <div class="d-flex gap-4 justify-content-md-start justify-content-center my-4">  
                         <div class="">
                             <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#likeModal">
                                 <i :class="likeIcon" class=""></i>
@@ -76,8 +53,15 @@
                             </button>
                             <p class="mb-0 smaller text-center pt-2">1.35K+</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
+            </div>
+        </div>
+        <div class="my-5">
+            <h1 class="text-center mb-4">Top Promoters</h1>
+            <div class="d-flex justify-content-center  gap-2 overflow-x-scroll w-100" id="scroll">
+                <img :src="image" style="width: 80px; height: 80px; object-fit: contain;" v-for="image in images"
+                    :key="image.id" alt="">
             </div>
         </div>
         <div class="container text-dark bg-white my-5">
@@ -102,75 +86,11 @@
         <TestimonialSection />
 
 
-        <div class="modal fade" id="likeModal" tabindex="-1" aria-labelledby="likeModalLabel" aria-hidden="true">
-            <div class="modal-dialog  modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div
-                            class="container d-flex justify-content-center align-items-center gap-md-5 gap-2 text-center border bg-light   ">
-                            <div class="text-center">
-                                <div class="position-relative bi bi-heart-fill"
-                                    style="font-size: 150px !important; color: #fff3f3 !important;"
-                                    @mouseover="hover = true" @touchstart="hover = true" @touchend="hover = false"
-                                    @mouseleave="hover = false" @click="counter++">
-                                    <div class="position-absolute"
-                                        style="font-size: 100px !important; left: 25px; top: 37px;">
-                                        <i :class="[hover ? 'bi bi-heart-fill text-danger' : 'bi bi-heart text-danger',]"
-                                            class="position-relative"></i>
-                                        <span class="bi bi-plus text-danger position-absolute"
-                                            style="font-size:60px;left:20px;top:25px;"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <p class="fs-1 mb-0">{{ counter }}</p>
-                                <button class="btn btn-danger" @click="submitHear(counter)"
-                                    data-bs-dismiss="modal">Submit Hearts</button>
-                                <p class="mb-0 mt-2">2.35M+ <i class="bi bi-people-fill mx-2"></i>Hearts</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="heartModal" tabindex="-1" aria-labelledby="heartModalLabel" aria-hidden="true">
-            <div class="modal-dialog  modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div
-                            class="container d-flex justify-content-center align-items-center gap-md-5 gap-2 text-center border bg-light   ">
-                            <div class="text-center">
-                                <div class="position-relative bi bi-heart-fill"
-                                    style="font-size: 150px !important; color: #fff3f3 !important;"
-                                    @mouseover="hover = true" @touchstart="hover = true" @touchend="hover = false"
-                                    @mouseleave="hover = false" @click="counter++">
-                                    <div class="position-absolute"
-                                        style="font-size: 100px !important; left: 25px; top: 37px;">
-                                        <i :class="[hover ? 'bi bi-heart-fill text-danger' : 'bi bi-heart text-danger',]"
-                                            class="position-relative"></i>
-                                        <span class="bi bi-plus text-danger position-absolute"
-                                            style="font-size:60px;left:20px;top:25px;"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <p class="fs-1 mb-0">{{ counter }}</p>
-                                <button class="btn btn-danger" @click="submitHear(counter)"
-                                    data-bs-dismiss="modal">Submit Hearts</button>
-                                <p class="mb-0 mt-2">2.35M+ <i class="bi bi-people-fill mx-2"></i>Hearts</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
 
 
 
-         
         <OffcanvasRating />
         <OffcanvasPromoters />
         <OffcanvasThankful />

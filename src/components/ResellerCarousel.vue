@@ -1,16 +1,17 @@
 <template>
-    <div>
+    <div class="bg-dark pb-md-4 pb-1" style="padding-top: 100px;">
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button v-for="(image, index) in images" :key="index" :data-bs-target="'#carouselExampleCaptions'"
-                    :data-bs-slide-to="index" :class="{ active: index === 0 }"
-                    :aria-current="index === 0 ? 'true' : false" :aria-label="'Slide ' + (index + 1)"></button>
+                <button class="" v-for="(image, index) in images" :key="index"
+                    :data-bs-target="'#carouselExampleCaptions'" :data-bs-slide-to="index"
+                    :class="{ active: index === 0 }" :aria-current="index === 0 ? 'true' : false"
+                    :aria-label="'Slide ' + (index + 1)"></button>
             </div>
             <div class="carousel-inner">
                 <div v-for="(image, index) in images" :key="index" class="carousel-item"
                     :class="{ active: index === 0 }" data-bs-interval="2000">
-                    <img :src="image.src" class="d-block w-100"
-                        style="min-height:calc(100vh - 140px); object-fit: cover;object-position: top;" :alt="image.alt">
+                    <img :src="image.src" class=""
+                        style="width:320px;height: 480px; object-fit:contain;object-position: top;" :alt="image.alt">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>{{ image.label }}</h5>
                         <p>{{ image.content }}</p>
@@ -29,11 +30,9 @@
             </button>
         </div>
     </div>
-    <!-- <ResellerBottomNav /> -->
 </template>
 
 <script>
-// import ResellerBottomNav from '@/components/ResellerBottomNav.vue';
 export default {
     props: {
         images: {
@@ -41,15 +40,14 @@ export default {
             required: true
         }
     },
-    components: {
-        // ResellerBottomNav,
-    },
 };
 </script>
+<!-- <style scoped>
+.carousel-control-next {
+    right: -12px !important;
+}
 
-<style scoped>
-/* .carousel-item img {
-    height: 400px;
-    object-fit: cover;
-  } */
-</style>
+.carousel-control-prev {
+    left: -12px !important;
+}
+</style> -->
