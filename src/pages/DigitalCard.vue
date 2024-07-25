@@ -4,6 +4,7 @@
     <div class="container-fluid row g-0">
       <div class="col-md-4 position-sticky sticky-container">
         <CarouselBanner :images="images" />
+        <ResellerBottomNav/>
       </div>
       <div class="col-md-8">
         <InfoSection />
@@ -19,6 +20,7 @@ import DigitalCardNav from '@/components/DigitalCardNav.vue';
 import InfoSection from '@/components/digitalcard/InfoSection.vue';
 import InformationSection from '@/components/InformationSection.vue';
 import CarouselBanner from '@/components/ResellerCarousel.vue'; 
+import ResellerBottomNav from '@/components/ResellerBottomNav.vue';
 
 export default {
   name: "DigitalCard",
@@ -28,6 +30,7 @@ export default {
     InfoSection,
     InformationSection,
     CarouselBanner, 
+    ResellerBottomNav,
   },
   data() {
     return {
@@ -60,7 +63,7 @@ export default {
 <style scoped>
 @media (min-width: 768px) {
   .sticky-container {
-    top: 50px;
+    top: 50px; 
     position: -webkit-sticky;
     /* For Safari */
     position: sticky;
@@ -70,9 +73,9 @@ export default {
     /* Adds scrolling if needed */
   }
 }
-/* @media (max-width: 767px) {
-  .sticky-container {
-    height: 100vh !important; 
+@media (max-width: 767px) {
+  .sticky-container { 
+    position: initial !important;
   }
-} */
+}
 </style>

@@ -130,7 +130,7 @@ export default {
     /* position: -webkit-sticky; */
     /* For Safari */
     position: sticky;
-    top: 50px !important;
+    top: 70px !important;
     z-index: 1000;
     background-color: white;
 }

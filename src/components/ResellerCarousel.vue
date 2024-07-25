@@ -29,11 +29,11 @@
             </button>
         </div>
     </div>
-    <ResellerBottomNav />
+    <!-- <ResellerBottomNav /> -->
 </template>
 
 <script>
-import ResellerBottomNav from '@/components/ResellerBottomNav.vue';
+// import ResellerBottomNav from '@/components/ResellerBottomNav.vue';
 export default {
     props: {
         images: {
@@ -42,7 +42,7 @@ export default {
         }
     },
     components: {
-        ResellerBottomNav,
+        // ResellerBottomNav,
     },
 };
 </script>

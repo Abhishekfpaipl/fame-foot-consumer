@@ -1,19 +1,17 @@
 <template>
-    <div>
-        <div class="containerr text-bg-dark position-fixed bottom-0 p-1 col-md-4 col-12"
-            style="z-index: 100 !important;">
-            <div class="d-flex gap-2 align-items-center">
-                <div class="w-100" v-for="(link, index) in links" :key="index">
-                    <router-link :to="link.route" @click="toggleFavorite(index)"
-                        :class="['d-flex', 'flex-column', 'btn', { 'btn-outline-warning': !link.isFavorite, 'btn-warning': link.isFavorite }, 'p-1']">
-                        <i :class="link.isFavorite ? link.iconFill : link.iconOutline"></i>
-                        <span class="smaller">{{ link.name }}</span>
-                        <span class="smaller">{{ link.label }}</span>
-                    </router-link>
-                </div>
+    <div class="text-bg-dark p-1 col-md-4 col-12" style="z-index: 10000 !important;position:fixed !important;bottom: 0%;">
+        <div class="d-flex gap-2 align-items-center">
+            <div class="w-100" v-for="(link, index) in links" :key="index">
+                <router-link :to="link.route" @click="toggleFavorite(index)"
+                    :class="['d-flex', 'flex-column', 'btn', { 'btn-outline-warning': !link.isFavorite, 'btn-warning': link.isFavorite }, 'p-1']">
+                    <i :class="link.isFavorite ? link.iconFill : link.iconOutline" :aria-label="link.name"></i>
+                    <span class="smaller">{{ link.name }}</span>
+                    <span class="smaller">{{ link.label }}</span>
+                </router-link>
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -27,7 +25,7 @@ export default {
                     name: 'Heart',
                     label: '1.35K+',
                     isFavorite: false,
-                    route:'',
+                    route: '',
                 },
                 {
                     iconOutline: 'bi bi-hand-thumbs-up',
@@ -35,7 +33,7 @@ export default {
                     name: 'Like',
                     label: '1.35K+',
                     isFavorite: false,
-                    route:'',
+                    route: '',
                 },
                 {
                     iconOutline: 'bi bi-megaphone',
@@ -43,7 +41,7 @@ export default {
                     name: 'Promote ',
                     label: '1.35K+',
                     isFavorite: false,
-                    route:'',
+                    route: '',
                 },
                 {
                     iconOutline: 'bi bi-rss',
@@ -51,7 +49,7 @@ export default {
                     name: 'Feeds',
                     label: '1.35K+',
                     isFavorite: false,
-                    route:'',
+                    route: '',
                 },
                 {
                     iconOutline: 'bi bi-shop',
@@ -59,7 +57,7 @@ export default {
                     name: 'Business',
                     label: '1.35K+',
                     isFavorite: false,
-                    route:'/collection-page'
+                    route: '/collection-page'
                 },
             ]
         }
