@@ -64,6 +64,28 @@
                 </div>
 
             </div>
+
+            <!-- <div class="my-3">
+                <ul class="nav nav-pills justify-content-center sticky-container" id="pills-tab" role="tablist">
+                    <div class="d-flex border p-2 px-3 rounded shadow " style="">
+                        <li class="nav-item" role="presentation" v-for="(price, index) in pricing" :key="index">
+                            <button class="nav-link text-muted" :class="{ 'active': index === 0 }" :id="'tab-' + index"
+                                data-bs-toggle="pill" :data-bs-target="'#content-' + index" type="button" role="tab"
+                                :aria-controls="'content-' + index" :aria-selected="index === 0">{{ price.name
+                                }}</button>
+                        </li>
+                    </div>
+                </ul>
+                <div class="tab-content mt-2 pt-4" id="pills-tabContent">
+                    <div class="tab-pane fade" :class="{ 'show active': index === 0 }" v-for="(price, index) in pricing"
+                        :key="index" :id="'content-' + index" role="tabpanel" :aria-labelledby="'tab-' + index"
+                        tabindex="0">
+                        <div class="container">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </div>
     </div>
 </template>

@@ -1,8 +1,7 @@
 <template>
     <div class="">
-
         <div class="container">
-            <div class="row rounded p-3 align-items-center g-md-5">
+            <div class="row rounded align-items-center">
                 <div class="col-md-3">
                     <img src="https://img101.urbanic.com/v1/goods-pic/3d7cf0e503fc4ad3b5ce3851dbdf584fUR_w1440_q90.webp"
                         alt="" class="rounded"
@@ -171,12 +170,7 @@
 
 
 
-        <div class="mx-3 pb-3 pt-4">
-            <router-link to="/collection-page" class="btn btn-warning">
-                <i class="bi bi-shop me-2"></i>
-                <span>Showcase </span>
-            </router-link>
-        </div>
+         
         <OffcanvasRating />
         <OffcanvasPromoters />
         <OffcanvasThankful />

@@ -1,15 +1,35 @@
 <template>
-    <div class="containerr" ref="topnav" :style="`background:rgb(0,0,0, ${backgroundOpacity});`">
-        <div class="d-flex justify-content-between align-items-center " :class="{ 'hide-on-scroll': hideOnScroll }">
-            <div class="d-flex gap-2">
-                <i class="bi bi-arrow-left text-white" @click=goBack></i>
-                <p class="mb-0 text-white">{{ title }}</p>
+    <div class="containerr text-bg-dark position-fixed top-0 w-100 py-md-2 px-md-3 pe-md-0 p-1" style="z-index: 99;">
+        <div class="d-flex justify-content-between align-items-start">
+            <div class="flex-fill d-flex gap-2 align-items-center position-relative">
+                <img src="/img/members/12.jpg" class="rounded" style="width: 50px;height: 50px;" alt="">
+                <div class="flex-fill d-md-flex gap-3 align-items-center">
+                    <div class="d-flex gap-2 justify-content-between align-items-center">
+                        <p class="mb-0 text-start text-white">{{ title }}</p>
+                        <i class="bi bi-share fs-5"></i>
+                    </div>
+                    <div class="d-flex justify-content-start w-50 overflow-x-scroll my-2 gap-2" id="scroll">
+                        <img :src="image" style="width: 20px; height: 20px; object-fit: contain;"
+                            v-for="image in images" :key="image.id" alt="">
+                    </div>
+                </div>
+                <div class="position-absolute end-0 smaller" style="bottom: 10px;">
+                    <div class="d-flex gap-1 align-items-start rounded-start-3 px-2 text-dark bg-warning">
+                        <span>Fameset</span>
+                        <i class="bi bi-star-fill"></i>
+                        <span>8.5</span>
+                    </div>
+                </div>
             </div>
-            <div class="d-flex gap-3 pe-2 p text-white">
+            <!-- <div class="d-flex align-items-center gap-3 pe-2 p text-white">
+                <div class="d-flex  gap-1 align-items-start smaller" style="">
+                    <span>Fameset</span>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <span>8.5</span> 
+                </div>
                 <i @click="toggleIcon('bookmark')" class="fs-5" :class="bookmarkIcon"></i>
-                <i class="bi bi-send fs-5"></i>
-            </div>
-            <!-- <i class="btn bi bi-person-circle text-white"></i> -->
+                <i class="bi bi-share fs-5"></i>
+            </div> -->
         </div>
     </div>
 </template>
@@ -27,29 +47,22 @@ export default {
             backgroundOpacity: 0,
             hideOnScroll: true,
             bookmarkIcon: 'bi bi-bookmark-plus',
+            images: [
+                "/img/members/1.png",
+                "/img/members/2.webp",
+                "/img/members/3.png",
+                "/img/members/4.png",
+                "/img/members/5.jpg",
+                "/img/members/6.webp",
+                "/img/members/7.jpeg",
+                "/img/members/8.png",
+            ],
         };
-    },
-    mounted() {
-        window.addEventListener('scroll', this.handleScroll);
     },
     methods: {
         toggleIcon(buttonType) {
             if (buttonType === 'bookmark') {
                 this.bookmarkIcon = this.bookmarkIcon === 'bi bi-bookmark-plus' ? 'bi bi-bookmark-check-fill' : 'bi bi-bookmark-plus';
-            }
-        },
-        handleScroll() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollPercentage = (scrollTop / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            if (scrollPercentage >= 5 && scrollPercentage <= 6) {
-                this.backgroundOpacity = 0.5;
-                this.hideOnScroll = true;
-            } else if (scrollPercentage > 5) {
-                this.backgroundOpacity = 1;
-                this.hideOnScroll = false;
-            } else {
-                this.backgroundOpacity = 0;
-                this.hideOnScroll = true;
             }
         },
         goBack() {
@@ -58,19 +71,3 @@ export default {
     }
 };
 </script>
-
-<style scoped>
-.hide-on-scroll {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.containerr {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #fff;
-    padding: 10px;
-    z-index: 10;
-}
-</style>
