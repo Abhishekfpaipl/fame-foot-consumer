@@ -227,6 +227,21 @@ const routes = [
     name: "BusinessSetupPage",
     component: () => import('@/pages/BusinessSetupPage.vue')
   },
+  {
+    path: "/showcase-details",
+    name: "ShowcaseDetails",
+    component: () => import('@/pages/profile/ShowcaseDetails.vue')
+  },
+  {
+    path: "/timeline-details",
+    name: "TimelineDetails",
+    component: () => import('@/pages/profile/TimelineDetails.vue')
+  },
+  {
+    path: "/testimonial-details",
+    name: "TestimonialDetails",
+    component: () => import('@/pages/profile/TestimonialDetails.vue')
+  },
 
 ];
 

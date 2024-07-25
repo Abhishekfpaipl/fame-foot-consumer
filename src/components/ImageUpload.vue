@@ -1,7 +1,7 @@
 <template>
 
     <div class="d-flex flex-column justify-content-center align-items-center w-100">
-        <div class="preview-circle d-flex justify-content-center align-item-center rounded-circle">
+        <div class="preview-circle d-flex justify-content-center align-item-center rounded">
             <div v-if="!previewUrl" class="my-2">
                 <img src="" alt="Product Image" class="preview-image">
             </div>
@@ -76,8 +76,8 @@ export default {
 
 <style scoped>
 .preview-circle {
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 200px;
     background-color: #f8f9fa;
     overflow: hidden;
 }

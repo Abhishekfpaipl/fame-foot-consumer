@@ -102,13 +102,33 @@ export default {
                 //     path: '/gallery-details'
                 // },
                 {
-                    icon: 'bi bi-trophy',
-                    name: 'Rewards',
-                    path: '/rewards-details'
+                    icon: 'bi bi-stars',
+                    name: 'Showcase',
+                    path: '/showcase-details'
+                },
+                {
+                    icon: 'bi bi-calendar-minus',
+                    name: 'Timeline',
+                    path: '/timeline-details'
                 },
                 {
                     icon: 'bi bi-bank',
                     name: 'Bank',
+                    path: '/bank-details'
+                },
+                {
+                    icon: 'bi bi-chat-square-quote',
+                    name: 'Testimonial',
+                    path: '/testimonial-details'
+                },
+                {
+                    icon: 'bi bi-clipboard2-check',
+                    name: 'Verification',
+                    path: '/bank-details'
+                },
+                {
+                    icon: 'bi bi-chat-square-text',
+                    name: 'Reviews',
                     path: '/bank-details'
                 },
                 // {

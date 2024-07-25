@@ -32,8 +32,9 @@ export default {
             links: [
                 { path: "/product-list", name: 'Business', },
                 { path: "/supporters-details", name: 'Supporters', },
+                { path: "/supporters-details", name: 'Promoters', },
                 { path: "/fameset-details", name: 'Fameset', },
-                { path: "/rewards-details", name: 'Rewards', },
+                // { path: "/rewards-details", name: 'Rewards', },
                 { path: "/dashboard", name: 'Manage', },
 
             ],
