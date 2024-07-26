@@ -131,6 +131,11 @@ export default {
                     name: 'Reviews',
                     path: '/bank-details'
                 },
+                {
+                    icon: 'bi bi-briefcase',
+                    name: 'Business',
+                    path: '/product-list'
+                },
                 // {
                 //     icon: 'bi bi-journal',
                 //     name: 'Leads',

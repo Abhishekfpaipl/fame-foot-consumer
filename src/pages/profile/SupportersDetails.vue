@@ -84,7 +84,7 @@
                 </form>
             </div>
         </div>
-        <div class="d-flex flex-column my-2" style="padding-top:80px">
+        <div class="container d-flex flex-column my-2" style="padding-top:80px">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-1">
                 <div class="col" v-for="(product, index) in products" :key="index" data-bs-toggle="modal"
                     data-bs-target="#collectionModal" :data-bs-collectionId="product.id">

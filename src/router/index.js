@@ -242,6 +242,16 @@ const routes = [
     name: "TestimonialDetails",
     component: () => import('@/pages/profile/TestimonialDetails.vue')
   },
+  {
+    path: "/notifications-details",
+    name: "NotificationDetails",
+    component: () => import('@/pages/profile/NotificationDetails.vue')
+  },
+  {
+    path: "/request-details",
+    name: "RequestDetails",
+    component: () => import('@/pages/profile/RequestDetails.vue')
+  },
 
 ];
 
