@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </div>
-                <div aria-hidden="true" class="marquee__group"
+                <div aria-hidden="true" class="marquee__group mt-5"
                     :style="{ 'animation-direction': isReverse ? 'reverse' : 'normal' }">
                     <div class="" v-for="(card, index) in cards" :key="index">
                         <div class="card-container position-relative rounded p-2" style="background-color: #f0f8ff;">
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                <div aria-hidden="true" class="marquee__group"
+                <div aria-hidden="true" class="marquee__group mt-5"
                     :style="{ 'animation-direction': isReverse ? 'normal' : 'reverse' }">
                     <div class=" " v-for="(card, index) in cards" :key="index">
                         <div class="card-container position-relative rounded p-2" style="background-color: #f0f8ff;">
@@ -123,7 +123,7 @@
                         </div>
                     </div>
                 </div>
-                <div aria-hidden="true" class="marquee__group"
+                <div aria-hidden="true" class="marquee__group mt-5"
                     :style="{ 'animation-direction': isReverse ? 'reverse' : 'normal' }">
                     <div class="" v-for="(card, index) in cards" :key="index">
                         <div class="card-container position-relative rounded p-2" style="background-color: #f0f8ff;">
