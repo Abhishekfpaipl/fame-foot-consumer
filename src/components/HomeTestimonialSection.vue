@@ -1,25 +1,25 @@
 <template>
-    <div class="py-5 text-dark">
+    <div class="my-5 text-dark">
         <article :class="['wrapper', { 'wrapper--vertical': isVertical }]">
             <div class="marquee" :class="{ 'marquee--vertical': isVertical }">
-                <div class="marquee__group" :style="{ 'animation-direction': isReverse ? 'reverse' : 'normal' }">
+                <div class="marquee__group mt-5" :style="{ 'animation-direction': isReverse ? 'reverse' : 'normal' }">
                     <div class="" v-for="(card, index) in cards" :key="index">
-                        <div class="card-container position-relative rounded p-3" style="background-color: #f0f8ff;">
+                        <div class="card-container position-relative rounded p-2" style="background-color: #f0f8ff;">
                             <div class="card">
-                                <div class="card-header">
-                                    <div class="profile-image">
-                                        <img :src="card.image" alt="Profile" />
+                                <div class="card-header d-flex justify-content-center algin-items-center">
+                                    <div class="rounded-circle overflow-hidden" style="width:60px; height:60px; margin-top:-40px;">
+                                        <img :src="card.image" alt="Profile" style="width: 100%; height: 100%;object-fit: cover;" />
                                     </div>
                                 </div>
-                                <div class="card-body">
-                                    <h3 class="text-emphasis-danger">{{ card.title }}</h3>
-                                    <div class="">{{ card.tax }}</div>
-                                    <p class="fw-bold text-info">{{ card.time }}</p>
-                                    <p class="name">{{ card.name }}</p>
+                                <div class="card-body p-0">
+                                    <p class="text-emphasis-danger smaller mb-0 text-ellipsis1">{{ card.title }}</p>
+                                    <p class="smaller mb-0 text-ellipsis1">{{ card.tax }} </p>
+                                    <p class="fw-bold text-info smaller mb-0 text-ellipsis1">{{ card.time }}</p>
+                                    <p class="name smaller mb-0 mt-0 text-ellipsis1">{{ card.name }}</p>
                                     <!-- <div class="rating">
                                         <i v-for="star in 5" :key="star" class="star"></i>
                                     </div> -->
-                                    <p class="mb-0">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
+                                    <p class="mb-0 smaller">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
                                 </div>
                             </div>
                         </div>
@@ -28,19 +28,22 @@
                 <div aria-hidden="true" class="marquee__group"
                     :style="{ 'animation-direction': isReverse ? 'reverse' : 'normal' }">
                     <div class="" v-for="(card, index) in cards" :key="index">
-                        <div class="card-container position-relative rounded p-3" style="background-color: #f0f8ff;">
+                        <div class="card-container position-relative rounded p-2" style="background-color: #f0f8ff;">
                             <div class="card">
-                                <div class="card-header">
-                                    <div class="profile-image">
-                                        <img :src="card.image" alt="Profile" />
+                                <div class="card-header d-flex justify-content-center algin-items-center">
+                                    <div class="rounded-circle overflow-hidden" style="width:60px; height:60px; margin-top:-40px;">
+                                        <img :src="card.image" alt="Profile" style="width: 100%; height: 100%;object-fit: cover;" />
                                     </div>
                                 </div>
-                                <div class="card-body">
-                                    <h3 class="text-emphasis-danger">{{ card.title }}</h3>
-                                    <div class="">{{ card.tax }}</div>
-                                    <p class="fw-bold text-info">{{ card.time }}</p>
-                                    <p class="name">{{ card.name }}</p>
-                                    <p class="mb-0">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
+                                <div class="card-body p-0">
+                                    <p class="text-emphasis-danger smaller mb-0 text-ellipsis1">{{ card.title }}</p>
+                                    <p class="smaller mb-0 text-ellipsis1">{{ card.tax }} </p>
+                                    <p class="fw-bold text-info smaller mb-0 text-ellipsis1">{{ card.time }}</p>
+                                    <p class="name smaller mb-0 mt-0 text-ellipsis1">{{ card.name }}</p>
+                                    <!-- <div class="rating">
+                                        <i v-for="star in 5" :key="star" class="star"></i>
+                                    </div> -->
+                                    <p class="mb-0 smaller">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
                                 </div>
                             </div>
                         </div>
@@ -48,21 +51,24 @@
                 </div>
             </div>
             <div class="marquee marquee--reverse" :class="{ 'marquee--vertical': isVertical }">
-                <div class="marquee__group" :style="{ 'animation-direction': isReverse ? 'normal' : 'reverse' }">
+                <div class="marquee__group mt-5" :style="{ 'animation-direction': isReverse ? 'normal' : 'reverse' }">
                     <div class="" v-for="(card, index) in cards" :key="index">
-                        <div class="card-container position-relative rounded p-3" style="background-color: #f0f8ff;">
+                        <div class="card-container position-relative rounded p-2" style="background-color: #f0f8ff;">
                             <div class="card">
-                                <div class="card-header">
-                                    <div class="profile-image">
-                                        <img :src="card.image" alt="Profile" />
+                                <div class="card-header d-flex justify-content-center algin-items-center">
+                                    <div class="rounded-circle overflow-hidden" style="width:60px; height:60px; margin-top:-40px;">
+                                        <img :src="card.image" alt="Profile" style="width: 100%; height: 100%;object-fit: cover;" />
                                     </div>
                                 </div>
-                                <div class="card-body">
-                                    <h3 class="text-emphasis-danger">{{ card.title }}</h3>
-                                    <div class="">{{ card.tax }}</div>
-                                    <p class="fw-bold text-info">{{ card.time }}</p>
-                                    <p class="name">{{ card.name }}</p>
-                                    <p class="mb-0">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
+                                <div class="card-body p-0">
+                                    <p class="text-emphasis-danger smaller mb-0 text-ellipsis1">{{ card.title }}</p>
+                                    <p class="smaller mb-0 text-ellipsis1">{{ card.tax }} </p>
+                                    <p class="fw-bold text-info smaller mb-0 text-ellipsis1">{{ card.time }}</p>
+                                    <p class="name smaller mb-0 mt-0 text-ellipsis1">{{ card.name }}</p>
+                                    <!-- <div class="rating">
+                                        <i v-for="star in 5" :key="star" class="star"></i>
+                                    </div> -->
+                                    <p class="mb-0 smaller">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
                                 </div>
                             </div>
                         </div>
@@ -70,20 +76,23 @@
                 </div>
                 <div aria-hidden="true" class="marquee__group"
                     :style="{ 'animation-direction': isReverse ? 'normal' : 'reverse' }">
-                    <div class="" v-for="(card, index) in cards" :key="index">
-                        <div class="card-container position-relative rounded p-3" style="background-color: #f0f8ff;">
+                    <div class=" " v-for="(card, index) in cards" :key="index">
+                        <div class="card-container position-relative rounded p-2" style="background-color: #f0f8ff;">
                             <div class="card">
-                                <div class="card-header">
-                                    <div class="profile-image">
-                                        <img :src="card.image" alt="Profile" />
+                                <div class="card-header d-flex justify-content-center algin-items-center">
+                                    <div class="rounded-circle overflow-hidden" style="width:60px; height:60px; margin-top:-40px;">
+                                        <img :src="card.image" alt="Profile" style="width: 100%; height: 100%;object-fit: cover;" />
                                     </div>
                                 </div>
-                                <div class="card-body">
-                                    <h3 class="text-emphasis-danger">{{ card.title }}</h3>
-                                    <div class="">{{ card.tax }}</div>
-                                    <p class="fw-bold text-info">{{ card.time }}</p>
-                                    <p class="name">{{ card.name }}</p>
-                                    <p class="mb-0">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
+                                <div class="card-body p-0">
+                                    <p class="text-emphasis-danger smaller mb-0 text-ellipsis1">{{ card.title }}</p>
+                                    <p class="smaller mb-0 text-ellipsis1">{{ card.tax }} </p>
+                                    <p class="fw-bold text-info smaller mb-0 text-ellipsis1">{{ card.time }}</p>
+                                    <p class="name smaller mb-0 mt-0 text-ellipsis1">{{ card.name }}</p>
+                                    <!-- <div class="rating">
+                                        <i v-for="star in 5" :key="star" class="star"></i>
+                                    </div> -->
+                                    <p class="mb-0 smaller">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
                                 </div>
                             </div>
                         </div>
@@ -91,24 +100,24 @@
                 </div>
             </div>
             <div class="marquee" :class="{ 'marquee--vertical': isVertical }">
-                <div class="marquee__group" :style="{ 'animation-direction': isReverse ? 'reverse' : 'normal' }">
+                <div class="marquee__group mt-5" :style="{ 'animation-direction': isReverse ? 'reverse' : 'normal' }">
                     <div class="" v-for="(card, index) in cards" :key="index">
-                        <div class="card-container position-relative rounded p-3" style="background-color: #f0f8ff;">
+                        <div class="card-container position-relative rounded p-2" style="background-color: #f0f8ff;">
                             <div class="card">
-                                <div class="card-header">
-                                    <div class="profile-image">
-                                        <img :src="card.image" alt="Profile" />
+                                <div class="card-header d-flex justify-content-center algin-items-center">
+                                    <div class="rounded-circle overflow-hidden" style="width:60px; height:60px; margin-top:-40px;">
+                                        <img :src="card.image" alt="Profile" style="width: 100%; height: 100%;object-fit: cover;" />
                                     </div>
                                 </div>
-                                <div class="card-body">
-                                    <h3 class="text-emphasis-danger">{{ card.title }}</h3>
-                                    <div class="">{{ card.tax }}</div>
-                                    <p class="fw-bold text-info">{{ card.time }}</p>
-                                    <p class="name">{{ card.name }}</p>
+                                <div class="card-body p-0">
+                                    <p class="text-emphasis-danger smaller mb-0 text-ellipsis1">{{ card.title }}</p>
+                                    <p class="smaller mb-0 text-ellipsis1">{{ card.tax }} </p>
+                                    <p class="fw-bold text-info smaller mb-0 text-ellipsis1">{{ card.time }}</p>
+                                    <p class="name smaller mb-0 mt-0 text-ellipsis1">{{ card.name }}</p>
                                     <!-- <div class="rating">
                                         <i v-for="star in 5" :key="star" class="star"></i>
                                     </div> -->
-                                    <p class="mb-0">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
+                                    <p class="mb-0 smaller">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
                                 </div>
                             </div>
                         </div>
@@ -117,19 +126,22 @@
                 <div aria-hidden="true" class="marquee__group"
                     :style="{ 'animation-direction': isReverse ? 'reverse' : 'normal' }">
                     <div class="" v-for="(card, index) in cards" :key="index">
-                        <div class="card-container position-relative rounded p-3" style="background-color: #f0f8ff;">
+                        <div class="card-container position-relative rounded p-2" style="background-color: #f0f8ff;">
                             <div class="card">
-                                <div class="card-header">
-                                    <div class="profile-image">
-                                        <img :src="card.image" alt="Profile" />
+                                <div class="card-header d-flex justify-content-center algin-items-center">
+                                    <div class="rounded-circle overflow-hidden" style="width:60px; height:60px; margin-top:-40px;">
+                                        <img :src="card.image" alt="Profile" style="width: 100%; height: 100%;object-fit: cover;" />
                                     </div>
                                 </div>
-                                <div class="card-body">
-                                    <h3 class="text-emphasis-danger">{{ card.title }}</h3>
-                                    <div class="">{{ card.tax }}</div>
-                                    <p class="fw-bold text-info">{{ card.time }}</p>
-                                    <p class="name">{{ card.name }}</p>
-                                    <p class="mb-0">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
+                                <div class="card-body p-0">
+                                    <p class="text-emphasis-danger smaller mb-0 text-ellipsis1">{{ card.title }}</p>
+                                    <p class="smaller mb-0 text-ellipsis1">{{ card.tax }} </p>
+                                    <p class="fw-bold text-info smaller mb-0 text-ellipsis1">{{ card.time }}</p>
+                                    <p class="name smaller mb-0 mt-0 text-ellipsis1">{{ card.name }}</p>
+                                    <!-- <div class="rating">
+                                        <i v-for="star in 5" :key="star" class="star"></i>
+                                    </div> -->
+                                    <p class="mb-0 smaller">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
                                 </div>
                             </div>
                         </div>
@@ -271,7 +283,7 @@ export default {
     --color-bg: papayawhip;
     --color-bg-accent: #ecdcc0;
     --size: clamp(10rem, 1rem + 40vmin, 30rem);
-    --gap: calc(var(--size) / 14);
+    --gap: calc(var(--size) / 8);
     --duration: 20s;
     --scroll-start: 0;
     --scroll-end: calc(-100% - var(--gap));
@@ -414,23 +426,7 @@ export default {
     text-align: center;
     border-bottom: 0px !important;
 }
-
-.profile-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto;
-    border: 3px solid white;
-    margin-top: -27px;
-}
-
-.profile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
+  
 .card-body {
     padding: 20px;
     text-align: center;
@@ -460,12 +456,14 @@ export default {
 .star::before {
     content: "\2605";
 }
-
+.card-container{
+    min-width:15rem !important
+}
 /* Quotation marks */
 .card-container::before {
     content: '“';
     position: absolute;
-    font-size: 4em;
+    font-size: 2em;
     /* color: #4ecdc4; */
     color: black;
     font-family: sans-serif;
@@ -474,7 +472,7 @@ export default {
 .card-container::after {
     content: '”';
     position: absolute;
-    font-size: 4em;
+    font-size: 2em;
     color: black;
     font-family: sans-serif;
 }

@@ -107,7 +107,7 @@ nav {
 }
 
 .smaller {
-  font-size: 12px;
+  font-size: 12px !important;
 }
 
 #scroll::-webkit-scrollbar {
