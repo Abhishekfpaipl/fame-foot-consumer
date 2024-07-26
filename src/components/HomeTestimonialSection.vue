@@ -14,11 +14,12 @@
                                 <div class="card-body">
                                     <h3 class="text-emphasis-danger">{{ card.title }}</h3>
                                     <div class="">{{ card.tax }}</div>
-                                    <p class="timeline">{{card.time}}</p>
-                                    <p class="name">{{card.name}}</p>
-                                    <div class="rating">
+                                    <p class="fw-bold text-info">{{ card.time }}</p>
+                                    <p class="name">{{ card.name }}</p>
+                                    <!-- <div class="rating">
                                         <i v-for="star in 5" :key="star" class="star"></i>
-                                    </div>
+                                    </div> -->
+                                    <p class="mb-0">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
                                 </div>
                             </div>
                         </div>
@@ -37,11 +38,9 @@
                                 <div class="card-body">
                                     <h3 class="text-emphasis-danger">{{ card.title }}</h3>
                                     <div class="">{{ card.tax }}</div>
-                                    <p class="timeline">{{card.time}}</p>
-                                    <p class="name">{{card.name}}</p>
-                                    <div class="rating">
-                                        <i v-for="star in 5" :key="star" class="star"></i>
-                                    </div>
+                                    <p class="fw-bold text-info">{{ card.time }}</p>
+                                    <p class="name">{{ card.name }}</p>
+                                    <p class="mb-0">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
                                 </div>
                             </div>
                         </div>
@@ -61,11 +60,9 @@
                                 <div class="card-body">
                                     <h3 class="text-emphasis-danger">{{ card.title }}</h3>
                                     <div class="">{{ card.tax }}</div>
-                                    <p class="timeline">{{card.time}}</p>
-                                    <p class="name">{{card.name}}</p>
-                                    <div class="rating">
-                                        <i v-for="star in 5" :key="star" class="star"></i>
-                                    </div>
+                                    <p class="fw-bold text-info">{{ card.time }}</p>
+                                    <p class="name">{{ card.name }}</p>
+                                    <p class="mb-0">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
                                 </div>
                             </div>
                         </div>
@@ -84,11 +81,55 @@
                                 <div class="card-body">
                                     <h3 class="text-emphasis-danger">{{ card.title }}</h3>
                                     <div class="">{{ card.tax }}</div>
-                                    <p class="timeline">{{card.time}}</p>
-                                    <p class="name">{{card.name}}</p>
-                                    <div class="rating">
-                                        <i v-for="star in 5" :key="star" class="star"></i>
+                                    <p class="fw-bold text-info">{{ card.time }}</p>
+                                    <p class="name">{{ card.name }}</p>
+                                    <p class="mb-0">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="marquee" :class="{ 'marquee--vertical': isVertical }">
+                <div class="marquee__group" :style="{ 'animation-direction': isReverse ? 'reverse' : 'normal' }">
+                    <div class="" v-for="(card, index) in cards" :key="index">
+                        <div class="card-container position-relative rounded p-3" style="background-color: #f0f8ff;">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="profile-image">
+                                        <img :src="card.image" alt="Profile" />
                                     </div>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="text-emphasis-danger">{{ card.title }}</h3>
+                                    <div class="">{{ card.tax }}</div>
+                                    <p class="fw-bold text-info">{{ card.time }}</p>
+                                    <p class="name">{{ card.name }}</p>
+                                    <!-- <div class="rating">
+                                        <i v-for="star in 5" :key="star" class="star"></i>
+                                    </div> -->
+                                    <p class="mb-0">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div aria-hidden="true" class="marquee__group"
+                    :style="{ 'animation-direction': isReverse ? 'reverse' : 'normal' }">
+                    <div class="" v-for="(card, index) in cards" :key="index">
+                        <div class="card-container position-relative rounded p-3" style="background-color: #f0f8ff;">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="profile-image">
+                                        <img :src="card.image" alt="Profile" />
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="text-emphasis-danger">{{ card.title }}</h3>
+                                    <div class="">{{ card.tax }}</div>
+                                    <p class="fw-bold text-info">{{ card.time }}</p>
+                                    <p class="name">{{ card.name }}</p>
+                                    <p class="mb-0">Fameset <i class="bi bi-star-fill text-warning"></i> 8.5</p>
                                 </div>
                             </div>
                         </div>
@@ -367,9 +408,11 @@ export default {
 }
 
 .card-header {
-    background: linear-gradient(to right, #ff6b6b, #4ecdc4);
+    /* background: linear-gradient(to right, #ff6b6b, #4ecdc4); */
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 254, 196, 1) 29%, rgba(255, 217, 102, 1) 90%);
     padding: 10px;
     text-align: center;
+    border-bottom: 0px !important;
 }
 
 .profile-image {
@@ -379,6 +422,7 @@ export default {
     overflow: hidden;
     margin: 0 auto;
     border: 3px solid white;
+    margin-top: -27px;
 }
 
 .profile-image img {
@@ -403,10 +447,6 @@ export default {
     color: #4ecdc4;
 }
 
-.timeline {
-    color: #4ecdc4;
-    font-weight: bold;
-}
 
 .name {
     margin-top: 10px;
@@ -426,7 +466,8 @@ export default {
     content: '“';
     position: absolute;
     font-size: 4em;
-    color: #4ecdc4;
+    /* color: #4ecdc4; */
+    color: black;
     font-family: sans-serif;
 }
 
@@ -434,7 +475,7 @@ export default {
     content: '”';
     position: absolute;
     font-size: 4em;
-    color: #4ecdc4;
+    color: black;
     font-family: sans-serif;
 }
 
