@@ -15,6 +15,9 @@
    <div class="">
     <TestComponent />
    </div> 
+   <div>
+    <HomeTestimonialSection/>
+   </div>
   </div>
 </template>
 
@@ -23,12 +26,14 @@ import BannerSection from "@/components/BannerSection.vue";
 import SecondSection from "@/components/SecondSection.vue";
 // import NumberingCollection from "@/components/NumberingCollection.vue";
 import GeneralCollection from "@/components/GeneralCollection.vue";
+import HomeTestimonialSection from "@/components/HomeTestimonialSection.vue";
 // import TestComponent from "@/components/TestComponent.vue";
 export default {
   name: "HomeView",
   components: {
     BannerSection,
     SecondSection,
+    HomeTestimonialSection,
     // NumberingCollection,
     GeneralCollection,
     // TestComponent,

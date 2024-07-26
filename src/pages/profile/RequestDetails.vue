@@ -1,6 +1,6 @@
 <template>
     <TopNav />
-    <div class="container-fluid position-fixed w-100 bg-light" style="z-index: 99;top: 58px;">
+    <!-- <div class="container-fluid position-fixed w-100 bg-light" style="z-index: 99;top: 58px;">
         <div class="row border py-3 px-2">
             <div class="col-12 d-flex justify-content-between align-items-center">
                 <div class="d-flex gap-2 align-items-center">
@@ -9,18 +9,18 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <div class="" style="padding-top: 140px;">
         <div class="container">
             <div class="row row-cols-1 row-cols-md-3 g-2 my-4">
                 <div v-for="(notification, index) in requests" :key="index" class="col">
-                    <div class="card position-relative" :class="notification.color">
+                    <div class="card position-relative"  style="background-color:#FFF5DD !important;border-color:1px solid #FFCE56 !important">
                         <div class="card-body d-flex align-items-center gap-3 mt-3">
                             <div class="d-flex justify-content-center align-items-center rounded"
                                 style="width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.3);">
-                                <i :class="notification.icon"></i>
+                                <img src="/img/members/12.jpg" style="width:100%; height:100%" alt="">
                             </div>
                             <div class="flex-grow-1">
                                 <h5 class="text-start mb-0">{{ notification.title }}</h5>
