@@ -15,6 +15,7 @@
                             <small>{{ link.name }}</small>
                         </router-link>
                     </div>
+                    <i class="bi bi-bell me-3 "></i>
                 </div>
                 <slot></slot>
             </div>

@@ -21,7 +21,7 @@ export default {
         'LoginPage', 'RegistrationPage', 'EmailVerificationPage', 'ForgotPasswordPage', 'ResetPasswordPage',
         'BasicDetails', 'ConnectDetails', 'OverviewDetails', 'WorktimeDetails', 'BusinessTypeDetails', 'BrandingDetails',
         'ProductList', 'CreateProduct', 'CollectionList', 'RewardsDetails', 'DashboardPage',  'ReviewListPage','SupportersDetails','FamesetDetails','CategoryDetails','BankDetails','SocialDetails',
-        'DigitalCard','CollectionPage'
+        'DigitalCard','CollectionPage', 'NotificationDetails','RequestDetails','ShowcaseDetails','TimelineDetails', 'TestimonialDetails','StoryCoursel',
       ]
       return hiddenPages.includes(this.$route.name)
     },
@@ -29,7 +29,8 @@ export default {
       const hiddenPages = [
         'LoginPage', 'RegistrationPage', 'EmailVerificationPage', 'ForgotPasswordPage', 'ResetPasswordPage',
         'BasicDetails', 'ConnectDetails', 'OverviewDetails', 'WorktimeDetails', 'BusinessTypeDetails', 'BrandingDetails',
-        'ProductList', 'CreateProduct', 'CollectionList', 'RewardsDetails', 'DashboardPage',  'SupportersDetails','FamesetDetails','CategoryDetails','BankDetails','SocialDetails','DigitalCard','CollectionPage'
+        'ProductList', 'CreateProduct', 'CollectionList', 'RewardsDetails', 'DashboardPage',  'SupportersDetails','FamesetDetails','CategoryDetails','BankDetails','SocialDetails','DigitalCard','CollectionPage',
+        'NotificationDetails','RequestDetails','ShowcaseDetails','TimelineDetails','TestimonialDetails',
       ]
       return hiddenPages.includes(this.$route.name)
     }

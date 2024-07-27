@@ -252,6 +252,11 @@ const routes = [
     name: "RequestDetails",
     component: () => import('@/pages/profile/RequestDetails.vue')
   },
+  {
+    path: "/story",
+    name: "StoryCoursel",
+    component: () => import('@/pages/StoryCoursel.vue')
+  },
 
 ];
 

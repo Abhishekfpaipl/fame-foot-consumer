@@ -12,16 +12,17 @@
     </div> -->
 
 
-    <div class="" style="padding-top: 140px;">
+    <div class="" style="padding-top: 70px;">
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-3 g-2 my-4">
+            <h3 class="text-center">Request </h3>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2 my-4">
                 <div v-for="(notification, index) in requests" :key="index" class="col">
-                    <div class="card position-relative"  style="background-color:#FFF5DD !important;border-color:1px solid #FFCE56 !important">
+                    <div class="card position-relative border"  :style="{ background: notification.bgColor + '!important', borderColor: notification.borderColor + '!important'}">
                         <div class="card-body d-flex align-items-center gap-3 mt-3">
-                            <div class="d-flex justify-content-center align-items-center rounded"
+                            <img src="/img/members/12.jpg" style="min-width: 40px; height: 40px; object-fit: cover;" alt="">
+                            <!-- <div class="d-flex justify-content-center align-items-center rounded"
                                 style="width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.3);">
-                                <img src="/img/members/12.jpg" style="width:100%; height:100%" alt="">
-                            </div>
+                            </div> -->
                             <div class="flex-grow-1">
                                 <h5 class="text-start mb-0">{{ notification.title }}</h5>
                                 <p class="text-start small mb-0">{{ notification.description }}</p>
@@ -60,28 +61,36 @@ export default {
                     description: 'We have an Exciting Offers for you near to yo...',
                     icon: 'bi bi-flower1',
                     color: 'text-bg-dark',
-                    time: '12:00 AM'
+                    time: '12:00 AM',
+                    bgColor:'#ebe0ff',
+                    borderColor: '#a984ff'
                 },
                 {
                     title: 'Marijuana',
                     description: 'We have an Exciting Offers for you near to yo...',
                     icon: 'bi bi-flower2',
                     color: 'text-bg-warning',
-                    time: '2 Days Ago'
+                    time: '2 Days Ago',
+                    bgColor:'#ffe0e6',
+                    borderColor: '#e56f89'
                 },
                 {
                     title: 'Free Delivery',
                     description: 'We have an Exciting Offers for you near to yo...',
                     icon: 'bi bi-geo-alt',
                     color: 'text-bg-success',
-                    time: '12:00 AM'
+                    time: '12:00 AM',
+                    bgColor:'#dcf1f4',
+                    borderColor: '#73ccc6'
                 },
                 {
                     title: 'Cannabies',
                     description: 'We have an Exciting Offers for you near to yo...',
                     icon: 'bi bi-flower1',
                     color: 'text-bg-info',
-                    time: '2 Days Ago'
+                    time: '2 Days Ago',
+                    bgColor:'#feecd8',
+                    borderColor: '#eca454'
                 }
             ],
         };
