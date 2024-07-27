@@ -1,5 +1,5 @@
 <template>
-  <div class="position-fixed text-white top-0 w-100 py-md-2 px-md-3 pe-md-0 p-1"
+  <!-- <div class="position-fixed text-white top-0 w-100 py-md-2 px-md-3 pe-md-0 p-1"
     style="z-index: 99; min-height:80px !important;background-color: #00000070 !important;">
     <div class="d-flex justify-content-between align-items-start">
       <div class="flex-fill d-flex gap-2 align-items-center position-relative">
@@ -23,10 +23,10 @@
         </div>
       </div>
     </div>
-  </div>
-  <div id="carouselExampleDark" class="carousel carousel-dark slide">
+  </div> -->
+  <div id="carouselExampleDark1" class="carousel carousel-dark slide">
     <div class="carousel-indicators">
-      <button v-for="(item, index) in carouselItems" :key="index" type="button" :data-bs-target="'#carouselExampleDark'"
+      <button v-for="(item, index) in carouselItems" :key="index" type="button" :data-bs-target="'#carouselExampleDark1'"
         :data-bs-slide-to="index" :class="{ active: index === 0 }" :aria-current="index === 0 ? 'true' : null"
         :aria-label="'Slide ' + (index + 1)"></button>
     </div>
@@ -41,46 +41,151 @@
 
         <!-- Existing content -->
         <div class="position-absolute d-flex flex-column gap-2 end-0 px-2" style="bottom: 15%;">
-          <div class="d-flex flex-column text-dark">
+          <div class="d-flex flex-column text-white rounded wh-40 px-1" style="background-color: #21252942 !important;">
             <i :class="['bi', isLiked ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up']" @click="toggleLike"></i>
             <span class="smaller">3.4K</span>
           </div>
-          <div class="d-flex flex-column text-dark">
+          <div class="d-flex flex-column text-white rounded wh-40 px-1" style="background-color: #21252942 !important;">
             <i class="bi bi-chat-right-text"></i>
             <span class="smaller">3.4K</span>
           </div>
-          <div class="d-flex flex-column text-dark">
+          <div class="d-flex flex-column text-white rounded wh-40 px-1" style="background-color: #21252942 !important;">
             <i :class="['bi', isPromote ? 'bi-megaphone-fill' : 'bi-megaphone']" @click="togglePromote"></i>
             <span class="smaller">Promote</span>
           </div>
         </div>
 
         <div class="position-absolute d-flex flex-column gap-2 start-0 px-2" style="bottom: 15%;">
-          <div class="d-flex flex-column text-dark">
+          <div class="d-flex flex-column text-white rounded wh-40 px-2" style="background-color: #21252942 !important;">
             <i :class="['bi', isHeart ? 'bi-heart-fill' : 'bi-heart']" @click="toggleHeart"></i>
             <span class="smaller">Heart</span>
           </div>
-          <div class="d-flex flex-column text-dark">
+          <div class="d-flex flex-column text-white rounded wh-40 px-2" style="background-color: #21252942 !important;">
             <i class="bi bi-share"></i>
             <span class="smaller">Share</span>
           </div>
-          <div class="d-flex flex-column text-dark">
+          <div class="d-flex flex-column text-white rounded wh-40 px-2" style="background-color: #21252942 !important;">
             <i :class="['bi', isFeed ? 'bi-rss-fill' : 'bi-rss']" @click="toggleFeed"></i>
             <span class="smaller">Feed</span>
           </div>
         </div>
 
         <div class="carousel-overlay-bottom"></div>
-        <div class="carousel-overlay-top"></div>
+        <!-- <div class="carousel-overlay-top"></div>  -->
         <div class="carousel-caption text-white">
-          <h5>{{ item.label }}</h5>
-          <p>{{ item.text }}</p>
-          <a href="#second" class="text-warning"><i class="bi bi-chevron-down fs-1"></i></a>
+          <h5 class="w-75 mx-auto">{{ item.label }}</h5>
+          <p class="w-75 mx-auto">{{ item.text }}</p>
+          <div class="d-flex justify-content-between align-items-start">
+            <div class="flex-fill d-flex gap-2 align-items-center position-relative">
+              <img src="/img/members/12.jpg" class="rounded" style="width: 50px;height: 50px;" alt="">
+              <div class="flex-fill d-flex flex-column align-items-start">
+                <div class="w-100 d-flex gap-2 justify-content-between align-items-center pe-2">
+                  <p class="mb-0 text-start text-white">Name</p>
+                  <i class="bi bi-arrow-right fs-5"></i>
+                </div>
+                <div class="d-flex justify-content-start w-50 overflow-x-scroll my-2 gap-2" id="scroll">
+                  <img :src="image" style="width: 20px; height: 20px; object-fit: contain;" v-for="image in images"
+                    :key="image.id" alt="">
+                </div>
+              </div>
+              <div class="position-absolute end-0 smaller" style="bottom: 10px;">
+                <div class="d-flex gap-1 align-items-start rounded-start-3 px-2 text-dark bg-warning">
+                  <span>Fameset</span>
+                  <i class="bi bi-star"></i>
+                  <span>8.5</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 
+  <div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-indicators">
+      <button v-for="(item, index) in carouselItems" :key="index" type="button" :data-bs-target="'#carouselExampleDark1'"
+        :data-bs-slide-to="index" :class="{ active: index === 0 }" :aria-current="index === 0 ? 'true' : null"
+        :aria-label="'Slide ' + (index + 1)"></button>
+    </div>
+    <div class="carousel-inner">
+      <div v-for="(item, index) in carouselItems" :key="index" class="carousel-item position-relative"
+        :class="{ active: index === 0 }" :data-bs-interval="index === 0 ? 10000 : 2000">
+
+        <!-- Clickable wrapper for the entire image -->
+        <div class="carousel-image-wrapper" @click="handleImageClick">
+          <img :src="item.src" class="" style="height: 100vh; width: 100%; object-fit: cover" alt="..." />
+        </div>
+
+        <!-- Existing content -->
+        <div class="position-absolute d-flex flex-column gap-2 end-0 px-2" style="bottom: 15%;">
+          <div class="d-flex flex-column text-white rounded wh-40 px-1" style="background-color: #21252942 !important;">
+            <i :class="['bi', isLiked ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up']" @click="toggleLike"></i>
+            <span class="smaller">3.4K</span>
+          </div>
+          <div class="d-flex flex-column text-white rounded wh-40 px-1" style="background-color: #21252942 !important;">
+            <i class="bi bi-chat-right-text"></i>
+            <span class="smaller">3.4K</span>
+          </div>
+          <div class="d-flex flex-column text-white rounded wh-40 px-1" style="background-color: #21252942 !important;">
+            <i :class="['bi', isPromote ? 'bi-megaphone-fill' : 'bi-megaphone']" @click="togglePromote"></i>
+            <span class="smaller">Promote</span>
+          </div>
+        </div>
+
+        <div class="position-absolute d-flex flex-column gap-2 start-0 px-2" style="bottom: 15%;">
+          <div class="d-flex flex-column text-white rounded wh-40 px-2" style="background-color: #21252942 !important;">
+            <i :class="['bi', isHeart ? 'bi-heart-fill' : 'bi-heart']" @click="toggleHeart"></i>
+            <span class="smaller">Heart</span>
+          </div>
+          <div class="d-flex flex-column text-white rounded wh-40 px-2" style="background-color: #21252942 !important;">
+            <i class="bi bi-share"></i>
+            <span class="smaller">Share</span>
+          </div>
+          <div class="d-flex flex-column text-white rounded wh-40 px-2" style="background-color: #21252942 !important;">
+            <i :class="['bi', isFeed ? 'bi-rss-fill' : 'bi-rss']" @click="toggleFeed"></i>
+            <span class="smaller">Feed</span>
+          </div>
+        </div>
+
+        <div class="carousel-overlay-bottom"></div>
+        <!-- <div class="carousel-overlay-top"></div>  -->
+        <div class="carousel-caption text-white">
+          <h5 class="w-75 mx-auto">{{ item.label }}</h5>
+          <p class="w-75 mx-auto">{{ item.text }}</p>
+          <div class="d-flex justify-content-between align-items-start">
+            <div class="flex-fill d-flex gap-2 align-items-center position-relative">
+              <img src="/img/members/12.jpg" class="rounded" style="width: 50px;height: 50px;" alt="">
+              <div class="flex-fill d-flex flex-column align-items-start">
+                <div class="w-100 d-flex gap-2 justify-content-between align-items-center pe-2">
+                  <p class="mb-0 text-start text-white">Name</p>
+                  <i class="bi bi-arrow-right fs-5"></i>
+                </div>
+                <div class="d-flex justify-content-start w-50 overflow-x-scroll my-2 gap-2" id="scroll">
+                  <img :src="image" style="width: 20px; height: 20px; object-fit: contain;" v-for="image in images"
+                    :key="image.id" alt="">
+                </div>
+              </div>
+              <div class="position-absolute end-0 smaller" style="bottom: 10px;">
+                <div class="d-flex gap-1 align-items-start rounded-start-3 px-2 text-dark bg-warning">
+                  <span>Fameset</span>
+                  <i class="bi bi-star"></i>
+                  <span>8.5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- <div class="position-fixed text-white bottom-0 w-100 py-md-2 px-md-3 pe-md-0 p-1"
+    style="z-index: 99; min-height:80px !important;background-color: #00000070 !important;">
+   
+  </div> -->
 
 </template>
 
@@ -201,7 +306,18 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.carousel-caption {
+  position: absolute;
+  right: 4%;
+  bottom: 0;
+  left: 4%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: #fff;
+  text-align: center;
+}
+
 .carousel-indicators button {
   background-color: #fff !important;
 }
@@ -217,7 +333,7 @@ export default {
   width: 100%;
   height: 50%;
   /* Covers the bottom 50% */
-  background: linear-gradient(to top, rgba(43, 43, 43, 0.9), rgba(0, 0, 0, 0) 50%);
+  background: linear-gradient(to top, rgba(30, 30, 30, 0.9), rgba(173, 171, 171, 0) 50%);
   pointer-events: none;
 }
 
@@ -228,12 +344,12 @@ export default {
   width: 100%;
   height: 50%;
   /* Covers the top 50% */
-  background: linear-gradient(to bottom, rgba(43, 43, 43, 0.9), rgba(0, 0, 0, 0) 50%);
+  background: linear-gradient(to bottom, rgba(43, 43, 43, 0.9), rgba(0, 0, 0, 0) 25%);
   pointer-events: none;
 }
 
 .carousel-indicators {
-  top: 80px !important;
+  top: 0px !important;
 }
 
 /* .carousel-dark .carousel-control-next-icon,
