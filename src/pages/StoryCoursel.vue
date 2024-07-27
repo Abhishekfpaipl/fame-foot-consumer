@@ -33,12 +33,16 @@
     <div class="carousel-inner">
       <div v-for="(item, index) in carouselItems" :key="index" class="carousel-item position-relative"
         :class="{ active: index === 0 }" :data-bs-interval="index === 0 ? 10000 : 2000">
-        <img :src="item.src" class="" style="height: 100vh; width: 100%; object-fit: cover" alt="..." />
 
+        <!-- Clickable wrapper for the entire image -->
+        <div class="carousel-image-wrapper" @click="handleImageClick">
+          <img :src="item.src" class="" style="height: 100vh; width: 100%; object-fit: cover" alt="..." />
+        </div>
+
+        <!-- Existing content -->
         <div class="position-absolute d-flex flex-column gap-2 end-0 px-2" style="bottom: 15%;">
           <div class="d-flex flex-column text-dark">
-            <i :class="['bi', isLiked ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up', 'fs-4']"
-              @click="toggleLike"></i>
+            <i :class="['bi', isLiked ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up']" @click="toggleLike"></i>
             <span class="smaller">3.4K</span>
           </div>
           <div class="d-flex flex-column text-dark">
@@ -46,14 +50,14 @@
             <span class="smaller">3.4K</span>
           </div>
           <div class="d-flex flex-column text-dark">
-            <i class="bi bi-megaphone"></i>
+            <i :class="['bi', isPromote ? 'bi-megaphone-fill' : 'bi-megaphone']" @click="togglePromote"></i>
             <span class="smaller">Promote</span>
           </div>
         </div>
 
         <div class="position-absolute d-flex flex-column gap-2 start-0 px-2" style="bottom: 15%;">
           <div class="d-flex flex-column text-dark">
-            <i :class="['bi', isHeart ? 'bi-heart-fill' : 'bi-heart', 'fs-4']" @click="toggleHeart"></i>
+            <i :class="['bi', isHeart ? 'bi-heart-fill' : 'bi-heart']" @click="toggleHeart"></i>
             <span class="smaller">Heart</span>
           </div>
           <div class="d-flex flex-column text-dark">
@@ -61,7 +65,7 @@
             <span class="smaller">Share</span>
           </div>
           <div class="d-flex flex-column text-dark">
-            <i class="bi bi-rss"></i>
+            <i :class="['bi', isFeed ? 'bi-rss-fill' : 'bi-rss']" @click="toggleFeed"></i>
             <span class="smaller">Feed</span>
           </div>
         </div>
@@ -71,25 +75,12 @@
         <div class="carousel-caption text-white">
           <h5>{{ item.label }}</h5>
           <p>{{ item.text }}</p>
-          <a href="#second" class="text-warning"><i class="bi bi-chevron-down fs-1"></i> </a>
+          <a href="#second" class="text-warning"><i class="bi bi-chevron-down fs-1"></i></a>
         </div>
       </div>
     </div>
-
-
-    <!-- <button class="carousel-control-prev text-white" type="button" data-bs-target="#carouselExampleDark"
-      data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next " type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-
-    </button> -->
-
-
   </div>
+
 
 </template>
 
@@ -166,21 +157,45 @@ export default {
       ],
       isLiked: false,
       isHeart: false,
+      isFeed: false,
+      isPromote: false,
     };
   },
   methods: {
     toggleLike() {
       this.isLiked = !this.isLiked;
-      // if (this.isDisliked) {
-      //   this.isDisliked = false; 
-      // }
     },
     toggleHeart() {
       this.isHeart = !this.isHeart;
-      // if (this.isLiked) {
-      //   this.isHeart = false; // Prevent both like and dislike being active at the same time
-      // }
     },
+    toggleFeed() {
+      this.isFeed = !this.isFeed;
+    },
+    togglePromote() {
+      this.isPromote = !this.isPromote;
+    },
+    handleImageClick(event) {
+      // Determine which side of the image was clicked
+      const { offsetX, target } = event;
+      const { clientWidth } = target;
+      const isLeftSide = offsetX < clientWidth / 2;
+
+      if (isLeftSide) {
+        this.prevSlide();
+      } else {
+        this.nextSlide();
+      }
+    },
+    prevSlide() {
+      const carouselElement = document.querySelector('#carouselExampleDark');
+      const carousel = new window.bootstrap.Carousel(carouselElement);
+      carousel.prev();
+    },
+    nextSlide() {
+      const carouselElement = document.querySelector('#carouselExampleDark');
+      const carousel = new window.bootstrap.Carousel(carouselElement);
+      carousel.next();
+    }
   },
 
 };
@@ -221,8 +236,8 @@ export default {
   top: 80px !important;
 }
 
-.carousel-dark .carousel-control-next-icon,
+/* .carousel-dark .carousel-control-next-icon,
 .carousel-dark .carousel-control-prev-icon {
   filter: none !important;
-}
+} */
 </style>
